@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.khalessi.gretas_vokabeltrainer.EntryAddActivity"
+    tools:showIn="@layout/activity_entry_add">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+
+        <TextView
+            android:id="@+id/tv_vokabelBearbeiten"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vokabeln hinzufügen" />
+
+        <EditText
+            android:id="@+id/et_vokabelMuttersprache"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Bedeutung in deiner Sprache" />
+
+        <EditText
+            android:id="@+id/et_vokabelFremdsprache"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Bedeutung in Fremdsprache" />
+
+        <EditText
+            android:id="@+id/et_vokabelZusatzinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:minLines="5"
+            android:text="Weitere Angaben wie Beispielsätze oder Steigerungsformen der Adjaktive" />
+
+        <EditText
+            android:id="@+id/et_lektionstitel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Lektionstitel" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btn_addEntryCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Abbrechen" />
+
+            <Button
+                android:id="@+id/btn_addEntrySubmit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Speichern" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+

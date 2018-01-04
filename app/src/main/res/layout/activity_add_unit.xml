@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.khalessi.gretas_vokabeltrainer.UnitAddActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="30dp"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tv_lektionAnlegen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="Lektion anlegen" />
+
+
+    <TextView
+        android:id="@+id/tv_lektionstitel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Lektionstitel" />
+
+    <EditText
+        android:id="@+id/et_lektionstitel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Lektionsname" />
+
+    <EditText
+        android:id="@+id/et_lektionsinfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:minLines="3"
+        android:text="Zusatzinformation: Bspl. Seite im Buch oder Beschreibung" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right">
+
+
+        <Button
+            android:id="@+id/btn_addEntryCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Abbrechen" />
+
+        <Button
+            android:id="@+id/btn_addEntrySubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Speichern" />
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>
+
+
