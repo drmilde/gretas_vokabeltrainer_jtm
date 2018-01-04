@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">gretas_vokabeltrainer</string>
+    <string name="app_name">gretas_vokabeltrainer JTM</string>
     <string name="title_activity_unit">UnitActivity</string>
     <string name="title_activity_entry_add">EntryAddActivity</string>
     <string name="listview_unitname">Unitname:</string>
