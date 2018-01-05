@@ -1,4 +1,4 @@
-package com.example.khalessi.gretas_vokabeltrainer.database_vocabulary;
+package com.example.khalessi.gretas_vokabeltrainer.database;
 
 /**
  * Created by Alexandra Filbert on 04.01.18.

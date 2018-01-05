@@ -7,8 +7,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.khalessi.gretas_vokabeltrainer.database_vocabulary.Units;
-import com.example.khalessi.gretas_vokabeltrainer.database_vocabulary.UnitDatabaseHelper;
+import com.example.khalessi.gretas_vokabeltrainer.database.Units;
+import com.example.khalessi.gretas_vokabeltrainer.database.UnitDatabaseHelper;
 
 import java.util.ArrayList;
 

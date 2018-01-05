@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.khalessi.gretas_vokabeltrainer.database_vocabulary.Units;
+import com.example.khalessi.gretas_vokabeltrainer.database.Units;
 
 import java.util.ArrayList;
 

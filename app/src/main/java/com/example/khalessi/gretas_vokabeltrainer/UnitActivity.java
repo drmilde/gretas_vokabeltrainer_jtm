@@ -9,8 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 
-import com.example.khalessi.gretas_vokabeltrainer.database_vocabulary.UnitDatabaseHelper;
-import com.example.khalessi.gretas_vokabeltrainer.database_vocabulary.Units;
+import com.example.khalessi.gretas_vokabeltrainer.database.UnitDatabaseHelper;
+import com.example.khalessi.gretas_vokabeltrainer.database.Units;
 
 import java.util.ArrayList;
 
