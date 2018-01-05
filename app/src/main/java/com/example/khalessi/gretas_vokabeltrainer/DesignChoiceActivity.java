@@ -5,10 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+
+import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 public class DesignChoiceActivity extends AppCompatActivity {
-
-    Button btn_katzenDesign;
+    private Button btn_katzenDesign;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,13 @@ public class DesignChoiceActivity extends AppCompatActivity {
         btn_testListView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // holt Name aus dem EditText Field
+                EditText et_benutzerName = (EditText)findViewById(R.id.et_benutzerName);
+                String currentUserName = et_benutzerName.getText().toString();
+                AppState.getInstance().setCurrentUserName(currentUserName);
+
+
                 Intent intent_testListView = new Intent(getApplicationContext(), UnitListActivity.class);
                 startActivity(intent_testListView);
             }
