@@ -29,7 +29,7 @@ public class UnitListActivity extends AppCompatActivity {
         db = new UnitDatabaseHelper(this);
         db.recreateDatabase();
         db.insertSomeUnits();
-        units = db.getData();
+        units = db.getUnitsData();
         unitCustomAdapter = new UnitCustomAdapter(this, R.layout.unit_details, units);
 
         listView = (ListView) findViewById(R.id.simpleListView);

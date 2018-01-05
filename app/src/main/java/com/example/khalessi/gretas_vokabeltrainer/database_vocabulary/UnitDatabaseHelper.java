@@ -28,6 +28,11 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        setupUnitsDB(db);
+        // TODO hier muss das Setup der Vokabel Tabelle hin
+    }
+
+    private void setupUnitsDB(SQLiteDatabase db) {
         //TODO drop table entfernen... später
         db.execSQL("DROP TABLE IF EXISTS " + UNITS_TABLE_NAME);
         db.execSQL("create table  " + UNITS_TABLE_NAME +
@@ -50,6 +55,11 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+
+    //*****************************************************
+    // CRUD Operationen Units Anfang
+    //*****************************************************
+
     public boolean insertUnit(String unitId, String user, String description) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -62,7 +72,7 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public ArrayList<Units> getData() {
+    public ArrayList<Units> getUnitsData() {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<Units> car = new ArrayList<Units>();
         Cursor result = db.rawQuery("select * from " + UNITS_TABLE_NAME, null);
@@ -105,4 +115,21 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    //*****************************************************
+    // CRUD Operationen für Units ENDE
+    //*****************************************************
+
+
+
+
+
+    //*****************************************************
+    // CRUD Operationen für Vokabeln ANFANG
+    //*****************************************************
+
+    // TODO hier müssen die CRUD Operation für die Vokabel Tabelle hin
+
+    //*****************************************************
+    // CRUD Operationen für Vokabeln ENDE
+    //*****************************************************
 }
