@@ -44,7 +44,7 @@ public class DesignChoiceActivity extends AppCompatActivity {
         // TODO Dokumentationskommentare einfügen
         // TODO Impressum Activity entwickeln
         // TODO Eintragen von Vokabeln in die Datenbank
-        // TODO Entragen von Units in die Datenbank
+        // TODO Entragen von Unit in die Datenbank
         // TODO Angabe des Benutzernamens
         // TODO Systemweite Speicherung der aktuellen Daten in einem Singleton
         // TODO Übungsmodi generieren

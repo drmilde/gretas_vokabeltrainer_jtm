@@ -13,14 +13,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.khalessi.gretas_vokabeltrainer.database.Units;
+import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
 
 import java.util.ArrayList;
 
 
 public class UnitCustomAdapter extends ArrayAdapter {
     private Context context;
-    private ArrayList<Units> units;
+    private ArrayList<Unit> units;
 
     public UnitCustomAdapter(Context context, int textViewResourceId, ArrayList objects) {
         super(context, textViewResourceId, objects);
@@ -53,7 +53,7 @@ public class UnitCustomAdapter extends ArrayAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        Units individualUnit = units.get(position);
+        Unit individualUnit = units.get(position);
         holder.tv_description.setText(context.getString(R.string.listview_unitname) + individualUnit.getDescription() + "");
         holder.tv_benutzername.setText(context.getString(R.string.listview_username) + individualUnit.getUser() + "");
         holder.tv_unitId.setText(context.getString(R.string.listview_unitId) + individualUnit.getUnitId());

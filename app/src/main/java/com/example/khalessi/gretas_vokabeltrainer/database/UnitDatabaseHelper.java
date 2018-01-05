@@ -57,7 +57,7 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
 
 
     //*****************************************************
-    // CRUD Operationen Units Anfang
+    // CRUD Operationen Unit Anfang
     //*****************************************************
 
     public boolean insertUnit(String unitId, String user, String description) {
@@ -72,12 +72,12 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public ArrayList<Units> getUnitsData() {
+    public ArrayList<Unit> getUnitsData() {
         SQLiteDatabase db = this.getReadableDatabase();
-        ArrayList<Units> car = new ArrayList<Units>();
+        ArrayList<Unit> car = new ArrayList<Unit>();
         Cursor result = db.rawQuery("select * from " + UNITS_TABLE_NAME, null);
         while (result.moveToNext()) {
-            car.add(new Units(result.getString(result.getColumnIndex(UNITS_COLUMN_UNIT_ID)),
+            car.add(new Unit(result.getString(result.getColumnIndex(UNITS_COLUMN_UNIT_ID)),
                     result.getString(result.getColumnIndex(UNITS_COLUMN_USER)),
                     result.getString(result.getColumnIndex(UNITS_COLUMN_DESCRIPTION))));
 
@@ -116,7 +116,7 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
     }
 
     //*****************************************************
-    // CRUD Operationen für Units ENDE
+    // CRUD Operationen für Unit ENDE
     //*****************************************************
 
 

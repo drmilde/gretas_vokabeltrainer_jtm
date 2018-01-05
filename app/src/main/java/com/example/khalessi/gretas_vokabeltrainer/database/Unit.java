@@ -5,12 +5,12 @@ package com.example.khalessi.gretas_vokabeltrainer.database;
  */
 
 
-public class Units {
+public class Unit {
     String user;
     String unitId;
     String description;
 
-    public Units(String unitId, String user, String description) {
+    public Unit(String unitId, String user, String description) {
         this.unitId = unitId;
         this.user = user;
         this.description = description;

@@ -9,8 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 
+import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
 import com.example.khalessi.gretas_vokabeltrainer.database.UnitDatabaseHelper;
-import com.example.khalessi.gretas_vokabeltrainer.database.Units;
 
 import java.util.ArrayList;
 
@@ -19,7 +19,7 @@ public class UnitActivity extends AppCompatActivity {
     UnitCustomAdapter myCustomAdapter = null;
     ListView listView = null;
     UnitDatabaseHelper db = null;
-    ArrayList<Units> units = null;
+    ArrayList<Unit> units = null;
 
 
     @Override
