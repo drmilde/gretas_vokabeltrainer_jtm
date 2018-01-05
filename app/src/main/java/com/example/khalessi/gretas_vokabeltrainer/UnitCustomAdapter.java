@@ -6,6 +6,7 @@ package com.example.khalessi.gretas_vokabeltrainer;
 
 
 import android.content.Context;
+import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +20,13 @@ import java.util.ArrayList;
 
 public class UnitCustomAdapter extends ArrayAdapter {
     private Context context;
-    private ArrayList<Units> car;
+    private ArrayList<Units> units;
 
     public UnitCustomAdapter(Context context, int textViewResourceId, ArrayList objects) {
         super(context, textViewResourceId, objects);
 
         this.context = context;
-        car = objects;
+        units = objects;
 
     }
 
@@ -52,12 +53,70 @@ public class UnitCustomAdapter extends ArrayAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        Units individualCar = car.get(position);
-        holder.tv_description.setText(context.getString(R.string.listview_unitname) + individualCar.getDescription() + "");
-        holder.tv_benutzername.setText(context.getString(R.string.listview_username) + individualCar.getUser() + "");
-        holder.tv_unitId.setText(context.getString(R.string.listview_unitId) + individualCar.getUnitId());
+        Units individualUnit = units.get(position);
+        holder.tv_description.setText(context.getString(R.string.listview_unitname) + individualUnit.getDescription() + "");
+        holder.tv_benutzername.setText(context.getString(R.string.listview_username) + individualUnit.getUser() + "");
+        holder.tv_unitId.setText(context.getString(R.string.listview_unitId) + individualUnit.getUnitId());
         return convertView;
-
-
     }
+
+
+
+    // ListAdapter Methoden
+
+    @Override
+    public boolean areAllItemsEnabled() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled(int position) {
+        return true;
+    }
+
+    @Override
+    public void registerDataSetObserver(DataSetObserver observer) {
+        // TODO keine Ahnung, was hier hinkommt
+    }
+
+    @Override
+    public void unregisterDataSetObserver(DataSetObserver observer) {
+        // TODO keine Ahnung, was hier hinkommt
+    }
+
+    @Override
+    public int getCount() {
+        return units.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return units.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return 0;
+    }
+
+    @Override
+    public boolean hasStableIds() {
+        return true;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return 0;
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        return units.size();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
+
 }
