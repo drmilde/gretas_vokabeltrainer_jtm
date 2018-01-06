@@ -10,28 +10,28 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gib deinen Namen ein."
         android:layout_gravity="center"
         android:layout_margin="30dp"
+        android:text="Gib deinen Namen ein."
         android:textSize="30sp" />
+
     <EditText
         android:id="@+id/et_benutzerName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:layout_margin="30dp"
+        android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="30sp"
-        android:text="Miau" />
+        android:text="Miau"
+        android:textSize="30sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wähle ein Design aus!"
         android:layout_gravity="center"
         android:layout_margin="30dp"
-        android:textSize="30sp"
-      />
+        android:text="Wähle ein Design aus!"
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/btn_fussballDesign"
@@ -47,6 +47,7 @@
         android:layout_gravity="center"
         android:text="Kätzchen" />
 
+    <!--
     <Button
         android:id="@+id/btn_testListView"
         android:layout_width="wrap_content"
@@ -54,6 +55,6 @@
         android:layout_gravity="center"
         android:text="test ListView" />
 
-
+    -->
 
 </LinearLayout>
