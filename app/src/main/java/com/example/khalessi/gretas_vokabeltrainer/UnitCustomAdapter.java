@@ -123,4 +123,11 @@ public class UnitCustomAdapter extends ArrayAdapter {
         return false;
     }
 
+
+
+    // set the units
+
+    public void setUnits(ArrayList<Unit> units) {
+        this.units = units;
+    }
 }
