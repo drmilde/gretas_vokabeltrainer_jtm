@@ -34,6 +34,7 @@ public class UnitCustomAdapter extends ArrayAdapter {
         TextView tv_benutzername;
         TextView tv_unitId;
         TextView tv_description;
+        TextView tv_title;
     }
 
     @Override
@@ -47,16 +48,18 @@ public class UnitCustomAdapter extends ArrayAdapter {
             holder.tv_unitId = (TextView) convertView.findViewById(R.id.tv_unitId);
             holder.tv_benutzername = (TextView) convertView.findViewById(R.id.tv_userName);
             holder.tv_description = (TextView) convertView.findViewById(R.id.tv_description);
+            holder.tv_title = (TextView) convertView.findViewById(R.id.tv_title);
             convertView.setTag(holder);
 
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        Unit individualUnit = units.get(position);
-        holder.tv_description.setText(context.getString(R.string.listview_unitname) + individualUnit.getDescription() + "");
-        holder.tv_benutzername.setText(context.getString(R.string.listview_username) + individualUnit.getUser() + "");
-        holder.tv_unitId.setText(context.getString(R.string.listview_unitId) + individualUnit.getUnitId());
+        Unit unit = units.get(position);
+        holder.tv_description.setText(context.getString(R.string.listview_unitname) + unit.getDescription() + "");
+        holder.tv_benutzername.setText(context.getString(R.string.listview_username) + unit.getUser() + "");
+        holder.tv_unitId.setText(context.getString(R.string.listview_unitId) + unit.getUnitId());
+        holder.tv_title.setText(context.getString(R.string.listview_title) + unit.getTitle());
         return convertView;
     }
 

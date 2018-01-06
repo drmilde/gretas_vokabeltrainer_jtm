@@ -35,8 +35,8 @@ public class EntryAddActivity extends AppCompatActivity {
             }
         });
 
-        Button btn_canelAddEntry = (Button) findViewById(R.id.btn_addEntryCancel);
-        btn_canelAddEntry.setOnClickListener(new View.OnClickListener() {
+        Button btn_cancelAddEntry = (Button) findViewById(R.id.btn_addEntryCancel);
+        btn_cancelAddEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

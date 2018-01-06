@@ -18,8 +18,9 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "DB_Units.db";
     public static final String UNITS_TABLE_NAME = "UnitNumber";
     // public static final String CARS_COLUMN_ID = "id";
-    public static final String UNITS_COLUMN_USER = "c_user";
     public static final String UNITS_COLUMN_UNIT_ID = "c_unitId";
+    public static final String UNITS_COLUMN_USER = "c_user";
+    public static final String UNITS_COLUMN_TITLE = "c_title";
     public static final String UNITS_COLUMN_DESCRIPTION = "c_description";
 
     public UnitDatabaseHelper(Context context) {
@@ -39,7 +40,8 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
                 "(_id integer primary key AUTOINCREMENT NOT NULL,"
                 + UNITS_COLUMN_USER + " Text,"
                 + UNITS_COLUMN_UNIT_ID + " Text,"
-                + UNITS_COLUMN_DESCRIPTION + " Text)"
+                + UNITS_COLUMN_DESCRIPTION + " Text,"
+                + UNITS_COLUMN_TITLE + " Text)"
         );
     }
 
@@ -60,13 +62,14 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
     // CRUD Operationen Unit Anfang
     //*****************************************************
 
-    public boolean insertUnit(String unitId, String user, String description) {
+    public boolean insertUnit(String unitId, String user, String title, String description) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put("c_user", user);
-        contentValues.put("c_unitId", unitId);
-        contentValues.put("c_description", description);
+        contentValues.put(UNITS_COLUMN_USER, user);
+        contentValues.put(UNITS_COLUMN_UNIT_ID, unitId);
+        contentValues.put(UNITS_COLUMN_DESCRIPTION, description);
+        contentValues.put(UNITS_COLUMN_TITLE, title);
 
         db.insert(UNITS_TABLE_NAME, null, contentValues);
         return true;
@@ -74,24 +77,30 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
 
     public ArrayList<Unit> getUnitsData() {
         SQLiteDatabase db = this.getReadableDatabase();
-        ArrayList<Unit> car = new ArrayList<Unit>();
+        ArrayList<Unit> units = new ArrayList<Unit>();
         Cursor result = db.rawQuery("select * from " + UNITS_TABLE_NAME, null);
+
         while (result.moveToNext()) {
-            car.add(new Unit(result.getString(result.getColumnIndex(UNITS_COLUMN_UNIT_ID)),
+            units.add(new Unit(
+                    result.getString(result.getColumnIndex(UNITS_COLUMN_UNIT_ID)),
                     result.getString(result.getColumnIndex(UNITS_COLUMN_USER)),
-                    result.getString(result.getColumnIndex(UNITS_COLUMN_DESCRIPTION))));
+                    result.getString(result.getColumnIndex(UNITS_COLUMN_TITLE)),
+                    result.getString(result.getColumnIndex(UNITS_COLUMN_DESCRIPTION)))
+            );
 
         }
-        return car;
+
+        return units;
     }
 
-    public boolean updateUnit(int id, String user, String unitId, String description) {
+    public boolean updateUnit(int id, String unitId, String user, String title, String description) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put("c_user", user);
-        contentValues.put("c_unitId", unitId);
-        contentValues.put("c_description", description);
+        contentValues.put(UNITS_COLUMN_USER, user);
+        contentValues.put(UNITS_COLUMN_UNIT_ID, unitId);
+        contentValues.put(UNITS_COLUMN_DESCRIPTION, description);
+        contentValues.put(UNITS_COLUMN_TITLE, title);
 
         db.update(UNITS_TABLE_NAME, contentValues, "id = ? ", new String[]{Integer.toString(id)});
         return true;
@@ -106,12 +115,12 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
 
     public void insertSomeUnits() {
 
-        insertUnit(UnitIdGenerator.generate(), "greta", "Honda Civic");
-        insertUnit(UnitIdGenerator.generate(), "greta", "Rolls Royce");
-        insertUnit(UnitIdGenerator.generate(), "greta", "Honda Civic");
-        insertUnit(UnitIdGenerator.generate(), "greta", "Nissan Patrol <3");
-        insertUnit(UnitIdGenerator.generate(), "greta", "Tiida");
-        insertUnit(UnitIdGenerator.generate(), "greta", "Rolls Royce");
+        insertUnit(UnitIdGenerator.generate(), "Greta", "In the living room", "Watching TV is fun!");
+        insertUnit(UnitIdGenerator.generate(), "Greta", "Going to school", "This is less :)");
+        insertUnit(UnitIdGenerator.generate(), "Greta", "Having a party", "Not yet, my dear.");
+        insertUnit(UnitIdGenerator.generate(), "Greta", "Melting chocolate", "Smells good.");
+        insertUnit(UnitIdGenerator.generate(), "Greta", "Making a torch", "Light up my life.");
+        insertUnit(UnitIdGenerator.generate(), "Greta", "Kitchen cleaning", "Help me, supermom.");
 
     }
 

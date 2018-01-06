@@ -2,7 +2,9 @@
     <string name="app_name">gretas_vokabeltrainer JTM</string>
     <string name="title_activity_unit">UnitActivity</string>
     <string name="title_activity_entry_add">EntryAddActivity</string>
-    <string name="listview_unitname">Unitname:</string>
-    <string name="listview_username">Benutzername:</string>
-    <string name="listview_unitId">Erstellungsdatum:</string>
+
+    <string name="listview_unitname">Anmerkungen: </string>
+    <string name="listview_username">Benutzername: </string>
+    <string name="listview_unitId">Erstellungsdatum: </string>
+    <string name="listview_title">Titel: </string>
 </resources>

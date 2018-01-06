@@ -6,13 +6,15 @@ package com.example.khalessi.gretas_vokabeltrainer.database;
 
 
 public class Unit {
-    String user;
-    String unitId;
-    String description;
+    private String user;
+    private String unitId;
+    private String title;
+    private String description;
 
-    public Unit(String unitId, String user, String description) {
-        this.unitId = unitId;
+    public Unit(String unitId, String user, String title, String description) {
         this.user = user;
+        this.unitId = unitId;
+        this.title = title;
         this.description = description;
     }
 
@@ -38,5 +40,13 @@ public class Unit {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
