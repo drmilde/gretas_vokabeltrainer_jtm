@@ -59,7 +59,8 @@ public class UnitCustomAdapter extends ArrayAdapter {
         holder.tv_description.setText(context.getString(R.string.listview_unitname) + unit.getDescription() + "");
         holder.tv_benutzername.setText(context.getString(R.string.listview_username) + unit.getUser() + "");
         holder.tv_unitId.setText(context.getString(R.string.listview_unitId) + unit.getUnitId());
-        holder.tv_title.setText(context.getString(R.string.listview_title) + unit.getTitle());
+        //holder.tv_title.setText(context.getString(R.string.listview_title) + unit.getTitle());
+        holder.tv_title.setText(unit.getTitle());
         return convertView;
     }
 

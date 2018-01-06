@@ -8,6 +8,16 @@
     <TextView
         android:layout_marginTop="@dimen/activity_horizontal_margin"
 
+        android:text="Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+
+        android:textStyle="bold"
+        android:id="@+id/tv_title" />
+
+
+    <TextView
         android:text="Username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,12 +25,6 @@
         android:id="@+id/tv_userName"
         />
 
-    <TextView
-        android:text="Title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:id="@+id/tv_title" />
 
     <TextView
         android:text="Description"

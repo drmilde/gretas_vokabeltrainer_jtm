@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
@@ -17,18 +18,10 @@ public class DesignChoiceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_design_choice);
 
+
+
         btn_katzenDesign = (Button) findViewById(R.id.btn_katzenDesign);
         btn_katzenDesign.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent unitIntent = new Intent(getApplicationContext(), UnitActivity.class);
-                startActivity(unitIntent);
-            }
-        });
-
-        // TODO kann später weg, nur zu Testzwecken
-        Button btn_testListView = (Button) findViewById(R.id.btn_testListView);
-        btn_testListView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -38,10 +31,25 @@ public class DesignChoiceActivity extends AppCompatActivity {
                 AppState.getInstance().setCurrentUserName(currentUserName);
 
 
-                Intent intent_testListView = new Intent(getApplicationContext(), UnitListActivity.class);
-                startActivity(intent_testListView);
+                Intent unitIntent = new Intent(getApplicationContext(), UnitActivity.class);
+                startActivity(unitIntent);
             }
         });
+
+        // TODO kann später weg, nur zu Testzwecken
+        /**
+        Button btn_testListView = (Button) findViewById(R.id.btn_testListView);
+        btn_testListView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent intent_testListView = new Intent(getApplicationContext(), UnitListActivity.class);
+                startActivity(intent_testListView);
+
+            }
+        });
+         **/
 
 
 

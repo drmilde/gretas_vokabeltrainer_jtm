@@ -5,6 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 public class UnitAddActivity extends AppCompatActivity {
 
@@ -34,6 +38,10 @@ public class UnitAddActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        EditText et_lektionsUsername = (EditText) findViewById(R.id.et_lektionsUsername);
+        et_lektionsUsername.setText(AppState.getInstance().getCurrentUserName());
 
     }
 
