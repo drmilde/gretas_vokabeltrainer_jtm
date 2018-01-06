@@ -25,7 +25,7 @@
 
     <!--  Titel  -->
     <TextView
-        android:id="@+id/tv_lektionsTitle"
+        android:id="@+id/tv_unit_add_lektionsTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
@@ -34,7 +34,7 @@
 
 
     <EditText
-        android:id="@+id/et_lektionsTitle"
+        android:id="@+id/et_unit_add_lektionsTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -43,7 +43,7 @@
 
     <!--  Description  -->
     <TextView
-        android:id="@+id/tv_lektionsDescription"
+        android:id="@+id/tv_unit_add_lektionsDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
@@ -51,7 +51,7 @@
         android:text="Beschreibung" />
 
     <EditText
-        android:id="@+id/et_lektionsDescription"
+        android:id="@+id/et_unit_add_lektionsDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -62,7 +62,7 @@
 
     <!--  Benutzername  -->
     <TextView
-        android:id="@+id/tv_lektionsUsername"
+        android:id="@+id/tv_unit_add_lektionsUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
@@ -71,7 +71,7 @@
 
 
     <EditText
-        android:id="@+id/et_lektionsUsername"
+        android:id="@+id/et_unit_add_lektionsUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"

@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
 import com.example.khalessi.gretas_vokabeltrainer.database.UnitDatabaseHelper;
+import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 import java.util.ArrayList;
 
@@ -38,10 +39,13 @@ public class UnitActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.lv_unitListView);
         listView.setAdapter(unitCustomAdapter);
 
+
+        // react to
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                testDeleteEntries();
+                AppState.getInstance().setCurrentUnit(units.get(position));
+                startUnitAddIntent();
             }
         });
 
@@ -50,16 +54,17 @@ public class UnitActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                /**
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                **/
-
-                Intent intentAddUnit = new Intent(getApplicationContext(), UnitAddActivity.class);
-                startActivity(intentAddUnit);
+                AppState.getInstance().setCurrentUnit(null);
+                startUnitAddIntent();
             }
         });
+    }
+
+
+
+    private void startUnitAddIntent() {
+        Intent intentAddUnit = new Intent(getApplicationContext(), UnitAddActivity.class);
+        startActivity(intentAddUnit);
     }
 
 
@@ -71,10 +76,10 @@ public class UnitActivity extends AppCompatActivity {
      *
      */
     private void testDeleteEntries() {
-        db.deleteSome();
-        units = db.getUnitsData();
-        unitCustomAdapter.setUnits(units);
-        listView.invalidateViews();
+        db.deleteSome(); // in der Datenbank löschen
+        units = db.getUnitsData(); // aktuelle Daten holen
+        unitCustomAdapter.setUnits(units); // daten in unitCustomAdapter setzen
+        listView.invalidateViews(); // listView neu zeichnen
     }
 
 }

@@ -83,11 +83,13 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
 
         while (result.moveToNext()) {
             units.add(new Unit(
-                    result.getString(result.getColumnIndex(UNITS_COLUMN_UNIT_ID)),
-                    result.getString(result.getColumnIndex(UNITS_COLUMN_USER)),
-                    result.getString(result.getColumnIndex(UNITS_COLUMN_TITLE)),
-                    //result.getString(result.getColumnIndex(UNITS_COLUMN_DESCRIPTION)))
-                    result.getString(result.getColumnIndex("_id")))
+                            result.getString(result.getColumnIndex(UNITS_COLUMN_UNIT_ID)),
+                            result.getString(result.getColumnIndex(UNITS_COLUMN_USER)),
+                            result.getString(result.getColumnIndex(UNITS_COLUMN_TITLE)),
+                            result.getString(result.getColumnIndex(UNITS_COLUMN_DESCRIPTION)),
+                            Integer.parseInt(result.getString(result.getColumnIndex("_id")))
+                    )
+                    //)
             );
 
         }
@@ -134,9 +136,6 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
     //*****************************************************
     // CRUD Operationen für Unit ENDE
     //*****************************************************
-
-
-
 
 
     //*****************************************************
