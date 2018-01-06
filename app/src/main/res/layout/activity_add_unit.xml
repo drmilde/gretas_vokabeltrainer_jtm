@@ -14,31 +14,63 @@
     android:orientation="vertical">
 
 
+    <!-- Ueberschrift -->
     <TextView
         android:id="@+id/tv_lektionAnlegen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:text="Lektion anlegen" />
+        android:text="Neue Lektion anlegen" />
 
 
+    <!--  Benutzername  -->
     <TextView
-        android:id="@+id/tv_lektionstitel"
+        android:id="@+id/tv_lektionsUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="Lektionstitel" />
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:text="Benutzername" />
+
 
     <EditText
-        android:id="@+id/et_lektionstitel"
+        android:id="@+id/et_lektionsUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Greta" />
+
+
+    <!--  Titel  -->
+    <TextView
+        android:id="@+id/tv_lektionsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:text="Lektionstitel" />
+
+
+    <EditText
+        android:id="@+id/et_lektionsTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Lektionsname" />
 
+    <!--  Description  -->
+    <TextView
+        android:id="@+id/tv_lektionsDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:text="Beschreibung" />
+
     <EditText
-        android:id="@+id/et_lektionsinfo"
+        android:id="@+id/et_lektionsDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -46,11 +78,16 @@
         android:minLines="3"
         android:text="Zusatzinformation: Bspl. Seite im Buch oder Beschreibung" />
 
+
+    <!-- Buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="right">
+        android:layout_gravity="right"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+
+        >
 
 
         <Button

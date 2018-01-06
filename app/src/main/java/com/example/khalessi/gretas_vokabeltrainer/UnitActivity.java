@@ -43,8 +43,12 @@ public class UnitActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                /**
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                **/
+
                 Intent intentAddUnit = new Intent(getApplicationContext(), UnitAddActivity.class);
                 startActivity(intentAddUnit);
             }
