@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
 import com.example.khalessi.gretas_vokabeltrainer.database.UnitDatabaseHelper;
@@ -19,10 +20,10 @@ import java.util.ArrayList;
 
 public class UnitActivity extends AppCompatActivity {
 
-    UnitCustomAdapter unitCustomAdapter = null;
-    ListView listView = null;
-    UnitDatabaseHelper db = null;
-    ArrayList<Unit> units = null;
+    private UnitCustomAdapter unitCustomAdapter = null;
+    private ListView listView = null;
+    private UnitDatabaseHelper db = null;
+    private ArrayList<Unit> units = null;
 
 
     // Dialog
@@ -36,7 +37,7 @@ public class UnitActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        // setup the database
         db = new UnitDatabaseHelper(this);
         db.recreateDatabase();
         db.insertSomeUnits();
@@ -136,4 +137,10 @@ public class UnitActivity extends AppCompatActivity {
         listView.invalidateViews(); // listView neu zeichnen
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateListView();
+    }
 }

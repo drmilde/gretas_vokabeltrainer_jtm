@@ -16,9 +16,9 @@ import java.util.ArrayList;
 public class UnitDatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "DB_Units.db";
-    public static final String UNITS_TABLE_NAME = "UnitNumber";
 
-    public static final String UNIT_COLUMN_ID = "_id";
+    public static final String UNITS_TABLE_NAME = "UnitNumber";
+    public static final String UNITS_COLUMN_ID = "_id";
     public static final String UNITS_COLUMN_UNIT_ID = "c_unitId";
     public static final String UNITS_COLUMN_USER = "c_user";
     public static final String UNITS_COLUMN_TITLE = "c_title";
@@ -30,15 +30,15 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        setupUnitsDB(db);
+        setupUnitsTable(db);
         // TODO hier muss das Setup der Vokabel Tabelle hin
     }
 
-    private void setupUnitsDB(SQLiteDatabase db) {
+    private void setupUnitsTable(SQLiteDatabase db) {
         //TODO drop table entfernen... später
         db.execSQL("DROP TABLE IF EXISTS " + UNITS_TABLE_NAME);
         db.execSQL("create table  " + UNITS_TABLE_NAME +
-                "(" + UNIT_COLUMN_ID + " integer primary key AUTOINCREMENT NOT NULL,"
+                "(" + UNITS_COLUMN_ID + " integer primary key AUTOINCREMENT NOT NULL,"
                 + UNITS_COLUMN_USER + " Text,"
                 + UNITS_COLUMN_UNIT_ID + " Text,"
                 + UNITS_COLUMN_DESCRIPTION + " Text,"
@@ -60,7 +60,7 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
 
 
     //*****************************************************
-    // CRUD Operationen Unit Anfang
+    // CRUD Operationen Unit ANFANG
     //*****************************************************
 
     public boolean insertUnit(String unitId, String user, String title, String description) {
@@ -106,14 +106,14 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(UNITS_COLUMN_DESCRIPTION, description);
         contentValues.put(UNITS_COLUMN_TITLE, title);
 
-        db.update(UNITS_TABLE_NAME, contentValues, UNIT_COLUMN_ID + " = ? ", new String[]{Integer.toString(id)});
+        db.update(UNITS_TABLE_NAME, contentValues, UNITS_COLUMN_ID + " = ? ", new String[]{Integer.toString(id)});
         return true;
     }
 
     public Integer deleteUnit(Integer id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(UNITS_TABLE_NAME,
-                UNIT_COLUMN_ID + " = ? ",
+                UNITS_COLUMN_ID + " = ? ",
                 new String[]{Integer.toString(id)});
     }
 
