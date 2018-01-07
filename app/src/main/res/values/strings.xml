@@ -10,4 +10,8 @@
 
     <string name="unit_process_tv_title">Lektion bearbeiten</string>
     <string name="unit_add_btn_save_and_add_entries">Vokabeln hinzufügen</string>
+
+    <string name="unit_delete_dialog_yes">Ja, löschen</string>
+    <string name="unit_delete_dialog_no">Nein</string>
+    <string name="unit_delete_title_text">Löschen von Lektion ?</string>
 </resources>
