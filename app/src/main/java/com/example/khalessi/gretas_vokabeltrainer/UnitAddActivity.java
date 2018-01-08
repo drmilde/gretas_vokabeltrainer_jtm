@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
 import com.example.khalessi.gretas_vokabeltrainer.database.UnitDatabaseHelper;
@@ -13,8 +14,6 @@ import com.example.khalessi.gretas_vokabeltrainer.database.UnitIdGenerator;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 public class UnitAddActivity extends AppCompatActivity {
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +28,11 @@ public class UnitAddActivity extends AppCompatActivity {
         btn_speichern.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO neuen Eintrag in der Unit-Datenbank erzeugen
-                //TODO Intent muss LektionsID erhalten
-                // TODO oder bestehende Unit updaten
 
-                if (AppState.getInstance().getCurrentUnit().get_id() < 0) {
+                if (AppState.getInstance().getCurrentUnit() == null) { // keine aktuelle unit
                     insertNewUnit();
+                } else {
+                    // TODO verarbeite die gesetzte Unit
                 }
 
                 Intent intent_addEntry = new Intent(getApplicationContext(), EntryAddActivity.class);
@@ -50,13 +48,23 @@ public class UnitAddActivity extends AppCompatActivity {
             }
         });
 
+    }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        showCurrentUnitData(); // zeige die aktuellen Daten an
     }
 
     /**
      * Processes the current EditText fields
      * and generates a new database entry.
+     *
+     * It then queries the database to get this unit (based on the generated unitId)
+     * and sets it as the current unit in the AppState,
+     * thus making ist public to the rest of the App.
+     *
      */
     private void insertNewUnit() {
         EditText et_unit_add_lektionsTitle = (EditText)findViewById(R.id.et_unit_add_lektionsTitle);
@@ -72,7 +80,13 @@ public class UnitAddActivity extends AppCompatActivity {
 
         // Einfügen in Datenbank
         AppState.getInstance().getDatabaseHelper()
-                .insertUnit(UnitIdGenerator.generate(), userName, title, description);
+                .insertUnit(unitID, userName, title, description);
+
+        // Hole die Unit und setze sie in AppState als current unit
+        Unit unit = AppState.getInstance().getDatabaseHelper().getUnit(unitID);
+        if (unit != null) {
+            AppState.getInstance().setCurrentUnit(unit);
+        }
     }
 
     /**
