@@ -241,6 +241,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return voclist;
     }
 
+    public ArrayList<VocabularyItem> getVocabularyData(String unitId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<VocabularyItem> voclist = new ArrayList<VocabularyItem>();
+
+        String[] columns = {
+                VOCABULARY_COLUMN_ID,
+                VOCABULARY_COLUMN_FOREIGN_LANG,
+                VOCABULARY_COLUMN_NATIVE_LANG,
+                VOCABULARY_COLUMN_DESCRIPTION,
+                VOCABULARY_COLUMN_UNIT_ID
+        };
+
+        String pattern = UNITS_COLUMN_UNIT_ID + "=?";
+
+        String[] values = {
+                unitId
+        };
+
+        Cursor result = db.query(VOCABULARY_TABLE_NAME,
+                columns, pattern, values,
+                null, null, null, null
+        );
+
+        while (result.moveToNext()) {
+            voclist.add(new VocabularyItem(
+                    Integer.parseInt(result.getString(0)),
+                    result.getString(1),
+                    result.getString(2),
+                    result.getString(3),
+                    result.getString(4))
+            );
+        }
+
+        return voclist;
+    }
+
     public void insertSomeVocs() {
         insertVocabulary(UnitIdGenerator.generate(), "to learn", "lernen", "verb, inifinitiv");
         insertVocabulary(UnitIdGenerator.generate(), "to run", "laufen", "verb, inifinitiv");
@@ -248,6 +284,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         insertVocabulary(UnitIdGenerator.generate(), "to seek", "suchen", "verb, inifinitiv");
         insertVocabulary(UnitIdGenerator.generate(), "to watch", "schauen", "verb, inifinitiv");
         insertVocabulary(UnitIdGenerator.generate(), "to ring", "klingeln", "verb, inifinitiv");
+
+        insertVocabulary("livingRoom", "to rise", "aufsteigen", "verb, inifinitiv");
+        insertVocabulary("livingRoom", "to fall", "fallen", "verb, inifinitiv");
+        insertVocabulary("livingRoom", "to sing", "singen", "verb, inifinitiv");
+        insertVocabulary("livingRoom", "to think", "denken", "verb, inifinitiv");
     }
 
 
