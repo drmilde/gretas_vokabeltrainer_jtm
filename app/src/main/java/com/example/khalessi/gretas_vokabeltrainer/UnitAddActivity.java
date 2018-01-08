@@ -6,10 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
-import com.example.khalessi.gretas_vokabeltrainer.database.UnitDatabaseHelper;
 import com.example.khalessi.gretas_vokabeltrainer.database.UnitIdGenerator;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 

@@ -12,7 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
-import com.example.khalessi.gretas_vokabeltrainer.database.UnitDatabaseHelper;
+import com.example.khalessi.gretas_vokabeltrainer.database.DatabaseHelper;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class UnitActivity extends AppCompatActivity {
 
     private UnitCustomAdapter unitCustomAdapter = null;
     private ListView listView = null;
-    private UnitDatabaseHelper db = null;
+    private DatabaseHelper db = null;
     private ArrayList<Unit> units = null;
 
 

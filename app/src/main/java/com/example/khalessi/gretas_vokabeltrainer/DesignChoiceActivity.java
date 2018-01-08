@@ -6,9 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.example.khalessi.gretas_vokabeltrainer.database.UnitDatabaseHelper;
+import com.example.khalessi.gretas_vokabeltrainer.database.DatabaseHelper;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 public class DesignChoiceActivity extends AppCompatActivity {
@@ -20,7 +19,7 @@ public class DesignChoiceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_design_choice);
 
         // setup the database
-        AppState.getInstance().setDatabaseHelper(new UnitDatabaseHelper(this));
+        AppState.getInstance().setDatabaseHelper(new DatabaseHelper(this));
 
         btn_katzenDesign = (Button) findViewById(R.id.btn_katzenDesign);
         btn_katzenDesign.setOnClickListener(new View.OnClickListener() {

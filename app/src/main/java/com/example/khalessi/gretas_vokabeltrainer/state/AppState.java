@@ -1,7 +1,7 @@
 package com.example.khalessi.gretas_vokabeltrainer.state;
 
 import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
-import com.example.khalessi.gretas_vokabeltrainer.database.UnitDatabaseHelper;
+import com.example.khalessi.gretas_vokabeltrainer.database.DatabaseHelper;
 
 /**
  * Created by milde on 05.01.18.
@@ -14,7 +14,7 @@ public class AppState {
     private String currentUserName = "Miau";
     private int currentDesign = 0; //
 
-    private UnitDatabaseHelper databaseHelper;
+    private DatabaseHelper databaseHelper;
 
     public static AppState getInstance() {
         return ourInstance;
@@ -39,7 +39,7 @@ public class AppState {
         return currentDesign;
     }
 
-    public UnitDatabaseHelper getDatabaseHelper() {
+    public DatabaseHelper getDatabaseHelper() {
         return databaseHelper;
     }
 
@@ -58,7 +58,7 @@ public class AppState {
         this.currentDesign = currentDesign;
     }
 
-    public void setDatabaseHelper(UnitDatabaseHelper databaseHelper) {
+    public void setDatabaseHelper(DatabaseHelper databaseHelper) {
         this.databaseHelper = databaseHelper;
     }
 }

@@ -31,7 +31,7 @@ public class EntryAddActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Add a new vocab to the table", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "TODO: Add a new vocab to the table", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 // TODO reset EditText fields to standard values
             }
