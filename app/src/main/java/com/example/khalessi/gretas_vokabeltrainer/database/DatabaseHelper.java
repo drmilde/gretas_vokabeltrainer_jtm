@@ -184,6 +184,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void insertSomeUnits() {
+        insertUnit("livingRoom", "Greta", "In the living room", "On top of the world.");
+
         insertUnit(UnitIdGenerator.generate(), "Greta", "In the living room", "Watching TV is fun!");
         insertUnit(UnitIdGenerator.generate(), "Greta", "Going to school", "This is less :)");
         insertUnit(UnitIdGenerator.generate(), "Greta", "Having a party", "Not yet, my dear.");
