@@ -57,7 +57,7 @@ public class VoclistCustomAdapter extends ArrayAdapter {
         VocabularyItem vocitem = voclist.get(position);
         holder.tv_description.setText("Description: " + vocitem.getDescription() + "");
         holder.tv_foreign.setText("Foreign: " + vocitem.getForeignLang() + "");
-        holder.tv_unitId.setText("UniId" + vocitem.getUnitId());
+        holder.tv_unitId.setText("UniId: " + vocitem.getUnitId());
         holder.tv_native.setText("Native: " + vocitem.getNativeLang());
         return convertView;
     }

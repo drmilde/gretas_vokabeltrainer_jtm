@@ -11,23 +11,27 @@
         android:id="@+id/tv_voc_foreignLang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="20sp"
         android:text="Foreign" />
 
     <TextView
         android:id="@+id/tv_voc_nativeLang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="20sp"
         android:text="Native" />
 
     <TextView
         android:id="@+id/tv_voc_Description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="20sp"
         android:text="Description" />
 
     <TextView
         android:id="@+id/tv_voc_unitId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="20sp"
         android:text="UnitId" />
 </LinearLayout>

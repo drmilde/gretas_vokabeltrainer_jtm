@@ -31,8 +31,6 @@ public class VocListActivity extends AppCompatActivity {
         db.insertSomeVocs();
         voclist = db.getVocabularyData();
 
-        Toast.makeText(getApplicationContext(),
-                "" + voclist.size(), Toast.LENGTH_LONG).show();
 
         voclistCustomAdapter= new VoclistCustomAdapter(this, R.layout.voclist_details, voclist);
 
@@ -42,6 +40,8 @@ public class VocListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(),
+                        "" + voclist.get(position).getForeignLang(), Toast.LENGTH_SHORT).show();
 
             }
         });
