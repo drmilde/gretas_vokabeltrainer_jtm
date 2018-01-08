@@ -17,13 +17,13 @@
 
 
         <TextView
-            android:id="@+id/tv_vokabelBearbeiten"
+            android:id="@+id/tv_entry_add_vokabelBearbeiten"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Vokabeln hinzufügen" />
 
         <EditText
-            android:id="@+id/et_vokabelMuttersprache"
+            android:id="@+id/et_entry_add_vokabelMuttersprache"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -31,7 +31,7 @@
             android:text="Bedeutung in deiner Sprache" />
 
         <EditText
-            android:id="@+id/et_vokabelFremdsprache"
+            android:id="@+id/et_entry_add_vokabelFremdsprache"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -39,7 +39,7 @@
             android:text="Bedeutung in Fremdsprache" />
 
         <EditText
-            android:id="@+id/et_vokabelZusatzinfo"
+            android:id="@+id/et_entry_add_vokabelZusatzinfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -48,7 +48,7 @@
             android:text="Weitere Angaben wie Beispielsätze oder Steigerungsformen der Adjaktive" />
 
         <EditText
-            android:id="@+id/et_lektionstitel"
+            android:id="@+id/et_entry_add_lektionstitel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
