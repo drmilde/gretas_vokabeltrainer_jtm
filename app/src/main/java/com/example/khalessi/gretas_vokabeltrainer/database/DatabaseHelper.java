@@ -229,7 +229,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         while (result.moveToNext()) {
             voclist.add(new VocabularyItem(
-                            Integer.parseInt(result.getString(result.getColumnIndex("_id")))
+                            Integer.parseInt(result.getString(result.getColumnIndex("_id"))),
                             result.getString(result.getColumnIndex(VOCABULARY_COLUMN_FOREIGN_LANG)),
                             result.getString(result.getColumnIndex(VOCABULARY_COLUMN_NATIVE_LANG)),
                             result.getString(result.getColumnIndex(VOCABULARY_COLUMN_DESCRIPTION)),
