@@ -117,6 +117,48 @@ public class UnitDatabaseHelper extends SQLiteOpenHelper {
                 new String[]{Integer.toString(id)});
     }
 
+
+    public Unit getUnit(String unitId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] columns = {
+                UNITS_COLUMN_UNIT_ID,
+                UNITS_COLUMN_USER,
+                UNITS_COLUMN_TITLE,
+                UNITS_COLUMN_DESCRIPTION,
+                UNITS_COLUMN_ID
+        };
+
+        String pattern = UNITS_COLUMN_UNIT_ID + "=?";
+
+        String[] values = {
+                unitId
+        };
+
+        Cursor cursor = db.query(UNITS_TABLE_NAME,
+                columns, pattern, values,
+                null, null, null, null
+        );
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) { // ist da überhaupt ein Datensatz
+                Unit unit = new Unit(
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        Integer.parseInt(cursor.getString(4))
+                );
+
+                return unit;
+            }
+        }
+
+        // TODO muss der cursor hier geschlossen werden ????
+
+        return null;
+    }
+
     public void insertSomeUnits() {
 
         insertUnit(UnitIdGenerator.generate(), "Greta", "In the living room", "Watching TV is fun!");

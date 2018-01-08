@@ -88,7 +88,6 @@
 
         >
 
-
         <Button
             android:id="@+id/btn_addEntryCancel"
             android:layout_width="wrap_content"
@@ -102,6 +101,7 @@
             android:layout_height="wrap_content"
 
             android:text="@string/unit_add_btn_save_and_add_entries" />
+
     </LinearLayout>
 </LinearLayout>
 </LinearLayout>

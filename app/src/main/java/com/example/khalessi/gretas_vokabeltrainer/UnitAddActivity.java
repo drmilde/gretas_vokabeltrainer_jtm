@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
+import com.example.khalessi.gretas_vokabeltrainer.database.UnitDatabaseHelper;
+import com.example.khalessi.gretas_vokabeltrainer.database.UnitIdGenerator;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 public class UnitAddActivity extends AppCompatActivity {
@@ -29,6 +32,11 @@ public class UnitAddActivity extends AppCompatActivity {
                 //TODO neuen Eintrag in der Unit-Datenbank erzeugen
                 //TODO Intent muss LektionsID erhalten
                 // TODO oder bestehende Unit updaten
+
+                if (AppState.getInstance().getCurrentUnit().get_id() < 0) {
+                    insertNewUnit();
+                }
+
                 Intent intent_addEntry = new Intent(getApplicationContext(), EntryAddActivity.class);
                 startActivity(intent_addEntry);
             }
@@ -46,6 +54,34 @@ public class UnitAddActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Processes the current EditText fields
+     * and generates a new database entry.
+     */
+    private void insertNewUnit() {
+        EditText et_unit_add_lektionsTitle = (EditText)findViewById(R.id.et_unit_add_lektionsTitle);
+        String title = et_unit_add_lektionsTitle.getText().toString();
+
+        EditText et_unit_add_lektionsDescription = (EditText)findViewById(R.id.et_unit_add_lektionsDescription);
+        String description = et_unit_add_lektionsDescription.getText().toString();
+
+        EditText et_unit_add_lektionsUsername = (EditText)findViewById(R.id.et_unit_add_lektionsUsername);
+        String userName = et_unit_add_lektionsUsername.getText().toString();
+
+        String unitID = UnitIdGenerator.generate();
+
+        // Einfügen in Datenbank
+        AppState.getInstance().getDatabaseHelper()
+                .insertUnit(UnitIdGenerator.generate(), userName, title, description);
+    }
+
+    /**
+     * Displays the current unit data.
+     *
+     * If no current unit is set, then the global user name will be used
+     * and default values will be displayed.
+     *
+     */
     private void showCurrentUnitData() {
         if (AppState.getInstance().getCurrentUnit() != null){
             // bestehende unit bearbeiten

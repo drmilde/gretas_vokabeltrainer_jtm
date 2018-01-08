@@ -33,7 +33,7 @@ public class UnitActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // setup the database
-        db = new UnitDatabaseHelper(this);
+        db = AppState.getInstance().getDatabaseHelper();
         db.recreateDatabase();
         db.insertSomeUnits();
         units = db.getUnitsData();
