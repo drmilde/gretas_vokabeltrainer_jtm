@@ -163,7 +163,7 @@ public class UnitActivity extends AppCompatActivity {
      *
      */
     private void testDeleteEntries() {
-        db.deleteSome(); // in der Datenbank löschen
+        db.deleteSomeUnits(); // in der Datenbank löschen
         updateListView();
     }
 

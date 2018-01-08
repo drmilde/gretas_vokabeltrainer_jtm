@@ -17,7 +17,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "DB_Units.db";
 
-
     // table units
     public static final String UNITS_TABLE_NAME = "UnitTable";
     public static final String UNITS_COLUMN_ID = "_id";
@@ -195,7 +194,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void deleteSome() {
+    public void deleteSomeUnits() {
         deleteUnit(4);
         deleteUnit(5);
     }
