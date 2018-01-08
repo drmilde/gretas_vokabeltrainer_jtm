@@ -10,7 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
 import com.example.khalessi.gretas_vokabeltrainer.database.UnitDatabaseHelper;
@@ -26,10 +25,6 @@ public class UnitActivity extends AppCompatActivity {
     private ArrayList<Unit> units = null;
 
 
-    // Dialog
-
-    private AlertDialog deleteDialog;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,15 +39,16 @@ public class UnitActivity extends AppCompatActivity {
         units = db.getUnitsData();
         unitCustomAdapter = new UnitCustomAdapter(this, R.layout.unit_details, units);
 
+        // connect listView and Adapter
         listView = (ListView) findViewById(R.id.lv_unitListView);
         listView.setAdapter(unitCustomAdapter);
 
 
         // react to click
+        // setting the current unit to the selected one
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 // save current unit and start UnitAddActivity
                 AppState.getInstance().setCurrentUnit(units.get(position));
                 startUnitAddIntent();
@@ -63,13 +59,14 @@ public class UnitActivity extends AppCompatActivity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                createDeleteDialog(position);
-                deleteDialog.show();
+                createDeleteDialog(position).show();
                 return true;
             }
         });
 
 
+        // use floating button to add a new unit
+        // this is indicated by setting the current unit to null
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,12 +77,21 @@ public class UnitActivity extends AppCompatActivity {
         });
     }
 
-    private void createDeleteDialog(final int position) {
-        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-        builder1.setMessage(getString(R.string.unit_delete_title_text) + "\n\n" + units.get(position).getTitle());
-        builder1.setCancelable(true);
 
-        builder1.setPositiveButton(
+    /**
+     *
+     * Creates an AlertDialog with registered handlers for the deletion
+     * at the position of the ListView.
+     *
+     * @param position position in the ListView
+     * @return an AlertDialog with registered handlers
+     */
+    private AlertDialog createDeleteDialog(final int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(getString(R.string.unit_delete_title_text) + "\n\n" + units.get(position).getTitle());
+        builder.setCancelable(true);
+
+        builder.setPositiveButton(
                 R.string.unit_delete_dialog_yes,
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -94,7 +100,7 @@ public class UnitActivity extends AppCompatActivity {
                     }
                 });
 
-        builder1.setNegativeButton(
+        builder.setNegativeButton(
                 R.string.unit_delete_dialog_no,
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -102,17 +108,25 @@ public class UnitActivity extends AppCompatActivity {
                     }
                 });
 
-        deleteDialog = builder1.create();
+        return (builder.create());
     }
 
-
+    /**
+     *
+     * Deletes the unit at position in the ArrayList from the database
+     * and updates the ListView.
+     *
+     * @param position of unit in ArrayListe
+     */
     private void deleteListItem(int position) {
         int id = units.get(position).get_id();
         db.deleteUnit(id);
         updateListView();
     }
 
-
+    /**
+     * Starts the UnitAddActivity.
+     */
     private void startUnitAddIntent() {
         Intent intentAddUnit = new Intent(getApplicationContext(), UnitAddActivity.class);
         startActivity(intentAddUnit);
@@ -120,6 +134,28 @@ public class UnitActivity extends AppCompatActivity {
 
 
     /**
+     * Updates the content of the ListView.
+     */
+    private void updateListView() {
+        units = db.getUnitsData(); // aktuelle Daten holen
+        unitCustomAdapter.setUnits(units); // daten in unitCustomAdapter setzen
+        listView.invalidateViews(); // listView neu zeichnen
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // if database has changed, we need to update the ListView
+        updateListView();
+    }
+
+    // **********************************************************
+    // ****************************** TEST **********************
+    // **********************************************************
+
+    /**
+     *
      * Just a small Test, deleting two records from the Units Table
      * and refreshing the listView
      *
@@ -131,16 +167,4 @@ public class UnitActivity extends AppCompatActivity {
         updateListView();
     }
 
-    private void updateListView() {
-        units = db.getUnitsData(); // aktuelle Daten holen
-        unitCustomAdapter.setUnits(units); // daten in unitCustomAdapter setzen
-        listView.invalidateViews(); // listView neu zeichnen
-    }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        updateListView();
-    }
 }
