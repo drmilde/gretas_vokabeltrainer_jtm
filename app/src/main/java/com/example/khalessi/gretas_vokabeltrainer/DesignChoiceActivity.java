@@ -27,7 +27,7 @@ public class DesignChoiceActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 // holt Name aus dem EditText Field
-                EditText et_benutzerName = (EditText)findViewById(R.id.et_benutzerName);
+                EditText et_benutzerName = (EditText) findViewById(R.id.et_benutzerName);
                 String currentUserName = et_benutzerName.getText().toString();
                 AppState.getInstance().setCurrentUserName(currentUserName);
 
@@ -38,20 +38,15 @@ public class DesignChoiceActivity extends AppCompatActivity {
         });
 
         // TODO kann später weg, nur zu Testzwecken
-        /**
         Button btn_testListView = (Button) findViewById(R.id.btn_testListView);
         btn_testListView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                Intent intent_testListView = new Intent(getApplicationContext(), UnitListActivity.class);
+                Intent intent_testListView = new Intent(getApplicationContext(), VocListActivity.class);
                 startActivity(intent_testListView);
 
             }
         });
-         **/
-
 
 
         // TODO Datenbank für Vokabeln anlegen (Kopie von Unit und anpassen)
@@ -70,8 +65,6 @@ public class DesignChoiceActivity extends AppCompatActivity {
         // TODO ListView clickbar machen -> Unit auswählen und dann Vokabeln hinzufügen können
         // TODO Bilder und Übersetzungen anfertigen
         // TODO Entwicklungsnotizen starten (in Google Docs) !!!
-
-
 
 
     }

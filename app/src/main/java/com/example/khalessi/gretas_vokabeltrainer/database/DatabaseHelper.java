@@ -212,7 +212,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put(VOCABULARY_COLUMN_ID, unitId);
+        contentValues.put(VOCABULARY_COLUMN_UNIT_ID, unitId);
         contentValues.put(VOCABULARY_COLUMN_FOREIGN_LANG, foreignLang);
         contentValues.put(VOCABULARY_COLUMN_NATIVE_LANG, nativeLang);
         contentValues.put(VOCABULARY_COLUMN_DESCRIPTION, description);
@@ -229,7 +229,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         while (result.moveToNext()) {
             voclist.add(new VocabularyItem(
-                            Integer.parseInt(result.getString(result.getColumnIndex("_id"))),
+                            Integer.parseInt(result.getString(result.getColumnIndex(VOCABULARY_COLUMN_ID))),
                             result.getString(result.getColumnIndex(VOCABULARY_COLUMN_FOREIGN_LANG)),
                             result.getString(result.getColumnIndex(VOCABULARY_COLUMN_NATIVE_LANG)),
                             result.getString(result.getColumnIndex(VOCABULARY_COLUMN_DESCRIPTION)),
@@ -239,6 +239,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return voclist;
+    }
+
+    public void insertSomeVocs() {
+        insertVocabulary(UnitIdGenerator.generate(), "to learn", "lernen", "verb, inifinitiv");
+        insertVocabulary(UnitIdGenerator.generate(), "to run", "laufen", "verb, inifinitiv");
+        insertVocabulary(UnitIdGenerator.generate(), "to hide", "verstecken", "verb, inifinitiv");
+        insertVocabulary(UnitIdGenerator.generate(), "to seek", "suchen", "verb, inifinitiv");
+        insertVocabulary(UnitIdGenerator.generate(), "to watch", "schauen", "verb, inifinitiv");
+        insertVocabulary(UnitIdGenerator.generate(), "to ring", "klingeln", "verb, inifinitiv");
     }
 
 
