@@ -6,4 +6,8 @@
 
     <!-- color scheme -->
     <color name="schemeColor0">#8ca0e4</color>
+    <color name="schemeColor1">#647eda</color>
+    <color name="schemeColor2">#c1cbeb</color>
+
+
 </resources>

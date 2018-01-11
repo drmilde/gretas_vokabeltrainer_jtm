@@ -31,11 +31,48 @@
             android:textStyle="bold"
             android:id="@+id/tv_title" />
 
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/pb_unitProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="20"
+                android:progressDrawable="@drawable/custom_progess"
+
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                />
+
+            <TextView
+                android:id="@+id/tv_unitProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+
+                android:text="100"
+                />
+        </RelativeLayout>
+
+
+        <!--
+
         <ImageView
             android:id="@+id/iv_unitProgressIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_radio_button_unchecked_black_24dp" />
+
+            -->
 
 
     </LinearLayout>
