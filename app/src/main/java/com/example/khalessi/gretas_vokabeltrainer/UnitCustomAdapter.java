@@ -45,9 +45,11 @@ public class UnitCustomAdapter extends ArrayAdapter {
             convertView = vi.inflate(R.layout.unit_details, null);
 
             holder = new ViewHolder();
+            /*
             holder.tv_unitId = (TextView) convertView.findViewById(R.id.tv_unitId);
             holder.tv_benutzername = (TextView) convertView.findViewById(R.id.tv_userName);
             holder.tv_description = (TextView) convertView.findViewById(R.id.tv_description);
+            */
             holder.tv_title = (TextView) convertView.findViewById(R.id.tv_title);
             convertView.setTag(holder);
 
@@ -56,10 +58,12 @@ public class UnitCustomAdapter extends ArrayAdapter {
         }
 
         Unit unit = units.get(position);
+        /*
         holder.tv_description.setText(context.getString(R.string.listview_unitname) + unit.getDescription() + "");
         holder.tv_benutzername.setText(context.getString(R.string.listview_username) + unit.getUser() + "");
         holder.tv_unitId.setText(context.getString(R.string.listview_unitId) + unit.getUnitId());
         //holder.tv_title.setText(context.getString(R.string.listview_title) + unit.getTitle());
+        */
         holder.tv_title.setText(unit.getTitle());
         return convertView;
     }
