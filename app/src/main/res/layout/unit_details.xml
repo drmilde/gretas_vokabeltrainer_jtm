@@ -16,17 +16,18 @@
         <ImageView
             android:id="@+id/iv_unitImageIcon"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             app:srcCompat="@drawable/ic_content_copy_black_24dp" />
 
         <TextView
-            android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
 
             android:text="Title"
             android:layout_width="200sp"
             android:layout_height="wrap_content"
             android:textSize="24sp"
+
+            android:layout_gravity="center_vertical"
 
             android:textStyle="bold"
             android:id="@+id/tv_title" />
