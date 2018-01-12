@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
 
     android:orientation="vertical"
+
+    android:background="@drawable/unit_list_bg"
+
     tools:context="com.example.khalessi.gretas_vokabeltrainer.VocListActivity">
 
     <ListView
