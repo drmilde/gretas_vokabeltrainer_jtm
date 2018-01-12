@@ -14,4 +14,8 @@
     <string name="unit_delete_dialog_yes">Ja, löschen</string>
     <string name="unit_delete_dialog_no">Nein</string>
     <string name="unit_delete_title_text">Löschen von Lektion ?</string>
+    <string name="title_activity_unit_list_bottom_menu">UnitListBottomMenuActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

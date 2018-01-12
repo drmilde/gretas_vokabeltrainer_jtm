@@ -32,6 +32,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String VOCABULARY_COLUMN_FOREIGN_LANG = "c_foreign";
     public static final String VOCABULARY_COLUMN_NATIVE_LANG = "c_native";
     public static final String VOCABULARY_COLUMN_DESCRIPTION = "c_description";
+    public static final String VOCABULARY_COLUMN_LEVEL_1 = "c_level1";
+    public static final String VOCABULARY_COLUMN_LEVEL_2 = "c_level2";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -51,7 +53,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + VOCABULARY_COLUMN_UNIT_ID + " Text,"
                 + VOCABULARY_COLUMN_FOREIGN_LANG + " Text,"
                 + VOCABULARY_COLUMN_NATIVE_LANG + " Text,"
-                + VOCABULARY_COLUMN_DESCRIPTION + " Text)"
+                + VOCABULARY_COLUMN_DESCRIPTION + " Text,"
+                + VOCABULARY_COLUMN_LEVEL_1 + " integer,"
+                + VOCABULARY_COLUMN_LEVEL_2+ " integer)"
         );
     }
 
@@ -217,6 +221,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(VOCABULARY_COLUMN_FOREIGN_LANG, foreignLang);
         contentValues.put(VOCABULARY_COLUMN_NATIVE_LANG, nativeLang);
         contentValues.put(VOCABULARY_COLUMN_DESCRIPTION, description);
+        contentValues.put(VOCABULARY_COLUMN_LEVEL_1, 0);
+        contentValues.put(VOCABULARY_COLUMN_LEVEL_2, 0);
 
         db.insert(VOCABULARY_TABLE_NAME, null, contentValues);
         return true;
@@ -234,7 +240,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                             result.getString(result.getColumnIndex(VOCABULARY_COLUMN_FOREIGN_LANG)),
                             result.getString(result.getColumnIndex(VOCABULARY_COLUMN_NATIVE_LANG)),
                             result.getString(result.getColumnIndex(VOCABULARY_COLUMN_DESCRIPTION)),
-                            result.getString(result.getColumnIndex(VOCABULARY_COLUMN_UNIT_ID))
+                            result.getString(result.getColumnIndex(VOCABULARY_COLUMN_UNIT_ID)),
+                            Integer.parseInt(result.getString(result.getColumnIndex(VOCABULARY_COLUMN_LEVEL_1))),
+                            Integer.parseInt(result.getString(result.getColumnIndex(VOCABULARY_COLUMN_LEVEL_2)))
                     )
             );
         }
@@ -251,7 +259,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 VOCABULARY_COLUMN_FOREIGN_LANG,
                 VOCABULARY_COLUMN_NATIVE_LANG,
                 VOCABULARY_COLUMN_DESCRIPTION,
-                VOCABULARY_COLUMN_UNIT_ID
+                VOCABULARY_COLUMN_UNIT_ID,
+                VOCABULARY_COLUMN_LEVEL_1,
+                VOCABULARY_COLUMN_LEVEL_2
         };
 
         String pattern = UNITS_COLUMN_UNIT_ID + "=?";
@@ -271,7 +281,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     result.getString(1),
                     result.getString(2),
                     result.getString(3),
-                    result.getString(4))
+                    result.getString(4),
+                    Integer.parseInt(result.getString(5)),
+                    Integer.parseInt(result.getString(6))
+                    )
             );
         }
 

@@ -10,6 +10,9 @@ public class VocabularyItem {
     private String nativeLang;
     private String description;
     private String unitId;
+    private int level1;
+    private int level2;
+
 
 
     public VocabularyItem(String unitId, String foreignLang, String nativeLang, String description) {
@@ -17,14 +20,19 @@ public class VocabularyItem {
         this.nativeLang = nativeLang;
         this.description = description;
         this.unitId = unitId;
+        this.level1 = 0;
+        this.level2 = 0;
     }
 
-    public VocabularyItem(int _id, String foreignLang, String nativeLang, String description, String unitId) {
+    public VocabularyItem(int _id, String foreignLang, String nativeLang, String description, String unitId,
+                          int level1, int level2) {
         this._id = _id;
         this.foreignLang = foreignLang;
         this.nativeLang = nativeLang;
         this.description = description;
         this.unitId = unitId;
+        this.level1 = level1;
+        this.level2 = level2;
     }
 
     // getter
