@@ -12,12 +12,12 @@ import android.widget.EditText;
 import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
-public class EntryAddActivity extends AppCompatActivity {
+public class VocAddActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_entry_add);
+        setContentView(R.layout.activity_add_voc);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -59,7 +59,7 @@ public class EntryAddActivity extends AppCompatActivity {
         Unit currentUnit = AppState.getInstance().getCurrentUnit();
         if (currentUnit != null) {
 
-            // get the title of the current unit and set it in the EntryAddActivity
+            // get the title of the current unit and set it in the VocAddActivity
             EditText et_entry_add_lektionstitel = (EditText)findViewById(R.id.et_entry_add_lektionstitel);
             et_entry_add_lektionstitel.setText(AppState.getInstance().getCurrentUnit().getTitle());
 

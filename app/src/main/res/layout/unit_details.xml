@@ -23,6 +23,7 @@
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
 
             android:text="Title"
+
             android:layout_width="200sp"
             android:layout_height="wrap_content"
             android:textSize="24sp"
@@ -30,7 +31,9 @@
             android:layout_gravity="center_vertical"
 
             android:textStyle="bold"
-            android:id="@+id/tv_title" />
+            android:id="@+id/tv_title"
+            android:textColor="@color/textColorDark"
+            />
 
 
         <RelativeLayout
@@ -67,46 +70,8 @@
         </RelativeLayout>
 
 
-        <!--
-
-        <ImageView
-            android:id="@+id/iv_unitProgressIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_radio_button_unchecked_black_24dp" />
-
-            -->
 
 
     </LinearLayout>
 
-
-<!--
-    <TextView
-        android:text="Username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:id="@+id/tv_userName"
-        />
-
-
-    <TextView
-        android:text="Description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:id="@+id/tv_description" />
-
-    <TextView
-        android:text="UnitID"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:id="@+id/tv_unitId"
-
-        android:layout_marginBottom="@dimen/activity_horizontal_margin"
-        />
-
-        -->
 </LinearLayout>

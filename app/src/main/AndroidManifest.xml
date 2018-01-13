@@ -21,7 +21,7 @@
             android:label="@string/title_activity_unit"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".EntryAddActivity"
+            android:name=".VocAddActivity"
             android:label="@string/title_activity_entry_add"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".UnitAddActivity" />

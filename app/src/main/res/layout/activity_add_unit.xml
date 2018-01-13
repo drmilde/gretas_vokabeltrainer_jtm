@@ -22,7 +22,7 @@
         android:id="@+id/tv_lektionAnlegen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
+        android:textSize="@dimen/header_text_size"
         android:text="@string/unit_process_tv_title" />
 
 
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:text="Lektionstitel" />
+        android:text="@string/unit_add_tv_unit_title" />
 
 
     <EditText
@@ -41,8 +41,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Lektionsname" />
+        android:inputType="textPersonName|textNoSuggestions"
+        android:hint="@string/unit_add_et_unit_title_hint" />
 
     <!--  Description  -->
     <TextView
@@ -58,10 +58,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textMultiLine"
+        android:inputType="textMultiLine|textNoSuggestions"
         android:minLines="3"
         android:maxLines="5"
-        android:text="Zusatzinformation: Bspl. Seite im Buch oder Beschreibung" />
+        android:hint="@string/unit_add_et_unit_desctiption_hint" />
 
     <!--  Benutzername  -->
     <TextView
@@ -78,7 +78,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textPersonName|textNoSuggestions"
         android:text="Greta" />
 
     <!-- Buttons -->
@@ -95,13 +95,18 @@
             android:id="@+id/btn_addEntryCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/buttonStyle"
 
-            android:text="Abbrechen" />
+            android:layout_marginRight="10sp"
+
+            android:text="@string/button_text_back" />
 
         <Button
             android:id="@+id/btn_addEntrySubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            style="@style/buttonStyle"
 
             android:text="@string/unit_add_btn_save_and_add_entries" />
 

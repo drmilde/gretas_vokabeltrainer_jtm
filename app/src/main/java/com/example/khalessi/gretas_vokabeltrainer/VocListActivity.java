@@ -30,6 +30,7 @@ public class VocListActivity extends AppCompatActivity {
         db.recreateDatabase();
         db.insertSomeVocs();
         voclist = db.getVocabularyData("livingRoom");
+        voclist = db.getVocabularyData();
 
         voclistCustomAdapter= new VoclistCustomAdapter(this, R.layout.voclist_details, voclist);
 

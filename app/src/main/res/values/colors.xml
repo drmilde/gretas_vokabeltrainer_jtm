@@ -7,7 +7,12 @@
     <!-- color scheme -->
     <color name="schemeColor0">#8ca0e4</color>
     <color name="schemeColor1">#647eda</color>
-    <color name="schemeColor2">#c1cbeb</color>
+    <color name="schemeColor2">#d9deee</color>
+    <color name="schemeColor3">#534AA8</color>
+    <color name="schemeColor4">#878787</color>
+    <color name="textColorLight">#FFFFFF</color>
+    <color name="schemeColor5">#9692A8</color>
+    <color name="textColorDark">#000000</color>
 
 
 </resources>

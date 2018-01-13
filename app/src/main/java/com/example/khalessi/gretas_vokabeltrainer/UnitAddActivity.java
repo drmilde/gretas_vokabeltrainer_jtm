@@ -21,6 +21,7 @@ public class UnitAddActivity extends AppCompatActivity {
         // aktuell ausgewählte unit anzeigen und bearbeiten
         showCurrentUnitData();
 
+
         // Clicks verarbeiten
         Button btn_speichern = (Button) findViewById(R.id.btn_addEntrySubmit);
         btn_speichern.setOnClickListener(new View.OnClickListener() {
@@ -33,7 +34,7 @@ public class UnitAddActivity extends AppCompatActivity {
                     // TODO verarbeite die gesetzte Unit
                 }
 
-                Intent intent_addEntry = new Intent(getApplicationContext(), EntryAddActivity.class);
+                Intent intent_addEntry = new Intent(getApplicationContext(), VocAddActivity.class);
                 startActivity(intent_addEntry);
             }
         });

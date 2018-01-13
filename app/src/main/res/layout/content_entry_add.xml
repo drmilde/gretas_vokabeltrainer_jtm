@@ -10,8 +10,8 @@
 
 
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.khalessi.gretas_vokabeltrainer.EntryAddActivity"
-    tools:showIn="@layout/activity_entry_add">
+    tools:context="com.example.khalessi.gretas_vokabeltrainer.VocAddActivity"
+    tools:showIn="@layout/activity_add_voc">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,6 +24,9 @@
             android:id="@+id/tv_entry_add_vokabelBearbeiten"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:textSize="@dimen/header_text_size"
+
             android:text="Vokabeln hinzufügen" />
 
         <EditText
@@ -31,54 +34,61 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Bedeutung in deiner Sprache" />
+            android:inputType="textPersonName|textNoSuggestions"
+            android:hint="Bedeutung in deiner Sprache" />
 
         <EditText
             android:id="@+id/et_entry_add_vokabelFremdsprache"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Bedeutung in Fremdsprache" />
+            android:inputType="textPersonName|textNoSuggestions"
+            android:hint="Bedeutung in Fremdsprache" />
 
         <EditText
             android:id="@+id/et_entry_add_vokabelZusatzinfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textMultiLine"
+            android:inputType="textMultiLine|textNoSuggestions"
             android:minLines="5"
-            android:text="Weitere Angaben wie Beispielsätze oder Steigerungsformen der Adjaktive" />
+            android:hint="Weitere Angaben wie Beispielsätze oder Steigerungsformen der Adjaktive" />
 
         <EditText
             android:id="@+id/et_entry_add_lektionstitel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Lektionstitel" />
+            android:inputType="textPersonName|textNoSuggestions"
+            android:hint="Lektionstitel" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            >
 
 
             <Button
                 android:id="@+id/btn_addEntryCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/buttonStyle"
 
-                android:text="Abbrechen" />
+                android:layout_marginRight="10sp"
+
+                android:text="@string/button_text_back" />
 
             <Button
                 android:id="@+id/btn_addEntrySubmit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/buttonStyle"
 
-                android:text="Speichern" />
+                android:text="@string/button_text_save" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
