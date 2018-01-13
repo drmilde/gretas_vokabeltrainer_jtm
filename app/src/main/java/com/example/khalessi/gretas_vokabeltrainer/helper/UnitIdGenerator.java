@@ -1,4 +1,4 @@
-package com.example.khalessi.gretas_vokabeltrainer.database;
+package com.example.khalessi.gretas_vokabeltrainer.helper;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
