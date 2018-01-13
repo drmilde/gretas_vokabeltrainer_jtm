@@ -42,7 +42,7 @@ public class UnitCustomAdapter extends ArrayAdapter {
         ViewHolder holder = null;
         if (convertView == null) {
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = vi.inflate(R.layout.unit_details, null);
+            convertView = vi.inflate(R.layout.unitlist_details, null);
 
             holder = new ViewHolder();
             /*

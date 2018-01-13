@@ -37,7 +37,7 @@ public class UnitActivity extends AppCompatActivity {
         db.recreateDatabase();
         db.insertSomeUnits();
         units = db.getUnitsData();
-        unitCustomAdapter = new UnitCustomAdapter(this, R.layout.unit_details, units);
+        unitCustomAdapter = new UnitCustomAdapter(this, R.layout.unitlist_details, units);
 
         // connect listView and Adapter
         listView = (ListView) findViewById(R.id.lv_unitListView);
