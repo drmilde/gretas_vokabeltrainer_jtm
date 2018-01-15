@@ -10,27 +10,26 @@ import android.widget.Toast;
 import com.example.khalessi.gretas_vokabeltrainer.database.DatabaseHelper;
 import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
 import com.example.khalessi.gretas_vokabeltrainer.database.VocabularyItem;
+import com.example.khalessi.gretas_vokabeltrainer.helper.BasicVocabularyLoader;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 import java.util.ArrayList;
 
 public class VocListActivity extends AppCompatActivity {
 
-    VoclistCustomAdapter voclistCustomAdapter = null;
-    ListView listView = null;
-    DatabaseHelper db = null;
-    ArrayList<VocabularyItem> voclist = null;
+    private VoclistCustomAdapter voclistCustomAdapter = null;
+    private ListView listView = null;
+    private ArrayList<VocabularyItem> voclist = null;
+
+    private BasicVocabularyLoader bvl = new BasicVocabularyLoader();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voc_list);
 
-        db = AppState.getInstance().getDatabaseHelper();
-        db.recreateDatabase();
-        db.insertSomeVocs();
-        voclist = db.getVocabularyData("livingRoom");
-        voclist = db.getVocabularyData();
+        voclist = bvl.getVocabularyData("livingRoom");
+        //voclist = bvl.getVocabularyData();
 
         voclistCustomAdapter= new VoclistCustomAdapter(this, R.layout.voclist_details, voclist);
 

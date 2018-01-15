@@ -1,7 +1,11 @@
 package com.example.khalessi.gretas_vokabeltrainer.helper;
 
 import com.example.khalessi.gretas_vokabeltrainer.database.DatabaseHelper;
+import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
+import com.example.khalessi.gretas_vokabeltrainer.database.VocabularyItem;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
+
+import java.util.ArrayList;
 
 /**
  * Created by milde on 14.01.18.
@@ -11,14 +15,42 @@ public class BasicVocabularyLoader {
     private DatabaseHelper dbh = null;
 
     public BasicVocabularyLoader() {
-
         dbh = AppState.getInstance().getDatabaseHelper();
+        resetDatabase();
+    }
+
+
+    public void resetDatabase() {
         dbh.recreateDatabase();
 
         insertSomeVocs();
         insertSomeUnits();
-
     }
+
+    // Interface routinen
+
+    public ArrayList<VocabularyItem> getVocabularyData(String unitId) {
+        return dbh.getVocabularyData(unitId);
+    }
+
+    public ArrayList<VocabularyItem> getVocabularyData() {
+        return dbh.getVocabularyData();
+    }
+
+    public ArrayList<Unit> getUnitsData() {
+        return dbh.getUnitsData();
+    }
+
+    public void deleteUnit(int id) {
+        dbh.deleteUnit(id);
+    }
+
+    public void deleteSomeUnits() {
+        dbh.deleteSomeUnits();
+    }
+
+
+    // setup content
 
     private void insertSomeVocs() {
         dbh.insertVocabulary("livingRoom", "to learn", "lernen", "verb, inifinitiv");
@@ -59,4 +91,5 @@ public class BasicVocabularyLoader {
         dbh.insertUnit("MakingATorch", "Greta", "Making a torch", "You light up my life.");
         dbh.insertUnit("KitchenCleaning", "Greta", "Kitchen cleaning", "Help me, supermom.");
     }
+
 }

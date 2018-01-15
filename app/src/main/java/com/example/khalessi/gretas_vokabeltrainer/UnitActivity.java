@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
 import com.example.khalessi.gretas_vokabeltrainer.database.DatabaseHelper;
+import com.example.khalessi.gretas_vokabeltrainer.helper.BasicVocabularyLoader;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 import java.util.ArrayList;
@@ -21,8 +22,10 @@ public class UnitActivity extends AppCompatActivity {
 
     private UnitCustomAdapter unitCustomAdapter = null;
     private ListView listView = null;
-    private DatabaseHelper db = null;
+    //private DatabaseHelper db = null;
     private ArrayList<Unit> units = null;
+
+    private BasicVocabularyLoader bvl = new BasicVocabularyLoader();
 
 
     @Override
@@ -33,10 +36,7 @@ public class UnitActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // setup the database
-        db = AppState.getInstance().getDatabaseHelper();
-        db.recreateDatabase();
-        db.insertSomeUnits();
-        units = db.getUnitsData();
+        units = bvl.getUnitsData();
         unitCustomAdapter = new UnitCustomAdapter(this, R.layout.unitlist_details, units);
 
         // connect listView and Adapter
@@ -120,7 +120,7 @@ public class UnitActivity extends AppCompatActivity {
      */
     private void deleteListItem(int position) {
         int id = units.get(position).get_id();
-        db.deleteUnit(id);
+        bvl.deleteUnit(id);
         updateListView();
     }
 
@@ -137,7 +137,7 @@ public class UnitActivity extends AppCompatActivity {
      * Updates the content of the ListView.
      */
     private void updateListView() {
-        units = db.getUnitsData(); // aktuelle Daten holen
+        units = bvl.getUnitsData(); // aktuelle Daten holen
         unitCustomAdapter.setUnits(units); // daten in unitCustomAdapter setzen
         listView.invalidateViews(); // listView neu zeichnen
     }
@@ -163,7 +163,7 @@ public class UnitActivity extends AppCompatActivity {
      *
      */
     private void testDeleteEntries() {
-        db.deleteSomeUnits(); // in der Datenbank löschen
+        bvl.deleteSomeUnits(); // in der Datenbank löschen
         updateListView();
     }
 
