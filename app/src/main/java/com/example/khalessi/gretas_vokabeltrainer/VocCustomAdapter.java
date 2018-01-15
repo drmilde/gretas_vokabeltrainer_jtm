@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
 import com.example.khalessi.gretas_vokabeltrainer.database.VocabularyItem;
 
 import java.util.ArrayList;
@@ -17,11 +16,11 @@ import java.util.ArrayList;
  * Created by milde on 08.01.18.
  */
 
-public class VoclistCustomAdapter extends ArrayAdapter {
+public class VocCustomAdapter extends ArrayAdapter {
     private Context context;
     private ArrayList<VocabularyItem> voclist;
 
-    public VoclistCustomAdapter(Context context, int textViewResourceId, ArrayList objects) {
+    public VocCustomAdapter(Context context, int textViewResourceId, ArrayList objects) {
         super(context, textViewResourceId, objects);
 
         this.context = context;
@@ -40,12 +39,12 @@ public class VoclistCustomAdapter extends ArrayAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        VoclistCustomAdapter.ViewHolder holder = null;
+        VocCustomAdapter.ViewHolder holder = null;
         if (convertView == null) {
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = vi.inflate(R.layout.voclist_details, null);
 
-            holder = new VoclistCustomAdapter.ViewHolder();
+            holder = new VocCustomAdapter.ViewHolder();
             holder.tv_unitId = (TextView) convertView.findViewById(R.id.tv_voc_unitId);
             holder.tv_foreign = (TextView) convertView.findViewById(R.id.tv_voc_foreignLang);
             holder.tv_description = (TextView) convertView.findViewById(R.id.tv_voc_Description);
@@ -55,7 +54,7 @@ public class VoclistCustomAdapter extends ArrayAdapter {
             convertView.setTag(holder);
 
         } else {
-            holder = (VoclistCustomAdapter.ViewHolder) convertView.getTag();
+            holder = (VocCustomAdapter.ViewHolder) convertView.getTag();
         }
 
         // hier erfolgt die Anzeige

@@ -30,4 +30,8 @@
     <string name="unit_add_tv_unit_title">Lektionstitel</string>
     <string name="unit_add_et_unit_title_hint">Lektionsname</string>
     <string name="unit_add_et_unit_desctiption_hint">Zusatzinformation: Bspl. Seite im Buch oder Beschreibung</string>
+    <string name="unit_popup_menu_delete">Löschen</string>
+    <string name="unit_popup_menu_add">Hinzufügen</string>
+    <string name="voc_lpopup_menu_add">Hinzufügen</string>
+    <string name="voc_popup_menu_delete">Löschen</string>
 </resources>

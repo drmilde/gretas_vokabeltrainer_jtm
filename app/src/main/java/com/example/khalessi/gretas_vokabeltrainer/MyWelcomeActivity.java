@@ -47,7 +47,7 @@ public class MyWelcomeActivity extends AppCompatActivity {
         btn_testListView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_testListView = new Intent(getApplicationContext(), VocListActivity.class);
+                Intent intent_testListView = new Intent(getApplicationContext(), VocActivity.class);
                 startActivity(intent_testListView);
 
             }

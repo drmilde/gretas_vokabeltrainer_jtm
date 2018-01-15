@@ -9,7 +9,7 @@
 
     android:background="@drawable/unit_list_bg"
 
-    tools:context="com.example.khalessi.gretas_vokabeltrainer.VocListActivity">
+    tools:context="com.example.khalessi.gretas_vokabeltrainer.VocActivity">
 
     <ListView
         android:layout_width="match_parent"

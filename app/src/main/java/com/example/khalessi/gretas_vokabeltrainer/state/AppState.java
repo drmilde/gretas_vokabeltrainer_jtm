@@ -2,6 +2,7 @@ package com.example.khalessi.gretas_vokabeltrainer.state;
 
 import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
 import com.example.khalessi.gretas_vokabeltrainer.database.DatabaseHelper;
+import com.example.khalessi.gretas_vokabeltrainer.database.VocabularyItem;
 
 /**
  * Created by milde on 05.01.18.
@@ -11,8 +12,8 @@ public class AppState {
     private static final AppState ourInstance = new AppState();
 
     private Unit currentUnit = null;
+    private VocabularyItem currentVoc = null;
     private String currentUserName = "Miau";
-    private int currentDesign = 0; //
 
     private DatabaseHelper databaseHelper;
 
@@ -35,8 +36,8 @@ public class AppState {
         return currentUserName;
     }
 
-    public int getCurrentDesign() {
-        return currentDesign;
+    public VocabularyItem getCurrentVoc() {
+        return currentVoc;
     }
 
     public DatabaseHelper getDatabaseHelper() {
@@ -50,12 +51,12 @@ public class AppState {
         this.currentUnit = currentUnit;
     }
 
-    public void setCurrentUserName(String currentUserName) {
-        this.currentUserName = currentUserName;
+    public void setCurrentVoc(VocabularyItem currentVoc) {
+        this.currentVoc = currentVoc;
     }
 
-    public void setCurrentDesign(int currentDesign) {
-        this.currentDesign = currentDesign;
+    public void setCurrentUserName(String currentUserName) {
+        this.currentUserName = currentUserName;
     }
 
     public void setDatabaseHelper(DatabaseHelper databaseHelper) {

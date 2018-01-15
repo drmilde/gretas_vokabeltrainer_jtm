@@ -40,7 +40,7 @@ public class UnitAddActivity extends AppCompatActivity {
                 //startActivity(intent_addEntry);
 
                 // show voc list view
-                Intent intent_testListView = new Intent(getApplicationContext(), VocListActivity.class);
+                Intent intent_testListView = new Intent(getApplicationContext(), VocActivity.class);
                 startActivity(intent_testListView);
 
             }

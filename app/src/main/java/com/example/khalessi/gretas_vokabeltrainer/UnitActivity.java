@@ -3,13 +3,17 @@ package com.example.khalessi.gretas_vokabeltrainer;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
 import com.example.khalessi.gretas_vokabeltrainer.helper.BasicVocabularyLoader;
@@ -58,9 +62,10 @@ public class UnitActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
+                PopupMenu popup = createPopupMenu(view);
+                popup.show();//showing popup menu
 
-
-                createDeleteDialog(position).show();
+                //createDeleteDialog(position).show();
                 return true;
             }
         });
@@ -78,9 +83,25 @@ public class UnitActivity extends AppCompatActivity {
         });
     }
 
+    @NonNull
+    private PopupMenu createPopupMenu(View view) {
+        PopupMenu popup = new PopupMenu(getApplicationContext(), view);
+        //Inflating the Popup using xml file
+        popup.getMenuInflater().inflate(R.menu.unit_list_popup, popup.getMenu());
+
+        //registering popup with OnMenuItemClickListener
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            public boolean onMenuItemClick(MenuItem item) {
+                Toast.makeText(getApplicationContext(),
+                        "You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+        return popup;
+    }
+
 
     /**
-     *
      * Creates an AlertDialog with registered handlers for the deletion
      * at the position of the ListView.
      *
@@ -113,7 +134,6 @@ public class UnitActivity extends AppCompatActivity {
     }
 
     /**
-     *
      * Deletes the unit at position in the ArrayList from the database
      * and updates the ListView.
      *
@@ -156,12 +176,10 @@ public class UnitActivity extends AppCompatActivity {
     // **********************************************************
 
     /**
-     *
      * Just a small Test, deleting two records from the Units Table
      * and refreshing the listView
-     *
+     * <p>
      * seems to work :)
-     *
      */
     private void testDeleteEntries() {
         bvl.deleteSomeUnits(); // in der Datenbank löschen
