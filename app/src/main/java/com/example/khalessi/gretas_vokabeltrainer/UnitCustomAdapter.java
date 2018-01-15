@@ -122,12 +122,12 @@ public class UnitCustomAdapter extends ArrayAdapter {
 
     @Override
     public int getViewTypeCount() {
-        return units.size();
+        return Math.max(1, units.size());
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return units.isEmpty();
     }
 
 

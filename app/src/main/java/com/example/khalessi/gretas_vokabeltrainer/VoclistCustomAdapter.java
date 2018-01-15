@@ -59,13 +59,15 @@ public class VoclistCustomAdapter extends ArrayAdapter {
         }
 
         // hier erfolgt die Anzeige
-        VocabularyItem vocitem = voclist.get(position);
-        holder.tv_description.setText("Description: " + vocitem.getDescription() + "");
-        holder.tv_foreign.setText("Foreign: " + vocitem.getForeignLang() + "");
-        holder.tv_unitId.setText("UniId: " + vocitem.getUnitId());
-        holder.tv_native.setText("Native: " + vocitem.getNativeLang());
-        holder.tv_count1.setText("Count1: " + vocitem.getLevel1());
-        holder.tv_count2.setText("Count2: " + vocitem.getLevel2());
+        if (voclist.size() > 0) {
+            VocabularyItem vocitem = voclist.get(position);
+            holder.tv_description.setText(vocitem.getDescription() + "");
+            holder.tv_foreign.setText(vocitem.getForeignLang() + "");
+            holder.tv_unitId.setText(vocitem.getUnitId() + "");
+            holder.tv_native.setText(vocitem.getNativeLang() + "");
+            holder.tv_count1.setText(vocitem.getLevel1() + "");
+            holder.tv_count2.setText(vocitem.getLevel2() + "");
+        }
         return convertView;
     }
 
@@ -120,12 +122,12 @@ public class VoclistCustomAdapter extends ArrayAdapter {
 
     @Override
     public int getViewTypeCount() {
-        return voclist.size();
+        return Math.max(1, voclist.size());
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return voclist.isEmpty();
     }
 
 

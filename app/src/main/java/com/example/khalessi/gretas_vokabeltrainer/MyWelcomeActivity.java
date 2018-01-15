@@ -11,7 +11,7 @@ import com.example.khalessi.gretas_vokabeltrainer.database.DatabaseHelper;
 import com.example.khalessi.gretas_vokabeltrainer.helper.BasicVocabularyLoader;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
-public class DesignChoiceActivity extends AppCompatActivity {
+public class MyWelcomeActivity extends AppCompatActivity {
     private Button btn_katzenDesign;
 
     private BasicVocabularyLoader bvl;

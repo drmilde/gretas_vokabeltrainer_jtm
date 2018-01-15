@@ -8,7 +8,7 @@
 
     android:background="@drawable/unit_list_bg"
 
-    tools:context="com.example.khalessi.gretas_vokabeltrainer.DesignChoiceActivity">
+    tools:context="com.example.khalessi.gretas_vokabeltrainer.MyWelcomeActivity">
 
     <TextView
         android:layout_width="wrap_content"

@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".DesignChoiceActivity">
+        <activity android:name=".MyWelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
