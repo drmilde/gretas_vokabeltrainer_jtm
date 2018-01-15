@@ -61,8 +61,6 @@ public class UnitAddActivity extends AppCompatActivity {
     }
 
 
-
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -72,20 +70,19 @@ public class UnitAddActivity extends AppCompatActivity {
     /**
      * Processes the current EditText fields
      * and generates a new database entry.
-     *
+     * <p>
      * It then queries the database to get this unit (based on the generated unitId)
      * and sets it as the current unit in the AppState,
      * thus making ist public to the rest of the App.
-     *
      */
     private void insertNewUnit() {
-        EditText et_unit_add_lektionsTitle = (EditText)findViewById(R.id.et_unit_add_lektionsTitle);
+        EditText et_unit_add_lektionsTitle = (EditText) findViewById(R.id.et_unit_add_lektionsTitle);
         String title = et_unit_add_lektionsTitle.getText().toString();
 
-        EditText et_unit_add_lektionsDescription = (EditText)findViewById(R.id.et_unit_add_lektionsDescription);
+        EditText et_unit_add_lektionsDescription = (EditText) findViewById(R.id.et_unit_add_lektionsDescription);
         String description = et_unit_add_lektionsDescription.getText().toString();
 
-        EditText et_unit_add_lektionsUsername = (EditText)findViewById(R.id.et_unit_add_lektionsUsername);
+        EditText et_unit_add_lektionsUsername = (EditText) findViewById(R.id.et_unit_add_lektionsUsername);
         String userName = et_unit_add_lektionsUsername.getText().toString();
 
         String unitID = UnitIdGenerator.generate();
@@ -103,13 +100,12 @@ public class UnitAddActivity extends AppCompatActivity {
 
     /**
      * Displays the current unit data.
-     *
+     * <p>
      * If no current unit is set, then the global user name will be used
      * and default values will be displayed.
-     *
      */
     private void showCurrentUnitData() {
-        if (AppState.getInstance().getCurrentUnit() != null){
+        if (AppState.getInstance().getCurrentUnit() != null) {
             // bestehende unit bearbeiten
 
             // title anzeigen
@@ -132,6 +128,5 @@ public class UnitAddActivity extends AppCompatActivity {
             et_unit_add_lektionsUsername.setText(AppState.getInstance().getCurrentUserName());
         }
     }
-
 
 }

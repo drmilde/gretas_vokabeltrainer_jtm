@@ -28,8 +28,13 @@ public class VocListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voc_list);
 
-        voclist = bvl.getVocabularyData("livingRoom");
-        voclist = bvl.getVocabularyData();
+        Unit unit = bvl.getUnit("livingRoom", true);
+        voclist = unit.getVoclist();
+
+        // TODO Fehlerbehandlung, wenn voclist leer ist
+
+        //voclist = bvl.getVocabularyData("livingRoom");
+        //voclist = bvl.getVocabularyData();
 
         voclistCustomAdapter= new VoclistCustomAdapter(this, R.layout.voclist_details, voclist);
 
