@@ -10,6 +10,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.annotation.NonNull;
 
 import com.example.khalessi.gretas_vokabeltrainer.helper.UnitIdGenerator;
 
@@ -122,7 +123,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             // find voclist of unit
             if (getVocList) {
-                ArrayList<VocabularyItem> voclist = getVocabularyData(result.getString(result.getColumnIndex(UNITS_COLUMN_UNIT_ID)));
+                ArrayList<VocabularyItem> voclist = getVocabularyDataByUnitId(result.getString(result.getColumnIndex(UNITS_COLUMN_UNIT_ID)));
                 unit.setVoclist(voclist);
             }
 
@@ -190,7 +191,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
                 // copy voclist
                 if (getVocList) {
-                    ArrayList<VocabularyItem> voclist = getVocabularyData(cursor.getString(0));
+                    ArrayList<VocabularyItem> voclist =
+                            getVocabularyDataByUnitId(cursor.getString(0));
                     unit.setVoclist(voclist);
                 }
 
@@ -211,7 +213,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         insertUnit(UnitIdGenerator.generate(), "Greta", "Having a party", "Not yet, my dear.");
         insertUnit(UnitIdGenerator.generate(), "Greta", "Melting chocolate", "Smells good.");
         insertUnit(UnitIdGenerator.generate(), "Greta", "Making a torch", "You light up my life.");
-        insertUnit(UnitIdGenerator.generate(), "Greta", "Kitchen cleaning", "Help me, supermom.");
+        insertUnit(UnitIdGenerator.generate(), "Greta", "Kitchen cleaning", "Help me.");
 
     }
 
@@ -245,6 +247,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public boolean updateVocabulary(String unitId,
+                                    String foreignLang, String nativeLang, String description,
+                                    int level1, int level2,
+                                    int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(VOCABULARY_COLUMN_UNIT_ID, unitId);
+        contentValues.put(VOCABULARY_COLUMN_FOREIGN_LANG, foreignLang);
+        contentValues.put(VOCABULARY_COLUMN_NATIVE_LANG, nativeLang);
+        contentValues.put(VOCABULARY_COLUMN_DESCRIPTION, description);
+        contentValues.put(VOCABULARY_COLUMN_LEVEL_1, level1);
+        contentValues.put(VOCABULARY_COLUMN_LEVEL_2, level2);
+
+        db.update(VOCABULARY_TABLE_NAME, contentValues,
+                VOCABULARY_COLUMN_ID + " = ? ", new String[]{Integer.toString(id)});
+        return true;
+    }
+
+
     public ArrayList<VocabularyItem> getVocabularyData() {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<VocabularyItem> voclist = new ArrayList<VocabularyItem>();
@@ -267,7 +289,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return voclist;
     }
 
-    public ArrayList<VocabularyItem> getVocabularyData(String unitId) {
+    public ArrayList<VocabularyItem> getVocabularyDataByUnitId(String unitId) {
+        return getVocabularyData(VOCABULARY_COLUMN_UNIT_ID, unitId);
+    }
+
+    @NonNull
+    private ArrayList<VocabularyItem> getVocabularyData(String column, String value) {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<VocabularyItem> voclist = new ArrayList<VocabularyItem>();
 
@@ -281,10 +308,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 VOCABULARY_COLUMN_LEVEL_2
         };
 
-        String pattern = UNITS_COLUMN_UNIT_ID + "=?";
+        String pattern = column + "=?";
 
         String[] values = {
-                unitId
+                value
         };
 
         Cursor result = db.query(VOCABULARY_TABLE_NAME,
@@ -307,6 +334,83 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return voclist;
     }
+
+    @NonNull
+    private ArrayList<VocabularyItem> getVocabularyData(String column, Integer value) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<VocabularyItem> voclist = new ArrayList<VocabularyItem>();
+
+        String[] columns = {
+                VOCABULARY_COLUMN_ID,
+                VOCABULARY_COLUMN_FOREIGN_LANG,
+                VOCABULARY_COLUMN_NATIVE_LANG,
+                VOCABULARY_COLUMN_DESCRIPTION,
+                VOCABULARY_COLUMN_UNIT_ID,
+                VOCABULARY_COLUMN_LEVEL_1,
+                VOCABULARY_COLUMN_LEVEL_2
+        };
+
+        String pattern = column + "=?";
+
+
+        String[] values = new String[]{
+                Integer.toString(value)
+        };
+
+        Cursor result = db.query(VOCABULARY_TABLE_NAME,
+                columns, pattern, values,
+                null, null, null, null
+        );
+
+        while (result.moveToNext()) {
+            voclist.add(new VocabularyItem(
+                            Integer.parseInt(result.getString(0)),
+                            result.getString(1),
+                            result.getString(2),
+                            result.getString(3),
+                            result.getString(4),
+                            Integer.parseInt(result.getString(5)),
+                            Integer.parseInt(result.getString(6))
+                    )
+            );
+        }
+
+        return voclist;
+    }
+
+
+    public int getVocabularyId(String foreign) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int value = -1;
+
+        String[] columns = {
+                VOCABULARY_COLUMN_ID,
+                VOCABULARY_COLUMN_FOREIGN_LANG,
+                VOCABULARY_COLUMN_NATIVE_LANG,
+                VOCABULARY_COLUMN_DESCRIPTION,
+                VOCABULARY_COLUMN_UNIT_ID,
+                VOCABULARY_COLUMN_LEVEL_1,
+                VOCABULARY_COLUMN_LEVEL_2
+        };
+
+        String pattern = VOCABULARY_COLUMN_FOREIGN_LANG + "=?";
+
+        String[] values = {
+                foreign
+        };
+
+        Cursor result = db.query(VOCABULARY_TABLE_NAME,
+                columns, pattern, values,
+                null, null, null, null
+        );
+
+        if (result.moveToFirst()) { // ist da überhaupt ein Datensatz
+            value = Integer.parseInt(result.getString(0));
+        }
+
+        return value;
+    }
+
 
     public void insertSomeVocs() {
         insertVocabulary(UnitIdGenerator.generate(), "to learn", "lernen", "verb, inifinitiv");

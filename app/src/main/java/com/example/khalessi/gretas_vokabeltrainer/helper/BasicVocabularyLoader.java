@@ -30,7 +30,7 @@ public class BasicVocabularyLoader {
     // Interface routinen
 
     public ArrayList<VocabularyItem> getVocabularyData(String unitId) {
-        return dbh.getVocabularyData(unitId);
+        return dbh.getVocabularyDataByUnitId(unitId);
     }
 
     public ArrayList<VocabularyItem> getVocabularyData() {
@@ -51,6 +51,14 @@ public class BasicVocabularyLoader {
 
     public void deleteSomeUnits() {
         dbh.deleteSomeUnits();
+    }
+
+    public int getVocabularyId(String foreign) {
+        return dbh.getVocabularyId(foreign);
+    }
+
+    public ArrayList<VocabularyItem> getVocabularyDataByUnitId(String unitId) {
+        return dbh.getVocabularyDataByUnitId(unitId);
     }
 
 

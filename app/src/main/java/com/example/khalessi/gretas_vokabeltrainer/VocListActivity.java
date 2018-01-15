@@ -44,8 +44,12 @@ public class VocListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String foreignLang = voclist.get(position).getForeignLang();
+                int fid = bvl.getVocabularyId(foreignLang);
+
                 Toast.makeText(getApplicationContext(),
-                        "" + voclist.get(position).getForeignLang(), Toast.LENGTH_SHORT).show();
+                        "" + fid+"", Toast.LENGTH_SHORT).show();
 
             }
         });
