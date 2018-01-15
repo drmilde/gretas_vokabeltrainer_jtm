@@ -28,50 +28,18 @@
         android:text="Miau"
         android:textSize="30sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:text="@string/choose_a_design"
-        android:textSize="30sp" />
-
     <Button
-        android:id="@+id/btn_fussballDesign"
+        android:id="@+id/btn_startApp"
         android:layout_marginTop="20dp"
         style="@style/buttonStyle"
 
-        android:layout_width="170dp"
+        android:layout_width="270dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
 
-        android:text="Fußball"
-
+        android:text="Los geht's"
         />
 
-    <Button
-        android:id="@+id/btn_katzenDesign"
-        android:layout_marginTop="20dp"
-        style="@style/buttonStyle"
-
-        android:layout_width="170dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-
-        android:text="Kätzchen"
-        />
-
-    <Button
-        android:id="@+id/btn_testListView"
-        android:layout_marginTop="20dp"
-        style="@style/buttonStyle"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-
-        android:text="Teste"
-        />
 
 
 </LinearLayout>

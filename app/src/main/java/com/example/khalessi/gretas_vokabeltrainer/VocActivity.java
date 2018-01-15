@@ -49,19 +49,13 @@ public class VocActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // store current Voc in AppState
+                VocabularyItem currentVoc = voclist.get(position);
+                AppState.getInstance().setCurrentVoc(currentVoc);
 
-                String foreignLang = voclist.get(position).getForeignLang();
-                int fid = bvl.getVocabularyId(foreignLang);
-
-                Toast.makeText(getApplicationContext(),
-                        "" + fid+"", Toast.LENGTH_SHORT).show();
-
-                // TODO store current voc in AppState und start VocAdd Activity
-
+                // start VocAddActivity
                 Intent intent_VocAdd = new Intent(getApplicationContext(), VocAddActivity.class);
                 startActivity(intent_VocAdd);
-
-
             }
         });
 

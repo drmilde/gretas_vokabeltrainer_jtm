@@ -12,22 +12,22 @@ import com.example.khalessi.gretas_vokabeltrainer.helper.BasicVocabularyLoader;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 public class MyWelcomeActivity extends AppCompatActivity {
-    private Button btn_katzenDesign;
+    private Button btn_startApp;
 
     private BasicVocabularyLoader bvl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_design_choice);
+        setContentView(R.layout.activity_mywelcome);
 
         // setup the database
         AppState.getInstance().setDatabaseHelper(new DatabaseHelper(this));
         bvl = new BasicVocabularyLoader();
         bvl.resetDatabase();
 
-        btn_katzenDesign = (Button) findViewById(R.id.btn_katzenDesign);
-        btn_katzenDesign.setOnClickListener(new View.OnClickListener() {
+        btn_startApp = (Button) findViewById(R.id.btn_startApp);
+        btn_startApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -39,17 +39,6 @@ public class MyWelcomeActivity extends AppCompatActivity {
 
                 Intent unitIntent = new Intent(getApplicationContext(), UnitActivity.class);
                 startActivity(unitIntent);
-            }
-        });
-
-        // TODO kann später weg, nur zu Testzwecken
-        Button btn_testListView = (Button) findViewById(R.id.btn_testListView);
-        btn_testListView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent_testListView = new Intent(getApplicationContext(), VocActivity.class);
-                startActivity(intent_testListView);
-
             }
         });
 

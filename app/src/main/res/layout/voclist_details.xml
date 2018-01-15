@@ -16,7 +16,8 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:text="Foreign"
-            android:textSize="20sp" />
+            android:textStyle="bold"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/tv_voc_nativeLang"
@@ -24,7 +25,8 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:text="Native"
-            android:textSize="20sp" />
+            android:textStyle="bold"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/tv_voc_count1"

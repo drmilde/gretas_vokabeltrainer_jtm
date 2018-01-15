@@ -100,7 +100,7 @@ public class BasicVocabularyLoader {
         dbh.insertUnit("HavingAParty", "Greta", "Having a party", "Not yet, my dear.");
         dbh.insertUnit("MeltingChocolate", "Greta", "Melting chocolate", "Smells good.");
         dbh.insertUnit("MakingATorch", "Greta", "Making a torch", "You light up my life.");
-        dbh.insertUnit("KitchenCleaning", "Greta", "Kitchen cleaning", "Help me, supermom.");
+        dbh.insertUnit("KitchenCleaning", "Greta", "Kitchen cleaning", "Help me.");
     }
 
 }
