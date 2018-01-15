@@ -34,4 +34,19 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:text="UnitId" />
+
+
+    <TextView
+        android:id="@+id/tv_voc_count1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="count1" />
+
+    <TextView
+        android:id="@+id/tv_voc_count2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="count2" />
 </LinearLayout>

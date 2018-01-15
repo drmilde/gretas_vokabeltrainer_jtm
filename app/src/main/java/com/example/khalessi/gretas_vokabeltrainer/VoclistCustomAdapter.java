@@ -33,7 +33,10 @@ public class VoclistCustomAdapter extends ArrayAdapter {
         TextView tv_native;
         TextView tv_description;
         TextView tv_unitId;
+        TextView tv_count1;
+        TextView tv_count2;
     }
+
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -47,6 +50,8 @@ public class VoclistCustomAdapter extends ArrayAdapter {
             holder.tv_foreign = (TextView) convertView.findViewById(R.id.tv_voc_foreignLang);
             holder.tv_description = (TextView) convertView.findViewById(R.id.tv_voc_Description);
             holder.tv_native = (TextView) convertView.findViewById(R.id.tv_voc_nativeLang);
+            holder.tv_count1 = (TextView) convertView.findViewById(R.id.tv_voc_count1);
+            holder.tv_count2 = (TextView) convertView.findViewById(R.id.tv_voc_count2);
             convertView.setTag(holder);
 
         } else {
@@ -59,6 +64,8 @@ public class VoclistCustomAdapter extends ArrayAdapter {
         holder.tv_foreign.setText("Foreign: " + vocitem.getForeignLang() + "");
         holder.tv_unitId.setText("UniId: " + vocitem.getUnitId());
         holder.tv_native.setText("Native: " + vocitem.getNativeLang());
+        holder.tv_count1.setText("Count1: " + vocitem.getLevel1());
+        holder.tv_count2.setText("Count2: " + vocitem.getLevel2());
         return convertView;
     }
 
