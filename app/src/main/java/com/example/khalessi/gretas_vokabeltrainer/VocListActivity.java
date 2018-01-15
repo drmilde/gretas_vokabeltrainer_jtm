@@ -29,7 +29,7 @@ public class VocListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_voc_list);
 
         voclist = bvl.getVocabularyData("livingRoom");
-        //voclist = bvl.getVocabularyData();
+        voclist = bvl.getVocabularyData();
 
         voclistCustomAdapter= new VoclistCustomAdapter(this, R.layout.voclist_details, voclist);
 

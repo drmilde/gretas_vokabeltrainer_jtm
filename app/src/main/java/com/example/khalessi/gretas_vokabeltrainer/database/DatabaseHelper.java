@@ -153,7 +153,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Unit getUnit(String unitId) {
+    public Unit getUnit(String unitId, boolean getVocList) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String[] columns = {
@@ -186,8 +186,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 );
 
                 // copy voclist
-                ArrayList<VocabularyItem> voclist = getVocabularyData(cursor.getString(0));
-                unit.setVoclist(voclist);
+                if (getVocList) {
+                    ArrayList<VocabularyItem> voclist = getVocabularyData(cursor.getString(0));
+                    unit.setVoclist(voclist);
+                }
 
                 return unit;
             }

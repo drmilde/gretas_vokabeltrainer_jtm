@@ -95,7 +95,7 @@ public class UnitAddActivity extends AppCompatActivity {
                 .insertUnit(unitID, userName, title, description);
 
         // Hole die Unit und setze sie in AppState als current unit
-        Unit unit = AppState.getInstance().getDatabaseHelper().getUnit(unitID);
+        Unit unit = AppState.getInstance().getDatabaseHelper().getUnit(unitID, false);
         if (unit != null) {
             AppState.getInstance().setCurrentUnit(unit);
         }
