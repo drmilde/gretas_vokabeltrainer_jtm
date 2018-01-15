@@ -57,7 +57,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + VOCABULARY_COLUMN_NATIVE_LANG + " Text,"
                 + VOCABULARY_COLUMN_DESCRIPTION + " Text,"
                 + VOCABULARY_COLUMN_LEVEL_1 + " integer,"
-                + VOCABULARY_COLUMN_LEVEL_2+ " integer)"
+                + VOCABULARY_COLUMN_LEVEL_2 + " integer)"
         );
     }
 
@@ -178,12 +178,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor != null) {
             if (cursor.moveToFirst()) { // ist da überhaupt ein Datensatz
                 Unit unit = new Unit(
-                        cursor.getString(0),
+                        cursor.getString(0), // unitId
                         cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),
                         Integer.parseInt(cursor.getString(4))
                 );
+
+                // copy voclist
+                ArrayList<VocabularyItem> voclist = getVocabularyData(cursor.getString(0));
+                unit.setVoclist(voclist);
 
                 return unit;
             }
@@ -285,13 +289,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         while (result.moveToNext()) {
             voclist.add(new VocabularyItem(
-                    Integer.parseInt(result.getString(0)),
-                    result.getString(1),
-                    result.getString(2),
-                    result.getString(3),
-                    result.getString(4),
-                    Integer.parseInt(result.getString(5)),
-                    Integer.parseInt(result.getString(6))
+                            Integer.parseInt(result.getString(0)),
+                            result.getString(1),
+                            result.getString(2),
+                            result.getString(3),
+                            result.getString(4),
+                            Integer.parseInt(result.getString(5)),
+                            Integer.parseInt(result.getString(6))
                     )
             );
         }
