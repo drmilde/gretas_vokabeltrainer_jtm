@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".DesignChoiceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +25,7 @@
             android:name=".VocAddActivity"
             android:label="@string/title_activity_entry_add"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".UnitAddActivity" />
         <activity android:name=".UnitListActivity" />
         <activity android:name=".VocListActivity" />

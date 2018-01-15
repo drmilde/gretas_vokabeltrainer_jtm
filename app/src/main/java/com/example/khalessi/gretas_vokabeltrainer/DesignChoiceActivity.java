@@ -50,19 +50,20 @@ public class DesignChoiceActivity extends AppCompatActivity {
 
 
         // TODO Datenbank für Vokabeln anlegen (Kopie von Unit und anpassen)
-        // TODO setzten dynamisch Hintergrundbild per Java
-        // TODO Gestalterisch: app theme entwickeln
-        // TODO Vokabeln übersetzen
-        // TODO Styles entwickeln
-        // TODO Dokumentationskommentare einfügen
-        // TODO Impressum Activity entwickeln
         // TODO Eintragen von Vokabeln in die Datenbank
         // TODO Entragen von Unit in die Datenbank
         // TODO Angabe des Benutzernamens
         // TODO Systemweite Speicherung der aktuellen Daten in einem Singleton
+        // TODO ListView clickbar machen -> Unit auswählen und dann Vokabeln hinzufügen können
+
+        // TODO Gestalterisch: app theme entwickeln
+        // TODO setzten dynamisch Hintergrundbild per Java
+        // TODO Vokabeln übersetzen
+        // TODO Styles entwickeln
+        // TODO Dokumentationskommentare einfügen
+        // TODO Impressum Activity entwickeln
         // TODO Übungsmodi generieren
         // TODO Statistiken programmieren (weit weg)
-        // TODO ListView clickbar machen -> Unit auswählen und dann Vokabeln hinzufügen können
         // TODO Bilder und Übersetzungen anfertigen
         // TODO Entwicklungsnotizen starten (in Google Docs) !!!
 

@@ -1,8 +1,12 @@
 <resources>
-    <string name="app_name">gretas_vokabeltrainer JTM</string>
-    <string name="title_activity_unit">UnitActivity</string>
-    <string name="title_activity_entry_add">EntryAddActivity</string>
 
+    <!-- Titelanzeigen -->
+    <string name="app_name">Sprachmeister</string>
+    <string name="title_activity_unit">@string/app_name</string>
+    <string name="title_activity_entry_add">@string/app_name</string>
+
+
+    <!-- Labels für den Listview -->
     <string name="listview_unitname">Anmerkungen: </string>
     <string name="listview_username">Benutzername: </string>
     <string name="listview_unitId">Erstellungsdatum: </string>

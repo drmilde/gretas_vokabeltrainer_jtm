@@ -4,114 +4,126 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-
     android:background="@drawable/unit_list_bg"
+
+    android:orientation="vertical"
 
     tools:context="com.example.khalessi.gretas_vokabeltrainer.UnitAddActivity">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="30dp"
-    android:orientation="vertical">
-
-
-    <!-- Ueberschrift -->
-    <TextView
-        android:id="@+id/tv_lektionAnlegen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/header_text_size"
-        android:text="@string/unit_process_tv_title" />
-
-
-    <!--  Titel  -->
-    <TextView
-        android:id="@+id/tv_unit_add_lektionsTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:text="@string/unit_add_tv_unit_title" />
-
-
-    <EditText
-        android:id="@+id/et_unit_add_lektionsTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName|textNoSuggestions"
-        android:hint="@string/unit_add_et_unit_title_hint" />
-
-    <!--  Description  -->
-    <TextView
-        android:id="@+id/tv_unit_add_lektionsDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:text="Beschreibung" />
-
-    <EditText
-        android:id="@+id/et_unit_add_lektionsDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textMultiLine|textNoSuggestions"
-        android:minLines="3"
-        android:maxLines="5"
-        android:hint="@string/unit_add_et_unit_desctiption_hint" />
-
-    <!--  Benutzername  -->
-    <TextView
-        android:id="@+id/tv_unit_add_lektionsUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:text="Benutzername" />
-
-
-    <EditText
-        android:id="@+id/et_unit_add_lektionsUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName|textNoSuggestions"
-        android:text="Greta" />
-
-    <!-- Buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="right"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:orientation="vertical"
+        android:padding="30dp">
 
-        >
 
-        <Button
-            android:id="@+id/btn_addEntryCancel"
-            android:layout_width="wrap_content"
+        <!-- Ueberschrift -->
+        <TextView
+            android:id="@+id/tv_lektionAnlegen"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/buttonStyle"
+            android:text="@string/unit_process_tv_title"
+            android:textSize="@dimen/header_text_size" />
 
-            android:layout_marginRight="10sp"
 
-            android:text="@string/button_text_back" />
-
-        <Button
-            android:id="@+id/btn_addEntrySubmit"
-            android:layout_width="wrap_content"
+        <!--  Titel  -->
+        <TextView
+            android:id="@+id/tv_unit_add_lektionsTitle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:text="@string/unit_add_tv_unit_title"
+            android:textSize="20sp" />
 
-            style="@style/buttonStyle"
 
-            android:text="@string/unit_add_btn_save_and_add_entries" />
+        <EditText
+            android:id="@+id/et_unit_add_lektionsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/unit_add_et_unit_title_hint"
+            android:inputType="textPersonName|textNoSuggestions" />
+
+        <!--  Description  -->
+        <TextView
+            android:id="@+id/tv_unit_add_lektionsDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:text="Beschreibung"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_unit_add_lektionsDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/unit_add_et_unit_desctiption_hint"
+            android:inputType="textMultiLine|textNoSuggestions"
+            android:maxLines="5"
+            android:minLines="3" />
+
+        <!--  Benutzername  -->
+        <TextView
+            android:id="@+id/tv_unit_add_lektionsUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:text="Benutzername"
+            android:textSize="20sp" />
+
+
+        <EditText
+            android:id="@+id/et_unit_add_lektionsUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName|textNoSuggestions"
+            android:text="Greta" />
+
+        <!-- Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:orientation="horizontal"
+
+            >
+
+            <Button
+                android:id="@+id/btn_addEntryCancel"
+                style="@style/buttonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="10sp"
+
+                android:text="@string/button_text_back" />
+
+            <Button
+                android:id="@+id/btn_addEntrySubmit"
+                style="@style/buttonStyle"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:text="@string/unit_add_btn_save_and_add_entries" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
-</LinearLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
 </LinearLayout>
 
 

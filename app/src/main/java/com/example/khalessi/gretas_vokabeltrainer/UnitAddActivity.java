@@ -1,6 +1,8 @@
 package com.example.khalessi.gretas_vokabeltrainer;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +22,6 @@ public class UnitAddActivity extends AppCompatActivity {
 
         // aktuell ausgewählte unit anzeigen und bearbeiten
         showCurrentUnitData();
-
 
         // Clicks verarbeiten
         Button btn_speichern = (Button) findViewById(R.id.btn_addEntrySubmit);
@@ -47,7 +48,19 @@ public class UnitAddActivity extends AppCompatActivity {
             }
         });
 
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "TODO: Add a new unit to the table", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
     }
+
+
 
 
     @Override

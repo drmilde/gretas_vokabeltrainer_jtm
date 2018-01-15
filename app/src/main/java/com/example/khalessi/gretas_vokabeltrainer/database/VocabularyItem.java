@@ -14,7 +14,6 @@ public class VocabularyItem {
     private int level2;
 
 
-
     public VocabularyItem(String unitId, String foreignLang, String nativeLang, String description) {
         this.foreignLang = foreignLang;
         this.nativeLang = nativeLang;

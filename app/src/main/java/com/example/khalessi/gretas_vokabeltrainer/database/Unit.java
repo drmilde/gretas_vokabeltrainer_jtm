@@ -1,5 +1,7 @@
 package com.example.khalessi.gretas_vokabeltrainer.database;
 
+import java.util.ArrayList;
+
 /**
  * Created by Alexandra Filbert on 04.01.18.
  */
@@ -12,6 +14,10 @@ public class Unit {
     private String description;
     private int _id;
 
+    // vocabulary item of unit
+    private ArrayList<VocabularyItem> voclist = new ArrayList<VocabularyItem>();
+
+
     public Unit(String unitId, String user, String title, String description) {
         this(unitId, user, title, description, -1);
     }
@@ -23,6 +29,9 @@ public class Unit {
         this.description = description;
         this._id = _id;
     }
+
+
+    // getter
 
     public String getUnitId() {
         return unitId;
@@ -44,6 +53,12 @@ public class Unit {
         return description;
     }
 
+    public ArrayList<VocabularyItem> getVoclist() {
+        return voclist;
+    }
+
+    // setter
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -62,5 +77,9 @@ public class Unit {
 
     public void set_id(int _id) {
         this._id = _id;
+    }
+
+    public void setVoclist(ArrayList<VocabularyItem> voclist) {
+        this.voclist = voclist;
     }
 }
