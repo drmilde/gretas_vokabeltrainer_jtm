@@ -105,22 +105,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public ArrayList<Unit> getUnitsData() {
+    public ArrayList<Unit> getUnitsData(boolean getVocList) {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<Unit> units = new ArrayList<Unit>();
         Cursor result = db.rawQuery("select * from " + UNITS_TABLE_NAME, null);
 
         while (result.moveToNext()) {
-            units.add(new Unit(
-                            result.getString(result.getColumnIndex(UNITS_COLUMN_UNIT_ID)),
-                            result.getString(result.getColumnIndex(UNITS_COLUMN_USER)),
-                            result.getString(result.getColumnIndex(UNITS_COLUMN_TITLE)),
-                            result.getString(result.getColumnIndex(UNITS_COLUMN_DESCRIPTION)),
-                            Integer.parseInt(result.getString(result.getColumnIndex("_id")))
-                    )
-                    //)
+            // create new unit
+            Unit unit = new Unit(
+                    result.getString(result.getColumnIndex(UNITS_COLUMN_UNIT_ID)),
+                    result.getString(result.getColumnIndex(UNITS_COLUMN_USER)),
+                    result.getString(result.getColumnIndex(UNITS_COLUMN_TITLE)),
+                    result.getString(result.getColumnIndex(UNITS_COLUMN_DESCRIPTION)),
+                    Integer.parseInt(result.getString(result.getColumnIndex("_id")))
             );
 
+            // find voclist of unit
+            if (getVocList) {
+                ArrayList<VocabularyItem> voclist = getVocabularyData(result.getString(result.getColumnIndex(UNITS_COLUMN_UNIT_ID)));
+                unit.setVoclist(voclist);
+            }
+
+            units.add(unit);
         }
 
         return units;

@@ -37,8 +37,8 @@ public class BasicVocabularyLoader {
         return dbh.getVocabularyData();
     }
 
-    public ArrayList<Unit> getUnitsData() {
-        return dbh.getUnitsData();
+    public ArrayList<Unit> getUnitsData(boolean getVocList) {
+        return dbh.getUnitsData(getVocList);
     }
 
     public void deleteUnit(int id) {

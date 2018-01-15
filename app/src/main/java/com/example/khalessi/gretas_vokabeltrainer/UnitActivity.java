@@ -36,7 +36,7 @@ public class UnitActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // setup the database
-        units = bvl.getUnitsData();
+        units = bvl.getUnitsData(false);
         unitCustomAdapter = new UnitCustomAdapter(this, R.layout.unitlist_details, units);
 
         // connect listView and Adapter
@@ -137,7 +137,7 @@ public class UnitActivity extends AppCompatActivity {
      * Updates the content of the ListView.
      */
     private void updateListView() {
-        units = bvl.getUnitsData(); // aktuelle Daten holen
+        units = bvl.getUnitsData(false); // aktuelle Daten holen
         unitCustomAdapter.setUnits(units); // daten in unitCustomAdapter setzen
         listView.invalidateViews(); // listView neu zeichnen
     }
