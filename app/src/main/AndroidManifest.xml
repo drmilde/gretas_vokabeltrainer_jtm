@@ -27,7 +27,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name=".UnitAddActivity" />
-        <activity android:name=".UnitListActivity" />
         <activity android:name=".VocListActivity" />
     </application>
 

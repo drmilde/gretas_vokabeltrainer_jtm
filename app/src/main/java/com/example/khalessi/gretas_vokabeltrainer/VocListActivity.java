@@ -1,13 +1,12 @@
 package com.example.khalessi.gretas_vokabeltrainer;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.khalessi.gretas_vokabeltrainer.database.DatabaseHelper;
 import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
 import com.example.khalessi.gretas_vokabeltrainer.database.VocabularyItem;
 import com.example.khalessi.gretas_vokabeltrainer.helper.BasicVocabularyLoader;
@@ -28,7 +27,9 @@ public class VocListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voc_list);
 
-        Unit unit = bvl.getUnit("livingRoom", true);
+
+        //Unit unit = bvl.getUnit("livingRoom", true);
+        Unit unit = AppState.getInstance().getCurrentUnit();
         voclist = unit.getVoclist();
 
         // TODO Fehlerbehandlung, wenn voclist leer ist

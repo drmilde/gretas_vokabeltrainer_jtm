@@ -1,10 +1,10 @@
 package com.example.khalessi.gretas_vokabeltrainer;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,13 +30,19 @@ public class UnitAddActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (AppState.getInstance().getCurrentUnit() == null) { // keine aktuelle unit
+                    // erzeuge neue Unit
                     insertNewUnit();
                 } else {
-                    // TODO verarbeite die gesetzte Unit
+                    // TODO verarbeite die gesetzte Unit, keine Ahnung was hier passieren soll
                 }
 
-                Intent intent_addEntry = new Intent(getApplicationContext(), VocAddActivity.class);
-                startActivity(intent_addEntry);
+                //Intent intent_addEntry = new Intent(getApplicationContext(), VocAddActivity.class);
+                //startActivity(intent_addEntry);
+
+                // show voc list view
+                Intent intent_testListView = new Intent(getApplicationContext(), VocListActivity.class);
+                startActivity(intent_testListView);
+
             }
         });
 
@@ -91,7 +97,7 @@ public class UnitAddActivity extends AppCompatActivity {
         AppState.getInstance().getDatabaseHelper()
                 .insertUnit(unitID, userName, title, description);
 
-        // Hole die Unit und setze sie in AppState als current unit
+        // Hole die Unit und setze sie in AppState als current unit, hat noch keine voc list
         Unit unit = AppState.getInstance().getDatabaseHelper().getUnit(unitID, false);
         if (unit != null) {
             AppState.getInstance().setCurrentUnit(unit);

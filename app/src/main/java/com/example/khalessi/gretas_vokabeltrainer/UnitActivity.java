@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
-import com.example.khalessi.gretas_vokabeltrainer.database.DatabaseHelper;
 import com.example.khalessi.gretas_vokabeltrainer.helper.BasicVocabularyLoader;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
@@ -22,7 +21,6 @@ public class UnitActivity extends AppCompatActivity {
 
     private UnitCustomAdapter unitCustomAdapter = null;
     private ListView listView = null;
-    //private DatabaseHelper db = null;
     private ArrayList<Unit> units = null;
 
     private BasicVocabularyLoader bvl = new BasicVocabularyLoader();
@@ -36,7 +34,7 @@ public class UnitActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // setup the database
-        units = bvl.getUnitsData(false);
+        units = bvl.getUnitsData(true);
         unitCustomAdapter = new UnitCustomAdapter(this, R.layout.unitlist_details, units);
 
         // connect listView and Adapter
@@ -59,6 +57,9 @@ public class UnitActivity extends AppCompatActivity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+
                 createDeleteDialog(position).show();
                 return true;
             }
@@ -137,7 +138,7 @@ public class UnitActivity extends AppCompatActivity {
      * Updates the content of the ListView.
      */
     private void updateListView() {
-        units = bvl.getUnitsData(false); // aktuelle Daten holen
+        units = bvl.getUnitsData(true); // aktuelle Daten holen
         unitCustomAdapter.setUnits(units); // daten in unitCustomAdapter setzen
         listView.invalidateViews(); // listView neu zeichnen
     }

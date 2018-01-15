@@ -35,6 +35,7 @@ public class UnitCustomAdapter extends ArrayAdapter {
         TextView tv_unitId;
         TextView tv_description;
         TextView tv_title;
+        TextView tv_voc_size;
     }
 
     @Override
@@ -51,6 +52,7 @@ public class UnitCustomAdapter extends ArrayAdapter {
             holder.tv_description = (TextView) convertView.findViewById(R.id.tv_description);
             */
             holder.tv_title = (TextView) convertView.findViewById(R.id.tv_title);
+            holder.tv_voc_size = (TextView) convertView.findViewById(R.id.tv_voc_list_size);
             convertView.setTag(holder);
 
         } else {
@@ -65,6 +67,7 @@ public class UnitCustomAdapter extends ArrayAdapter {
         //holder.tv_title.setText(context.getString(R.string.listview_title) + unit.getTitle());
         */
         holder.tv_title.setText(unit.getTitle());
+        holder.tv_voc_size.setText("Anzahl Wörter: "+ unit.getVoclist().size());
         return convertView;
     }
 

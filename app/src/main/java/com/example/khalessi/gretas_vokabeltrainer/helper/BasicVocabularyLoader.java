@@ -16,7 +16,6 @@ public class BasicVocabularyLoader {
 
     public BasicVocabularyLoader() {
         dbh = AppState.getInstance().getDatabaseHelper();
-        resetDatabase();
     }
 
 

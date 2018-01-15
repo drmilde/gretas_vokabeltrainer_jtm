@@ -1,17 +1,20 @@
 package com.example.khalessi.gretas_vokabeltrainer;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.khalessi.gretas_vokabeltrainer.database.DatabaseHelper;
+import com.example.khalessi.gretas_vokabeltrainer.helper.BasicVocabularyLoader;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 public class DesignChoiceActivity extends AppCompatActivity {
     private Button btn_katzenDesign;
+
+    private BasicVocabularyLoader bvl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,8 @@ public class DesignChoiceActivity extends AppCompatActivity {
 
         // setup the database
         AppState.getInstance().setDatabaseHelper(new DatabaseHelper(this));
+        bvl = new BasicVocabularyLoader();
+        bvl.resetDatabase();
 
         btn_katzenDesign = (Button) findViewById(R.id.btn_katzenDesign);
         btn_katzenDesign.setOnClickListener(new View.OnClickListener() {

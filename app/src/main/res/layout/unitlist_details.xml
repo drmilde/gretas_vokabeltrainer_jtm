@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="@dimen/activity_horizontal_margin"
-        >
+        android:padding="2dp">
 
         <ImageView
             android:id="@+id/iv_unitImageIcon"
@@ -19,21 +17,44 @@
             android:layout_height="80dp"
             app:srcCompat="@drawable/ic_content_copy_black_24dp" />
 
-        <TextView
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-
-            android:text="Title"
-
-            android:layout_width="200sp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-
             android:layout_gravity="center_vertical"
+            android:orientation="vertical">
 
-            android:textStyle="bold"
-            android:id="@+id/tv_title"
-            android:textColor="@color/textColorDark"
-            />
+            <TextView
+                android:id="@+id/tv_title"
+
+                android:layout_width="200sp"
+
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+
+                android:text="Title"
+
+                android:textColor="@color/textColorDark"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_voc_list_size"
+
+                android:layout_width="200sp"
+
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+
+                android:text="Size"
+
+                android:textColor="@color/textColorDark"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
 
 
         <RelativeLayout
@@ -51,8 +72,7 @@
                 android:progressDrawable="@drawable/custom_progess"
 
                 android:scaleX="0.5"
-                android:scaleY="0.5"
-                />
+                android:scaleY="0.5" />
 
 
             <TextView
@@ -64,12 +84,9 @@
                 android:layout_centerVertical="true"
                 android:gravity="center"
 
-                android:text="100"
-                />
+                android:text="100" />
 
         </RelativeLayout>
-
-
 
 
     </LinearLayout>
