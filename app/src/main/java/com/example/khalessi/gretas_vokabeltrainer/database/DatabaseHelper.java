@@ -12,8 +12,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.NonNull;
 
-import com.example.khalessi.gretas_vokabeltrainer.helper.UnitIdGenerator;
-
 import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -203,18 +201,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // TODO muss der cursor hier geschlossen werden ????
 
         return null;
-    }
-
-    public void insertSomeUnits() {
-        insertUnit("livingRoom", "Greta", "In the living room", "On top of the world.");
-
-        insertUnit(UnitIdGenerator.generate(), "Greta", "In the living room", "Watching TV is fun!");
-        insertUnit(UnitIdGenerator.generate(), "Greta", "Going to school", "This is less :)");
-        insertUnit(UnitIdGenerator.generate(), "Greta", "Having a party", "Not yet, my dear.");
-        insertUnit(UnitIdGenerator.generate(), "Greta", "Melting chocolate", "Smells good.");
-        insertUnit(UnitIdGenerator.generate(), "Greta", "Making a torch", "You light up my life.");
-        insertUnit(UnitIdGenerator.generate(), "Greta", "Kitchen cleaning", "Help me.");
-
     }
 
     public void deleteSomeUnits() {
@@ -409,21 +395,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return value;
-    }
-
-
-    public void insertSomeVocs() {
-        insertVocabulary(UnitIdGenerator.generate(), "to learn", "lernen", "verb, inifinitiv");
-        insertVocabulary(UnitIdGenerator.generate(), "to run", "laufen", "verb, inifinitiv");
-        insertVocabulary(UnitIdGenerator.generate(), "to hide", "verstecken", "verb, inifinitiv");
-        insertVocabulary(UnitIdGenerator.generate(), "to seek", "suchen", "verb, inifinitiv");
-        insertVocabulary(UnitIdGenerator.generate(), "to watch", "schauen", "verb, inifinitiv");
-        insertVocabulary(UnitIdGenerator.generate(), "to ring", "klingeln", "verb, inifinitiv");
-
-        insertVocabulary("livingRoom", "to rise", "aufsteigen", "verb, inifinitiv");
-        insertVocabulary("livingRoom", "to fall", "fallen", "verb, inifinitiv");
-        insertVocabulary("livingRoom", "to sing", "singen", "verb, inifinitiv");
-        insertVocabulary("livingRoom", "to think", "denken", "verb, inifinitiv");
     }
 
 
