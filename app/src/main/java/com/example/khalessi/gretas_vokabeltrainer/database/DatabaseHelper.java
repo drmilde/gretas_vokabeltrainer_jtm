@@ -143,6 +143,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.update(UNITS_TABLE_NAME, contentValues, UNITS_COLUMN_ID + " = ? ", new String[]{Integer.toString(id)});
         return true;
+
+
+        // TODO updateVoc einfügen und increase von Level1 und Level2 umsetzen
     }
 
     public Integer deleteUnit(Integer id) {
