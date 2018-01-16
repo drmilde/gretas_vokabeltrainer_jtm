@@ -18,7 +18,7 @@ import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 import java.util.ArrayList;
 
-public class VocActivity extends AppCompatActivity {
+public class VocListActivity extends AppCompatActivity {
 
     private VocCustomAdapter voclistCustomAdapter = null;
     private ListView listView = null;
@@ -29,7 +29,7 @@ public class VocActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_voc_list);
+        setContentView(R.layout.activity_list_voc);
 
 
         //Unit unit = bvl.getUnit("livingRoom", true);
@@ -41,7 +41,7 @@ public class VocActivity extends AppCompatActivity {
         //voclist = bvl.getVocabularyData("livingRoom");
         //voclist = bvl.getVocabularyData();
 
-        voclistCustomAdapter= new VocCustomAdapter(this, R.layout.voclist_details, voclist);
+        voclistCustomAdapter= new VocCustomAdapter(this, R.layout.details_list_voc, voclist);
 
         listView = (ListView) findViewById(R.id.lv_vocListView);
         listView.setAdapter(voclistCustomAdapter);

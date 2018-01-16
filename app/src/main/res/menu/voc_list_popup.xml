@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/one"
-        android:title="@string/voc_lpopup_menu_add" />
+        android:title="@string/list_voc_popup_menu_add" />
 
     <item
         android:id="@+id/two"
@@ -15,7 +15,7 @@
 
     <item
         android:id="@+id/four"
-        android:title="@string/voc_popup_menu_delete" />
+        android:title="@string/list_voc_popup_menu_delete" />
 
 
 </menu>

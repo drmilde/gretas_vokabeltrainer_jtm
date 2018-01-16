@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".UnitActivity"
+            android:name=".UnitListActivity"
             android:label="@string/title_activity_unit"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -27,7 +27,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name=".UnitAddActivity" />
-        <activity android:name=".VocActivity" />
+        <activity android:name=".VocListActivity" />
     </application>
 
 </manifest>

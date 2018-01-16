@@ -7,13 +7,18 @@
 
     android:orientation="vertical"
 
-    android:background="@drawable/unit_list_bg"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.khalessi.gretas_vokabeltrainer.UnitListActivity"
+    tools:showIn="@layout/activity_list_unit">
 
-    tools:context="com.example.khalessi.gretas_vokabeltrainer.VocActivity">
 
     <ListView
+        android:id="@+id/lv_unitListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lv_vocListView"
-        />
+        android:padding="@dimen/activity_horizontal_margin"
+        android:background="@drawable/unit_list_bg"
+        >
+    </ListView>
+
 </LinearLayout>

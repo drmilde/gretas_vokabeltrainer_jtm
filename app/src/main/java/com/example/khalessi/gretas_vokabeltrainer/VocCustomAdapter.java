@@ -42,7 +42,7 @@ public class VocCustomAdapter extends ArrayAdapter {
         VocCustomAdapter.ViewHolder holder = null;
         if (convertView == null) {
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = vi.inflate(R.layout.voclist_details, null);
+            convertView = vi.inflate(R.layout.details_list_voc, null);
 
             holder = new VocCustomAdapter.ViewHolder();
             holder.tv_unitId = (TextView) convertView.findViewById(R.id.tv_voc_unitId);

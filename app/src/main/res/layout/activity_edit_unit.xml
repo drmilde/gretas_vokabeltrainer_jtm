@@ -22,7 +22,7 @@
             android:id="@+id/tv_lektionAnlegen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/add_unit_tv_title"
+            android:text="@string/edit_unit_tv_title"
             android:textSize="@dimen/header_text_size" />
 
 

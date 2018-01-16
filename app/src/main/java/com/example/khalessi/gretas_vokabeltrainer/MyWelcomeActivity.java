@@ -37,7 +37,7 @@ public class MyWelcomeActivity extends AppCompatActivity {
                 AppState.getInstance().setCurrentUserName(currentUserName);
 
 
-                Intent unitIntent = new Intent(getApplicationContext(), UnitActivity.class);
+                Intent unitIntent = new Intent(getApplicationContext(), UnitListActivity.class);
                 startActivity(unitIntent);
             }
         });

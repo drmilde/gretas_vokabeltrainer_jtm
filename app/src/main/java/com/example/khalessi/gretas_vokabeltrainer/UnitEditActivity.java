@@ -13,12 +13,12 @@ import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
 import com.example.khalessi.gretas_vokabeltrainer.helper.UnitIdGenerator;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
-public class UnitAddActivity extends AppCompatActivity {
+public class UnitEditActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_unit);
+        setContentView(R.layout.activity_edit_unit);
 
         // aktuell ausgewählte unit anzeigen und bearbeiten
         showCurrentUnitData();

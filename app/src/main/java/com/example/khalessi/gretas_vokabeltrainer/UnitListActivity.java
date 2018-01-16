@@ -21,7 +21,7 @@ import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 import java.util.ArrayList;
 
-public class UnitActivity extends AppCompatActivity {
+public class UnitListActivity extends AppCompatActivity {
 
     private UnitCustomAdapter unitCustomAdapter = null;
     private ListView listView = null;
@@ -33,13 +33,13 @@ public class UnitActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_unit);
+        setContentView(R.layout.activity_list_unit);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         // setup the database
         units = bvl.getUnitsData(true);
-        unitCustomAdapter = new UnitCustomAdapter(this, R.layout.unitlist_details, units);
+        unitCustomAdapter = new UnitCustomAdapter(this, R.layout.details_list_unit, units);
 
         // connect listView and Adapter
         listView = (ListView) findViewById(R.id.lv_unitListView);
@@ -53,7 +53,7 @@ public class UnitActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // save current unit and start UnitAddActivity
                 AppState.getInstance().setCurrentUnit(units.get(position));
-                startUnitAddIntent();
+                startUnitEditActivity();
             }
         });
 
@@ -78,7 +78,7 @@ public class UnitActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AppState.getInstance().setCurrentUnit(null);
-                startUnitAddIntent();
+                startUnitEditActivity();
             }
         });
     }
@@ -148,9 +148,9 @@ public class UnitActivity extends AppCompatActivity {
     /**
      * Starts the UnitAddActivity.
      */
-    private void startUnitAddIntent() {
-        Intent intentAddUnit = new Intent(getApplicationContext(), UnitAddActivity.class);
-        startActivity(intentAddUnit);
+    private void startUnitEditActivity() {
+        Intent intentEditUnit = new Intent(getApplicationContext(), UnitEditActivity.class);
+        startActivity(intentEditUnit);
     }
 
 

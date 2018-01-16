@@ -27,7 +27,7 @@
 
             android:textSize="@dimen/header_text_size"
 
-            android:text="Vokabeln hinzufügen" />
+            android:text="@string/add_voc_tv_title" />
 
         <EditText
             android:id="@+id/et_entry_add_vokabelMuttersprache"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName|textNoSuggestions"
-            android:hint="Bedeutung in deiner Sprache" />
+            android:hint="@string/add_voc_et_native_hint" />
 
         <EditText
             android:id="@+id/et_entry_add_vokabelFremdsprache"
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName|textNoSuggestions"
-            android:hint="Bedeutung in Fremdsprache" />
+            android:hint="@string/add_voc_et_foreign_hint" />
 
         <EditText
             android:id="@+id/et_entry_add_vokabelZusatzinfo"
@@ -52,7 +52,7 @@
             android:ems="10"
             android:inputType="textMultiLine|textNoSuggestions"
             android:minLines="5"
-            android:hint="Weitere Angaben wie Beispielsätze oder Steigerungsformen der Adjaktive" />
+            android:hint="@string/add_voc_et_description_hint" />
 
         <EditText
             android:id="@+id/et_entry_add_lektionstitel"
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName|textNoSuggestions"
-            android:hint="Lektionstitel" />
+            android:hint="@string/add_voc_et_unit_hint" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -79,7 +79,7 @@
 
                 android:layout_marginRight="10sp"
 
-                android:text="@string/button_text_back" />
+                android:text="@string/add_voc_btn_back_label" />
 
             <Button
                 android:id="@+id/btn_addEntrySubmit"
@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 style="@style/buttonStyle"
 
-                android:text="@string/button_text_save" />
+                android:text="@string/add_voc_btn_save_label" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
