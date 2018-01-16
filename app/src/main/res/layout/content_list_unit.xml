@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/activity_horizontal_margin"
-        android:background="@drawable/unit_list_bg"
+        android:background="@drawable/list_unit_bg"
         >
     </ListView>
 

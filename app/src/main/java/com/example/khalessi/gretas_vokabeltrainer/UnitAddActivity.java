@@ -36,8 +36,6 @@ public class UnitAddActivity extends AppCompatActivity {
                     // TODO verarbeite die gesetzte Unit, keine Ahnung was hier passieren soll
                 }
 
-                //Intent intent_addEntry = new Intent(getApplicationContext(), VocAddActivity.class);
-                //startActivity(intent_addEntry);
 
                 // show voc list view
                 Intent intent_testListView = new Intent(getApplicationContext(), VocListActivity.class);

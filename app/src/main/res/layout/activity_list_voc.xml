@@ -7,7 +7,7 @@
 
     android:orientation="vertical"
 
-    android:background="@drawable/unit_list_bg"
+    android:background="@drawable/list_unit_bg"
 
     tools:context="com.example.khalessi.gretas_vokabeltrainer.VocListActivity">
 

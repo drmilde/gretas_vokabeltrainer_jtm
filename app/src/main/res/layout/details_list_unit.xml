@@ -69,7 +69,7 @@
                 android:indeterminate="false"
                 android:max="100"
                 android:progress="70"
-                android:progressDrawable="@drawable/custom_progess"
+                android:progressDrawable="@drawable/list_unit_custom_progess"
 
                 android:scaleX="0.5"
                 android:scaleY="0.5" />

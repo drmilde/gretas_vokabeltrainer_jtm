@@ -5,11 +5,10 @@
     <string name="title_activity_unit">@string/app_name</string>
     <string name="title_activity_entry_add">@string/app_name</string>
 
-
     <!-- WelcomeActivity -->
     <string name="welcome_enter_your_name_tv_title">Gib deinen Namen ein.</string>
 
-    <!-- Labels für den Listview -->
+    <!-- Labels für den Listview Details -->
     <string name="listview_unitname">Anmerkungen: </string>
     <string name="listview_username">Benutzername: </string>
     <string name="listview_unitId">Erstellungsdatum: </string>
@@ -17,15 +16,23 @@
 
     <!-- UnitAddActivity -->
     <string name="add_unit_tv_title">Lektion hinzufügen</string>
-    <string name="add_unit_btn_label">Bearbeiten</string>
+    <string name="add_unit_btn_label">Hinzufügen</string>
+
+    <!-- Unit Add Activity -->
+    <string name="add_unit_tv_unit_title">Lektionstitel</string>
+    <string name="add_unit_et_unit_title_hint">Lektionsname</string>
+    <string name="add_unit_et_unit_desctiption_hint">Zusatzinformation: Bspl. Seite im Buch oder Beschreibung</string>
 
     <!-- UnitEditActivity -->
     <string name="edit_unit_tv_title">Lektion bearbeiten</string>
+    <string name="edit_unit_btn_save_label">Speichern</string>
 
-    <string name="unit_delete_dialog_yes">Ja, löschen</string>
-    <string name="unit_delete_dialog_no">Nein</string>
-    <string name="unit_delete_title_text">Löschen von Lektion ?</string>
+    <!-- Delete Unit Dialog -->
+    <string name="delete_unit_dialog_yes">Ja, löschen</string>
+    <string name="delete_unit_dialog_no">Nein</string>
+    <string name="delete_unit_title_text">Löschen von Lektion ?</string>
 
+    <!-- Bottom Menu -->
     <string name="title_activity_unit_list_bottom_menu">UnitListBottomMenuActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -34,11 +41,6 @@
 
     <string name="button_text_back">Zurück</string>
     <string name="button_text_save">Speichern</string>
-
-    <string name="unit_add_tv_unit_title">Lektionstitel</string>
-    <string name="unit_add_et_unit_title_hint">Lektionsname</string>
-    <string name="unit_add_et_unit_desctiption_hint">Zusatzinformation: Bspl. Seite im Buch oder Beschreibung</string>
-
 
 
     <!-- Popup menues -->

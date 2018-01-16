@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/unit_list_bg"
+    android:background="@drawable/list_unit_bg"
 
     android:orientation="vertical"
 
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:text="@string/unit_add_tv_unit_title"
+            android:text="@string/add_unit_tv_unit_title"
             android:textSize="20sp" />
 
 
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/unit_add_et_unit_title_hint"
+            android:hint="@string/add_unit_et_unit_title_hint"
             android:inputType="textPersonName|textNoSuggestions" />
 
         <!--  Description  -->
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/unit_add_et_unit_desctiption_hint"
+            android:hint="@string/add_unit_et_unit_desctiption_hint"
             android:inputType="textMultiLine|textNoSuggestions"
             android:maxLines="5"
             android:minLines="3" />

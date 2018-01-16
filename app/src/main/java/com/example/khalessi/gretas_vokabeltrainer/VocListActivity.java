@@ -79,7 +79,7 @@ public class VocListActivity extends AppCompatActivity {
     private PopupMenu createPopupMenu(View view) {
         PopupMenu popup = new PopupMenu(getApplicationContext(), view);
         //Inflating the Popup using xml file
-        popup.getMenuInflater().inflate(R.menu.voc_list_popup, popup.getMenu());
+        popup.getMenuInflater().inflate(R.menu.list_voc_popup, popup.getMenu());
 
         //registering popup with OnMenuItemClickListener
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {

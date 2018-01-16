@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    android:background="@drawable/unit_list_bg"
+    android:background="@drawable/list_unit_bg"
 
 
     app:layout_behavior="@string/appbar_scrolling_view_behavior"

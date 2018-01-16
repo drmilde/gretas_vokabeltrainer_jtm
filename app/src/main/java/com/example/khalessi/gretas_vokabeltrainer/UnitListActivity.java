@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class UnitListActivity extends AppCompatActivity {
 
-    private UnitListCustomAdapter unitCustomAdapter = null;
+    private UnitListCustomAdapter unitlistCustomAdapter = null;
     private ListView listView = null;
     private ArrayList<Unit> units = null;
 
@@ -37,13 +37,13 @@ public class UnitListActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // setup the database
+        // get the data from database and create UnitListCustomAdapter
         units = bvl.getUnitsData(true);
-        unitCustomAdapter = new UnitListCustomAdapter(this, R.layout.details_list_unit, units);
+        unitlistCustomAdapter = new UnitListCustomAdapter(this, R.layout.details_list_unit, units);
 
         // connect listView and Adapter
         listView = (ListView) findViewById(R.id.lv_unitListView);
-        listView.setAdapter(unitCustomAdapter);
+        listView.setAdapter(unitlistCustomAdapter);
 
 
         // react to click
@@ -78,16 +78,24 @@ public class UnitListActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AppState.getInstance().setCurrentUnit(null);
-                startUnitEditActivity();
+                startUnitAddActivity();
             }
         });
     }
 
+
+    /**
+     * Erzeugt und initialisiert das Popupmenu für den übegebenen View
+     * (in diesem Fall der ListView zur Anzeige der Units)
+     *
+     * @param view
+     * @return
+     */
     @NonNull
     private PopupMenu createPopupMenu(View view) {
         PopupMenu popup = new PopupMenu(getApplicationContext(), view);
         //Inflating the Popup using xml file
-        popup.getMenuInflater().inflate(R.menu.unit_list_popup, popup.getMenu());
+        popup.getMenuInflater().inflate(R.menu.list_unit_popup, popup.getMenu());
 
         //registering popup with OnMenuItemClickListener
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -110,11 +118,11 @@ public class UnitListActivity extends AppCompatActivity {
      */
     private AlertDialog createDeleteDialog(final int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(getString(R.string.unit_delete_title_text) + "\n\n" + units.get(position).getTitle());
+        builder.setMessage(getString(R.string.delete_unit_title_text) + "\n\n" + units.get(position).getTitle());
         builder.setCancelable(true);
 
         builder.setPositiveButton(
-                R.string.unit_delete_dialog_yes,
+                R.string.delete_unit_dialog_yes,
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         deleteListItem(position);
@@ -123,7 +131,7 @@ public class UnitListActivity extends AppCompatActivity {
                 });
 
         builder.setNegativeButton(
-                R.string.unit_delete_dialog_no,
+                R.string.delete_unit_dialog_no,
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -153,13 +161,21 @@ public class UnitListActivity extends AppCompatActivity {
         startActivity(intentEditUnit);
     }
 
+    /**
+     * starts the UniAddActivity
+     */
+    private void startUnitAddActivity() {
+        Intent intentAddUnit = new Intent(getApplicationContext(), UnitAddActivity.class);
+        startActivity(intentAddUnit);
+    }
+
 
     /**
      * Updates the content of the ListView.
      */
     private void updateListView() {
         units = bvl.getUnitsData(true); // aktuelle Daten holen
-        unitCustomAdapter.setUnits(units); // daten in unitCustomAdapter setzen
+        unitlistCustomAdapter.setUnits(units); // daten in unitlistCustomAdapter setzen
         listView.invalidateViews(); // listView neu zeichnen
     }
 
