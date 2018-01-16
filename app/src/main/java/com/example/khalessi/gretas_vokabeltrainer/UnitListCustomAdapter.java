@@ -18,11 +18,11 @@ import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
 import java.util.ArrayList;
 
 
-public class UnitCustomAdapter extends ArrayAdapter {
+public class UnitListCustomAdapter extends ArrayAdapter {
     private Context context;
     private ArrayList<Unit> units;
 
-    public UnitCustomAdapter(Context context, int textViewResourceId, ArrayList objects) {
+    public UnitListCustomAdapter(Context context, int textViewResourceId, ArrayList objects) {
         super(context, textViewResourceId, objects);
 
         this.context = context;

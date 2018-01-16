@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class UnitListActivity extends AppCompatActivity {
 
-    private UnitCustomAdapter unitCustomAdapter = null;
+    private UnitListCustomAdapter unitCustomAdapter = null;
     private ListView listView = null;
     private ArrayList<Unit> units = null;
 
@@ -39,7 +39,7 @@ public class UnitListActivity extends AppCompatActivity {
 
         // setup the database
         units = bvl.getUnitsData(true);
-        unitCustomAdapter = new UnitCustomAdapter(this, R.layout.details_list_unit, units);
+        unitCustomAdapter = new UnitListCustomAdapter(this, R.layout.details_list_unit, units);
 
         // connect listView and Adapter
         listView = (ListView) findViewById(R.id.lv_unitListView);

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class VocListActivity extends AppCompatActivity {
 
-    private VocCustomAdapter voclistCustomAdapter = null;
+    private VocListCustomAdapter voclistCustomAdapter = null;
     private ListView listView = null;
     private ArrayList<VocabularyItem> voclist = null;
 
@@ -41,7 +41,7 @@ public class VocListActivity extends AppCompatActivity {
         //voclist = bvl.getVocabularyData("livingRoom");
         //voclist = bvl.getVocabularyData();
 
-        voclistCustomAdapter= new VocCustomAdapter(this, R.layout.details_list_voc, voclist);
+        voclistCustomAdapter= new VocListCustomAdapter(this, R.layout.details_list_voc, voclist);
 
         listView = (ListView) findViewById(R.id.lv_vocListView);
         listView.setAdapter(voclistCustomAdapter);
@@ -53,9 +53,9 @@ public class VocListActivity extends AppCompatActivity {
                 VocabularyItem currentVoc = voclist.get(position);
                 AppState.getInstance().setCurrentVoc(currentVoc);
 
-                // start VocAddActivity
-                Intent intent_VocAdd = new Intent(getApplicationContext(), VocAddActivity.class);
-                startActivity(intent_VocAdd);
+                // start VocEditActivity
+                Intent intent_VocEdit = new Intent(getApplicationContext(), VocEditActivity.class);
+                startActivity(intent_VocEdit);
             }
         });
 

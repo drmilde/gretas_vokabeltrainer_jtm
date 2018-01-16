@@ -57,4 +57,9 @@
     <string name="add_voc_btn_back_label">Zurück</string>
     <string name="add_voc_btn_save_label">Speichern</string>
 
+
+    <!-- Edit Voc Form -->
+    <string name="edit_voc_tv_titel">Vokabel bearbeiten</string>
+    <string name="edit_voc_btn_save_label">Speichern</string>
+
 </resources>

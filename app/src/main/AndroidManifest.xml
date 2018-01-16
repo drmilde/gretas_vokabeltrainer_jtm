@@ -17,16 +17,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".UnitListActivity"
             android:label="@string/title_activity_unit"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".UnitAddActivity" />
+        <activity android:name=".UnitEditActivity" />
+
         <activity
             android:name=".VocAddActivity"
             android:label="@string/title_activity_entry_add"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".UnitAddActivity" />
+        <activity
+            android:name=".VocEditActivity"
+            android:label="@string/title_activity_entry_add"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".VocListActivity" />
     </application>
 

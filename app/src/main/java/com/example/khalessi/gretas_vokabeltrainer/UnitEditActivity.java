@@ -24,7 +24,7 @@ public class UnitEditActivity extends AppCompatActivity {
         showCurrentUnitData();
 
         // Clicks verarbeiten
-        Button btn_speichern = (Button) findViewById(R.id.btn_addEntrySubmit);
+        Button btn_speichern = (Button) findViewById(R.id.btn_editEntrySubmit);
         btn_speichern.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +46,7 @@ public class UnitEditActivity extends AppCompatActivity {
             }
         });
 
-        Button btn_cancel = (Button) findViewById(R.id.btn_addEntryCancel);
+        Button btn_cancel = (Button) findViewById(R.id.btn_editEntryCancel);
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
