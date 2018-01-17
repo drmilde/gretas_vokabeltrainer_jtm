@@ -14,5 +14,7 @@
     <color name="schemeColor5">#9692A8</color>
     <color name="textColorDark">#000000</color>
 
+    <color name="colorPrimaryTransparent">#4c3f51b5</color>
+    <color name="white">#4c3f51b5</color>
 
 </resources>

@@ -64,4 +64,10 @@
     <string name="edit_voc_tv_titel">Vokabel bearbeiten</string>
     <string name="edit_voc_btn_save_label">Speichern</string>
 
+
+    <!-- Navigation Bar -->
+    <string name="title_dashboard1">Dashboard1</string>
+    <string name="title_dashboard2">Dashboard2</string>
+
+
 </resources>

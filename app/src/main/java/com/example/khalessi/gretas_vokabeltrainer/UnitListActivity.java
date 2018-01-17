@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -71,17 +72,44 @@ public class UnitListActivity extends AppCompatActivity {
         });
 
 
-        // use floating button to add a new unit
-        // this is indicated by setting the current unit to null
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AppState.getInstance().setCurrentUnit(null);
-                startUnitAddActivity();
-            }
-        });
+        // configure customized BottomNavigationBar
+        configureBottomBar(R.id.navigation);
     }
+
+
+    // CONFIGURE BOTTOMBAR
+    private void configureBottomBar(int navigation1) {
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(navigation1);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        BottomNavigationViewHelper.disableShiftMode(navigation);
+    }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    // TODO provide action for first button in navigation bar
+                    return true;
+                case R.id.navigation_dashboard1:
+                    // TODO provide action for second button in navigation bar
+                    return true;
+                case R.id.navigation_dashboard2:
+                    // TODO provide action for third button in navigation bar
+                    return true;
+                case R.id.navigation_notifications:
+                    // TODO provide action for forth button in navigation bar
+                    // TODO substitute FAB here, just as a test
+                    AppState.getInstance().setCurrentUnit(null);
+                    startUnitAddActivity();
+                    return true;
+            }
+            return false;
+        }
+    };
 
 
     /**
