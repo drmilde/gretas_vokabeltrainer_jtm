@@ -34,9 +34,11 @@
 
     <!-- Bottom Menu -->
     <string name="title_activity_unit_list_bottom_menu">UnitListBottomMenuActivity</string>
-    <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="navigation_first_title">Home</string>
+    <string name="navigation_second_title">Dashboard1</string>
+    <string name="navigation_third_title">Dashboard2</string>
+    <string name="navigation_forth_title">Notifications</string>
 
 
     <string name="button_text_back">Zurück</string>
@@ -65,9 +67,6 @@
     <string name="edit_voc_btn_save_label">Speichern</string>
 
 
-    <!-- Navigation Bar -->
-    <string name="title_dashboard1">Dashboard1</string>
-    <string name="title_dashboard2">Dashboard2</string>
 
 
 </resources>

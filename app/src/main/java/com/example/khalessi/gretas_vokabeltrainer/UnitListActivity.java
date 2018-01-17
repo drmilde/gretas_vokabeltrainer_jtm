@@ -1,12 +1,9 @@
 package com.example.khalessi.gretas_vokabeltrainer;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -85,6 +82,7 @@ public class UnitListActivity extends AppCompatActivity {
         BottomNavigationViewHelper.disableShiftMode(navigation);
     }
 
+    // BOTTOMBAR Callback handler
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -138,38 +136,6 @@ public class UnitListActivity extends AppCompatActivity {
 
 
     /**
-     * Creates an AlertDialog with registered handlers for the deletion
-     * at the position of the ListView.
-     *
-     * @param position position in the ListView
-     * @return an AlertDialog with registered handlers
-     */
-    private AlertDialog createDeleteDialog(final int position) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(getString(R.string.delete_unit_title_text) + "\n\n" + units.get(position).getTitle());
-        builder.setCancelable(true);
-
-        builder.setPositiveButton(
-                R.string.delete_unit_dialog_yes,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        deleteListItem(position);
-                        dialog.cancel();
-                    }
-                });
-
-        builder.setNegativeButton(
-                R.string.delete_unit_dialog_no,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-
-        return (builder.create());
-    }
-
-    /**
      * Deletes the unit at position in the ArrayList from the database
      * and updates the ListView.
      *
@@ -207,26 +173,10 @@ public class UnitListActivity extends AppCompatActivity {
         listView.invalidateViews(); // listView neu zeichnen
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();
         // if database has changed, we need to update the ListView
-        updateListView();
-    }
-
-    // **********************************************************
-    // ****************************** TEST **********************
-    // **********************************************************
-
-    /**
-     * Just a small Test, deleting two records from the Units Table
-     * and refreshing the listView
-     * <p>
-     * seems to work :)
-     */
-    private void testDeleteEntries() {
-        bvl.deleteSomeUnits(); // in der Datenbank löschen
         updateListView();
     }
 
