@@ -37,6 +37,9 @@
 
         android:background="@color/colorPrimaryTransparent"
         app:itemIconTint="@color/colorAccent"
+        android:iconTintMode="src_over"
+        android:iconTint="@color/colorAccent"
+        app:itemTextColor="@color/colorAccent"
 
 
         app:layout_constraintBottom_toBottomOf="parent"

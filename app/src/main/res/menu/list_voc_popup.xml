@@ -7,11 +7,11 @@
 
     <item
         android:id="@+id/two"
-        android:title="Two" />
+        android:title="@string/list_voc_popup_menu_details" />
 
     <item
         android:id="@+id/three"
-        android:title="Three" />
+        android:title="@string/list_voc_popup_menu_process" />
 
     <item
         android:id="@+id/four"

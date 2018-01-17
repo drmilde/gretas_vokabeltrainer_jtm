@@ -53,6 +53,8 @@
 
 
     <string name="list_voc_popup_menu_add">Hinzufügen</string>
+    <string name="list_voc_popup_menu_details">Details</string>
+    <string name="list_voc_popup_menu_process">Bearbeiten</string>
     <string name="list_voc_popup_menu_delete">Löschen</string>
 
 
