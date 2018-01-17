@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
+
+
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#eeff41</color>
 
@@ -14,7 +16,8 @@
     <color name="schemeColor5">#9692A8</color>
     <color name="textColorDark">#000000</color>
 
-    <color name="colorPrimaryTransparent">#4c3f51b5</color>
+    <color name="colorPrimaryTransparent">#c85b60f0</color>
+    <color name="colorBottomNavPrimary">#3F51B5</color>
     <color name="white">#4c3f51b5</color>
 
 </resources>

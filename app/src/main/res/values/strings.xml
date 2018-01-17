@@ -35,10 +35,10 @@
     <!-- Bottom Menu -->
     <string name="title_activity_unit_list_bottom_menu">UnitListBottomMenuActivity</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="navigation_first_title">Home</string>
-    <string name="navigation_second_title">Dashboard1</string>
-    <string name="navigation_third_title">Dashboard2</string>
-    <string name="navigation_forth_title">Notifications</string>
+    <string name="navigation_first_title">Üben</string>
+    <string name="navigation_second_title">Löschen</string>
+    <string name="navigation_third_title">Details</string>
+    <string name="navigation_forth_title">Bearbeiten</string>
 
 
     <string name="button_text_back">Zurück</string>
@@ -46,8 +46,12 @@
 
 
     <!-- Popup menues -->
-    <string name="list_unit_popup_menu_add">Hinzufügen</string>
+    <string name="list_unit_popup_menu_practice">Üben</string>
+    <string name="list_unit_popup_menu_details">Details</string>
+    <string name="list_unit_popup_menu_process">Bearbeiten</string>
     <string name="list_unit_popup_menu_delete">Löschen</string>
+
+
     <string name="list_voc_popup_menu_add">Hinzufügen</string>
     <string name="list_voc_popup_menu_delete">Löschen</string>
 

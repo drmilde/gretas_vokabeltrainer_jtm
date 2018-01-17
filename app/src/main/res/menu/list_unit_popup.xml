@@ -3,19 +3,19 @@
 
     <item
         android:id="@+id/one"
-        android:title="@string/list_unit_popup_menu_add" />
+        android:title="@string/list_unit_popup_menu_practice" />
 
     <item
         android:id="@+id/two"
-        android:title="Two" />
+        android:title="@string/list_unit_popup_menu_delete" />
 
     <item
         android:id="@+id/three"
-        android:title="Three" />
+        android:title="@string/list_unit_popup_menu_details" />
 
     <item
         android:id="@+id/four"
-        android:title="@string/list_unit_popup_menu_delete" />
+        android:title="@string/list_unit_popup_menu_process" />
 
 
 </menu>
