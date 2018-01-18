@@ -29,18 +29,23 @@ public class UnitAddActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                boolean callVocListActivity = false;
+
                 if (AppState.getInstance().getCurrentUnit() == null) { // keine aktuelle unit
-                    // erzeuge neue Unit
-                    insertNewUnit();
+
+                    // erzeuge neue Unit, falls Form ausgefüllt
+                    callVocListActivity = insertNewUnit();
+
                 } else {
-                    // TODO verarbeite die gesetzte Unit, keine Ahnung was hier passieren soll
+                    // TODO verarbeite die gesetzte Unit, update der Unit mit den gesetzten Werten
+                    callVocListActivity = updateCurrentUnit();
                 }
 
-
                 // show voc list view
-                Intent intent_testListView = new Intent(getApplicationContext(), VocListActivity.class);
-                startActivity(intent_testListView);
-
+                if (callVocListActivity) {
+                    Intent intent_testListView = new Intent(getApplicationContext(), VocListActivity.class);
+                    startActivity(intent_testListView);
+                }
             }
         });
 
@@ -72,14 +77,20 @@ public class UnitAddActivity extends AppCompatActivity {
     }
 
     /**
+     *
+     */
+
+    /**
      * Processes the current EditText fields
      * and generates a new database entry.
      * <p>
      * It then queries the database to get this unit (based on the generated unitId)
      * and sets it as the current unit in the AppState,
      * thus making ist public to the rest of the App.
+     *
+     * @return true, if new Unit has been inserted
      */
-    private void insertNewUnit() {
+    private boolean insertNewUnit() {
         EditText et_unit_add_lektionsTitle = (EditText) findViewById(R.id.et_unit_add_lektionsTitle);
         String title = et_unit_add_lektionsTitle.getText().toString();
 
@@ -91,15 +102,67 @@ public class UnitAddActivity extends AppCompatActivity {
 
         String unitID = UnitIdGenerator.generate();
 
-        // Einfügen in Datenbank
-        AppState.getInstance().getDatabaseHelper()
-                .insertUnit(unitID, userName, title, description);
+        // Sind die Daten vollständig ?
+        boolean dataComplete = checkForm(title, description, userName, unitID);
 
-        // Hole die Unit und setze sie in AppState als current unit, hat noch keine voc list
-        Unit unit = AppState.getInstance().getDatabaseHelper().getUnit(unitID, false);
-        if (unit != null) {
-            AppState.getInstance().setCurrentUnit(unit);
+        if (dataComplete) {
+            // Einfügen in Datenbank
+            AppState.getInstance().getDatabaseHelper()
+                    .insertUnit(unitID, userName, title, description);
+
+            // Hole die Unit und setze sie in AppState als current unit, hat noch keine voc list
+            Unit unit = AppState.getInstance().getDatabaseHelper().getUnit(unitID, false);
+            if (unit != null) {
+                AppState.getInstance().setCurrentUnit(unit);
+            }
         }
+
+        return dataComplete;
+    }
+
+    private boolean updateCurrentUnit() {
+        EditText et_unit_add_lektionsTitle = (EditText) findViewById(R.id.et_unit_add_lektionsTitle);
+        String title = et_unit_add_lektionsTitle.getText().toString();
+
+        EditText et_unit_add_lektionsDescription = (EditText) findViewById(R.id.et_unit_add_lektionsDescription);
+        String description = et_unit_add_lektionsDescription.getText().toString();
+
+        EditText et_unit_add_lektionsUsername = (EditText) findViewById(R.id.et_unit_add_lektionsUsername);
+        String userName = et_unit_add_lektionsUsername.getText().toString();
+
+        String unitID = UnitIdGenerator.generate();
+
+        // Sind die Daten vollständig ?
+        boolean dataComplete = checkForm(title, description, userName, unitID);
+
+        if (dataComplete) {
+            // Update auf der Datenbank
+
+            // TODO update hier einfügen
+
+            /*
+            AppState.getInstance().getDatabaseHelper()
+                    .insertUnit(unitID, userName, title, description);
+
+            // Hole die Unit und setze sie in AppState als current unit, hat noch keine voc list
+            Unit unit = AppState.getInstance().getDatabaseHelper().getUnit(unitID, false);
+            if (unit != null) {
+                AppState.getInstance().setCurrentUnit(unit);
+            }
+            */
+        }
+
+        return dataComplete;
+    }
+
+
+
+    private boolean checkForm(String title, String description, String userName, String unitID) {
+        boolean dataComplete;
+        dataComplete = !(
+                (title.isEmpty()) || (description.isEmpty()) || (userName.isEmpty()) || (unitID.isEmpty())
+        );
+        return dataComplete;
     }
 
     /**
