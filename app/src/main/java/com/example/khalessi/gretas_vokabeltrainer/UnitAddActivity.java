@@ -159,11 +159,13 @@ public class UnitAddActivity extends AppCompatActivity {
     }
 
 
-
     private boolean checkForm(String title, String description, String userName, String unitID) {
         boolean dataComplete;
         dataComplete = !(
-                (title.isEmpty()) || (description.isEmpty()) || (userName.isEmpty()) || (unitID.isEmpty())
+                (title.trim().equalsIgnoreCase("")) ||
+                (description.trim().equalsIgnoreCase("")) ||
+                (userName.trim().equalsIgnoreCase("")) ||
+                (unitID.trim().equalsIgnoreCase(""))
         );
         return dataComplete;
     }
@@ -199,6 +201,6 @@ public class UnitAddActivity extends AppCompatActivity {
             EditText et_unit_add_lektionsUsername = (EditText) findViewById(R.id.et_unit_add_lektionsUsername);
             et_unit_add_lektionsUsername.setText(AppState.getInstance().getCurrentUserName());
         }
-    }
 
+    }
 }

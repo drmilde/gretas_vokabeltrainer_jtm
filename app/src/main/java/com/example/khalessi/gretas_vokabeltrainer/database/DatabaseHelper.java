@@ -92,6 +92,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //*****************************************************
 
 
+    /**
+     * Inserts a new Unit into the UnitTable.
+     *
+     * @param unit to be inserted
+     * @return true, if insert has been successful
+     */
     public boolean insertUnit(Unit unit) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -101,10 +107,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(UNITS_COLUMN_DESCRIPTION, unit.getDescription());
         contentValues.put(UNITS_COLUMN_TITLE, unit.getTitle());
 
-        db.insert(UNITS_TABLE_NAME, null, contentValues);
-        return true;
+        long rowId = db.insert(UNITS_TABLE_NAME, null, contentValues);
+        return (rowId > -1);
     }
 
+    /**
+     *
+     * Retrieves all Units from the database.
+     * If getVocList is true, the vocs data is also copied into the Units.
+     *
+     * @param getVocList, if true, copy the vocs into the unit's voclist
+     * @return
+     */
     public ArrayList<Unit> getUnitsData(boolean getVocList) {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<Unit> units = new ArrayList<Unit>();
@@ -132,6 +146,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return units;
     }
 
+    /**
+     * Is updating the content of a simgle unit row in the database.
+     * Data is copied from the given unit into the row.
+     * The row id is not modified.
+     *
+     * @param id, the row id of the unit to be updated
+     * @param unit, the unit containing the data to be updated
+     * @return true, if entries had been affected
+     */
     public boolean updateUnit(int id, Unit unit) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -146,6 +169,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // TODO updateVoc einfügen und increase von Level1 und Level2 umsetzen
     }
 
+    /**
+     * Updates a unit row, based on the UNIT_ID (row id is ignored here!!).
+     *
+     * @param unit, unit containing the data to be updated
+     * @return true, if rows have been affected
+     */
     public boolean updateUnit(Unit unit) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -155,18 +184,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(UNITS_COLUMN_DESCRIPTION, unit.getDescription());
         contentValues.put(UNITS_COLUMN_TITLE, unit.getTitle());
 
-        db.update(UNITS_TABLE_NAME, contentValues, UNITS_COLUMN_UNIT_ID + " = ? ", new String[]{unit.getUnitId()});
-        return true;
-
+        int affected = db.update(UNITS_TABLE_NAME, contentValues, UNITS_COLUMN_UNIT_ID + " = ? ", new String[]{unit.getUnitId()});
+        return (affected > 0);
 
         // TODO updateVoc einfügen und increase von Level1 und Level2 umsetzen
     }
 
-    public Integer deleteUnit(Integer id) {
+
+    /**
+     * Deletes the unit row with given id.
+     *
+     * @param id, row id to be deleted
+     * @return number of rows affected (0, if no row has been deleted)
+     */
+    public int deleteUnit(Integer id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(UNITS_TABLE_NAME,
                 UNITS_COLUMN_ID + " = ? ",
                 new String[]{Integer.toString(id)});
+    }
+
+    /**
+     * Deletes the row with the unit's unitId.
+     *
+     * @param unit, supply the uniId of the row, to be deleted.
+     * @return number of rows affected (0, if no row has been deleted)
+     */
+    public int deleteUnit(Unit unit) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(UNITS_TABLE_NAME,
+                UNITS_COLUMN_UNIT_ID + " = ? ",
+                new String[]{unit.getUnitId()});
     }
 
 
