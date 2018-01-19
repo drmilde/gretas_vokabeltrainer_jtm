@@ -91,14 +91,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // CRUD Operationen Unit ANFANG
     //*****************************************************
 
-    public boolean insertUnit(String unitId, String user, String title, String description) {
+
+    public boolean insertUnit(Unit unit) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put(UNITS_COLUMN_USER, user);
-        contentValues.put(UNITS_COLUMN_UNIT_ID, unitId);
-        contentValues.put(UNITS_COLUMN_DESCRIPTION, description);
-        contentValues.put(UNITS_COLUMN_TITLE, title);
+        contentValues.put(UNITS_COLUMN_USER, unit.getUser());
+        contentValues.put(UNITS_COLUMN_UNIT_ID, unit.getUnitId());
+        contentValues.put(UNITS_COLUMN_DESCRIPTION, unit.getDescription());
+        contentValues.put(UNITS_COLUMN_TITLE, unit.getTitle());
 
         db.insert(UNITS_TABLE_NAME, null, contentValues);
         return true;
@@ -131,16 +132,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return units;
     }
 
-    public boolean updateUnit(int id, String unitId, String user, String title, String description) {
+    public boolean updateUnit(int id, Unit unit) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put(UNITS_COLUMN_USER, user);
-        contentValues.put(UNITS_COLUMN_UNIT_ID, unitId);
-        contentValues.put(UNITS_COLUMN_DESCRIPTION, description);
-        contentValues.put(UNITS_COLUMN_TITLE, title);
+        contentValues.put(UNITS_COLUMN_USER, unit.getUser());
+        contentValues.put(UNITS_COLUMN_UNIT_ID, unit.getUnitId());
+        contentValues.put(UNITS_COLUMN_DESCRIPTION, unit.getDescription());
+        contentValues.put(UNITS_COLUMN_TITLE, unit.getTitle());
 
-        db.update(UNITS_TABLE_NAME, contentValues, UNITS_COLUMN_ID + " = ? ", new String[]{Integer.toString(id)});
+        int affected = db.update(UNITS_TABLE_NAME, contentValues, UNITS_COLUMN_ID + " = ? ", new String[]{Integer.toString(id)});
+        return (affected > 0);
+        // TODO updateVoc einfügen und increase von Level1 und Level2 umsetzen
+    }
+
+    public boolean updateUnit(Unit unit) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(UNITS_COLUMN_USER, unit.getUser());
+        contentValues.put(UNITS_COLUMN_UNIT_ID, unit.getUnitId());
+        contentValues.put(UNITS_COLUMN_DESCRIPTION, unit.getDescription());
+        contentValues.put(UNITS_COLUMN_TITLE, unit.getTitle());
+
+        db.update(UNITS_TABLE_NAME, contentValues, UNITS_COLUMN_UNIT_ID + " = ? ", new String[]{unit.getUnitId()});
         return true;
 
 
@@ -201,6 +216,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // TODO muss der cursor hier geschlossen werden ????
 
         return null;
+    }
+
+    public int getColumnId(String unitId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] columns = {
+                UNITS_COLUMN_UNIT_ID,
+                UNITS_COLUMN_USER,
+                UNITS_COLUMN_TITLE,
+                UNITS_COLUMN_DESCRIPTION,
+                UNITS_COLUMN_ID
+        };
+
+        String pattern = UNITS_COLUMN_UNIT_ID + "=?";
+
+        String[] values = {
+                unitId
+        };
+
+        Cursor cursor = db.query(UNITS_TABLE_NAME,
+                columns, pattern, values,
+                null, null, null, null
+        );
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) { // ist da überhaupt ein Datensatz
+                return Integer.parseInt(cursor.getString(4));
+            }
+        }
+
+        // TODO muss der cursor hier geschlossen werden ????
+        return -1; // no unit found
     }
 
     public void deleteSomeUnits() {

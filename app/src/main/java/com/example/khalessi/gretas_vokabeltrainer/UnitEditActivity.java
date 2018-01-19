@@ -29,15 +29,14 @@ public class UnitEditActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (AppState.getInstance().getCurrentUnit() == null) { // keine aktuelle unit
+                Unit currentUnit = AppState.getInstance().getCurrentUnit();
+                if (currentUnit == null) { // keine aktuelle unit
                     // erzeuge neue Unit
                     insertNewUnit();
                 } else {
                     // TODO verarbeite die gesetzte Unit, keine Ahnung was hier passieren soll
+                    // TODO hier muss ein update auf die currentUnit erfolgen
                 }
-
-                //Intent intent_addEntry = new Intent(getApplicationContext(), VocAddActivity.class);
-                //startActivity(intent_addEntry);
 
                 // show voc list view
                 Intent intent_testListView = new Intent(getApplicationContext(), VocListActivity.class);
@@ -91,14 +90,14 @@ public class UnitEditActivity extends AppCompatActivity {
         EditText et_unit_add_lektionsUsername = (EditText) findViewById(R.id.et_unit_add_lektionsUsername);
         String userName = et_unit_add_lektionsUsername.getText().toString();
 
-        String unitID = UnitIdGenerator.generate();
+        String unitId = UnitIdGenerator.generate();
 
         // Einfügen in Datenbank
         AppState.getInstance().getDatabaseHelper()
-                .insertUnit(unitID, userName, title, description);
+                .insertUnit(new Unit(unitId, userName, title, description));
 
         // Hole die Unit und setze sie in AppState als current unit, hat noch keine voc list
-        Unit unit = AppState.getInstance().getDatabaseHelper().getUnit(unitID, false);
+        Unit unit = AppState.getInstance().getDatabaseHelper().getUnit(unitId, false);
         if (unit != null) {
             AppState.getInstance().setCurrentUnit(unit);
         }

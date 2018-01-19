@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
+import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 import java.util.ArrayList;
 

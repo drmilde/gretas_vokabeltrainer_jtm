@@ -95,12 +95,12 @@ public class BasicVocabularyLoader {
     }
 
     private void insertSomeUnits() {
-        dbh.insertUnit("livingRoom", "Greta", "In the living room", "On top of the world.");
-        dbh.insertUnit("GoingToSchool", "Greta", "Going to school", "This is less :)");
-        dbh.insertUnit("HavingAParty", "Greta", "Having a party", "Not yet, my dear.");
-        dbh.insertUnit("MeltingChocolate", "Greta", "Melting chocolate", "Smells good.");
-        dbh.insertUnit("MakingATorch", "Greta", "Making a torch", "You light up my life.");
-        dbh.insertUnit("KitchenCleaning", "Greta", "Kitchen cleaning", "Help me.");
+        dbh.insertUnit(new Unit("livingRoom", "Greta","In the living room", "On top of the world."));
+        dbh.insertUnit(new Unit("GoingToSchool", "Greta", "Going to school", "This is less :)"));
+        dbh.insertUnit(new Unit("HavingAParty", "Greta", "Having a party", "Not yet, my dear."));
+        dbh.insertUnit(new Unit("MeltingChocolate", "Greta", "Melting chocolate", "Smells good."));
+        dbh.insertUnit(new Unit("MakingATorch", "Greta", "Making a torch", "You light up my life."));
+        dbh.insertUnit(new Unit("KitchenCleaning", "Greta", "Kitchen cleaning", "Help me."));
     }
 
 }

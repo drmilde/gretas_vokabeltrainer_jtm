@@ -108,7 +108,7 @@ public class UnitAddActivity extends AppCompatActivity {
         if (dataComplete) {
             // Einfügen in Datenbank
             AppState.getInstance().getDatabaseHelper()
-                    .insertUnit(unitID, userName, title, description);
+                    .insertUnit(new Unit(unitID, userName, title, description));
 
             // Hole die Unit und setze sie in AppState als current unit, hat noch keine voc list
             Unit unit = AppState.getInstance().getDatabaseHelper().getUnit(unitID, false);
@@ -121,6 +121,7 @@ public class UnitAddActivity extends AppCompatActivity {
     }
 
     private boolean updateCurrentUnit() {
+
         EditText et_unit_add_lektionsTitle = (EditText) findViewById(R.id.et_unit_add_lektionsTitle);
         String title = et_unit_add_lektionsTitle.getText().toString();
 
@@ -130,6 +131,8 @@ public class UnitAddActivity extends AppCompatActivity {
         EditText et_unit_add_lektionsUsername = (EditText) findViewById(R.id.et_unit_add_lektionsUsername);
         String userName = et_unit_add_lektionsUsername.getText().toString();
 
+
+        // TODO FALSCH -> hier muss die uniID der currentUnit verwendet werdet !!!!
         String unitID = UnitIdGenerator.generate();
 
         // Sind die Daten vollständig ?
@@ -188,7 +191,9 @@ public class UnitAddActivity extends AppCompatActivity {
             et_unit_add_lektionsUsername.setText(AppState.getInstance().getCurrentUnit().getUser());
 
         } else {
-            // neue Unit erstellen
+            // es muss eine neue Unit erstellt werden, also die Felder sind leer bis auf UserName
+
+            // die eigentliche Erstellung der Unit passiert in der Callbackroutine beim Speichern der Daten
 
             // aktuellen Usernamen anzeigen
             EditText et_unit_add_lektionsUsername = (EditText) findViewById(R.id.et_unit_add_lektionsUsername);
