@@ -6,6 +6,164 @@ package com.example.khalessi.gretas_vokabeltrainer.helper;
 
 public class BasicEnglishVocab {
 
+    private String[][] lebensmittel = {
+            {"Banane", "banana"},
+            {"Bohnen", "beans"},
+            {"Brot", "bread"},
+            {"Brötchen", "bread roll"},
+            {"Butter", "butter"},
+            {"Eier", "eggs"},
+            {"Eis", "icecream"},
+            {"Erbsen", "peas"},
+            {"Fisch", "fish"},
+            {"Fritten", "French fries"},
+            {"Gemüse", "vegetables"},
+            {"Hähnchen", "chicken"},
+            {"Joghurt", "yoghurt"},
+            {"Kartoffel", "potato"},
+            {"Käse", "cheese"},
+            {"Marmelade", "marmelade"},
+            {"Müsli", "muesli"},
+            {"Nudeln", "noodles"},
+            {"Obst", "fruits"},
+            {"Pizza", "pizza"},
+            {"Reis", "rice"},
+            {"Rindfleisch", "beef"},
+            {"Salat", "salad"},
+            {"Schinken", "ham"},
+            {"Schokolade", "chocolate"},
+            {"Suppe", "soup"},
+            {"Toast", "toast"},
+            {"Tomaten", "tomatoes"},
+            {"Wurst", "sausage"}
+    };
+
+    private String[][] farben = {
+            {"blau", "blue"},
+            {"braun", "brown"},
+            {"gelb", "yellow"},
+            {"grau", "grey"},
+            {"grün", "green"},
+            {"orange", "orange"},
+            {"rosa", "pink"},
+            {"rot", "red"},
+            {"schwarz", "black"},
+            {"weiß", "white"}
+    };
+
+    private String[][] klassenzimmer = {
+            {"Bleistift", "pencil"},
+            {"Buntstift", "coloured pencil"},
+            {"Filzstift", "felt pen"},
+            {"Fenster", "window"},
+            {"Heft", "exercise book"},
+            {"Klassenzimmer", "classroom"},
+            {"Klebestift", "glue stick"},
+            {"Kreide", "chalk"},
+            {"Landkarte", "map"},
+            {"Lehrer", "teacher"},
+            {"Lineal", "ruler"},
+            {"Mäppchen", "pencil case"},
+            {"Mülleimer", "bin"},
+            {"Radiergummi", "rubber"},
+            {"Schere", "scissors"},
+            {"Schreibtisch", "desk"},
+            {"Schule", "school"},
+            {"Schüler", "pupil"},
+            {"Schultasche", "school bag"},
+            {"Stuhl", "chair"},
+            {"Tafel", "board"},
+            {"zur Schule gehe", "go to school"}
+    };
+
+    private String[][] monate = {
+            {"Januar", "January"},
+            {"Februar", "February"},
+            {"März", "March"},
+            {"April", "April"},
+            {"Mai", "May"},
+            {"Juni", "June"},
+            {"Juli", "July"},
+            {"August", "August"},
+            {"September", "September"},
+            {"Oktober", "October"},
+            {"November", "November"},
+            {"Dezember", "December"}
+    };
+
+    private String[][] getraenke = {
+            {"Apfelsaft", "apple juice"},
+            {"Bier", "beer"},
+            {"Cappuccino", "cappuccino"},
+            {"Champagner", "champagne"},
+            {"Kaffee", "coffee"},
+            {"Kakao", "cocoa"},
+            {"Kirschsaft", "cherry juice"},
+            {"Limonade", "lemonade"},
+            {"Milch", "milk"},
+            {"Mineralwasser", "mineral water"},
+            {"Orangensaft", "orange juice"},
+            {"Sekt", "sparkling wine"},
+            {"Tee", "tea"},
+            {"Tomatensaft", "tomato juice"},
+            {"Traubensaft", "grape juice"},
+            {"Wein", "wine"}
+    };
+
+    private String[][] zahlen = {
+            {"0", "zero, nought"},
+            {"1", "one"},
+            {"2", "two"},
+            {"3", "three"},
+            {"4", "four"},
+            {"5", "five"},
+            {"6", "six"},
+            {"7", "seven"},
+            {"8", "eight"},
+            {"9", "nine"},
+            {"10", "ten"},
+            {"11", "eleven"},
+            {"12", "twelve"},
+            {"13", "thirteen"},
+            {"14", "fourteen"},
+            {"15", "fifteen"},
+            {"16", "sixteen"},
+            {"17", "seventeen"},
+            {"18", "eighteen"},
+            {"19", "nineteen"},
+            {"20", "twenty"},
+            {"21", "twenty-one"},
+            {"22", "twenty-two"},
+            {"23", "twenty-three"},
+            {"24", "twenty-four"},
+            {"25", "twenty-five"},
+            {"30", "thirty"},
+            {"40", "forty"},
+            {"50", "fifty"},
+            {"60", "sixty"},
+            {"70", "seventy"},
+            {"80", "eighty"},
+            {"90", "ninety"},
+            {"100", "one hundred"}
+    };
+
+    private String[][] werkzeuge = {
+            {"Axt", "axe"},
+            {"Bohrer", "borer"},
+            {"Feile", "file"},
+            {"Hammer", "hammer"},
+            {"Harke", "rake"},
+            {"Kettensäge", "chainsaw"},
+            {"Nagel", "nail"},
+            {"Maßband", "tape"},
+            {"Säge", "saw"},
+            {"Schaufel", "shovel"},
+            {"Schere", "scissor"},
+            {"Schraube", "screw"},
+            {"Schraubenzieher", "screwdriver"},
+            {"Wasserwaage", "water level"}
+    };
+
     private String[][] schulfaecher = {
             {"Biologie", "Biology"},
             {"Chemie", "Chemistry"},
@@ -79,21 +237,68 @@ public class BasicEnglishVocab {
     };
 
     private String[][] verkehr = {
-            {"Ampel","traffic light" },
-            {"Auto","car" },
-            {"Autobahn","motorway" },
-            {"Bus","bus" },
-            {"Brücke","bridge" },
-            {"Fahrrad","bike" },
-            {"Flugzeug","plane" },
-            {"Krankenwagen","ambulance" },
-            {"Motorrad","motorbike" },
-            {"Straße","street" },
-            {"Tankstelle","filling station" },
-            {"Taxi","taxi" },
-            {"Traktor","tractor" },
-            {"U-Bahn", 	"metro"},
-            {"Zug","train" }
+            {"Ampel", "traffic light"},
+            {"Auto", "car"},
+            {"Autobahn", "motorway"},
+            {"Bus", "bus"},
+            {"Brücke", "bridge"},
+            {"Fahrrad", "bike"},
+            {"Flugzeug", "plane"},
+            {"Krankenwagen", "ambulance"},
+            {"Motorrad", "motorbike"},
+            {"Straße", "street"},
+            {"Tankstelle", "filling station"},
+            {"Taxi", "taxi"},
+            {"Traktor", "tractor"},
+            {"U-Bahn", "metro"},
+            {"Zug", "train"}
     };
 
+
+    /// getter
+
+
+    public String[][] getLebensmittel() {
+        return lebensmittel;
+    }
+
+    public String[][] getFarben() {
+        return farben;
+    }
+
+    public String[][] getKlassenzimmer() {
+        return klassenzimmer;
+    }
+
+    public String[][] getMonate() {
+        return monate;
+    }
+
+    public String[][] getGetraenke() {
+        return getraenke;
+    }
+
+    public String[][] getZahlen() {
+        return zahlen;
+    }
+
+    public String[][] getWerkzeuge() {
+        return werkzeuge;
+    }
+
+    public String[][] getSchulfaecher() {
+        return schulfaecher;
+    }
+
+    public String[][] getSchultasche() {
+        return schultasche;
+    }
+
+    public String[][] getTiere() {
+        return tiere;
+    }
+
+    public String[][] getVerkehr() {
+        return verkehr;
+    }
 }
