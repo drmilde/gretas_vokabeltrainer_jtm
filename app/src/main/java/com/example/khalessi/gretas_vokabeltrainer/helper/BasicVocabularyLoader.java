@@ -12,6 +12,7 @@ import java.util.ArrayList;
  */
 
 public class BasicVocabularyLoader {
+
     private DatabaseHelper dbh = null;
 
     public BasicVocabularyLoader() {
@@ -95,7 +96,7 @@ public class BasicVocabularyLoader {
     }
 
     private void insertSomeUnits() {
-        dbh.insertUnit(new Unit("livingRoom", "Greta","In the living room", "On top of the world."));
+        dbh.insertUnit(new Unit("livingRoom", "Greta", "In the living room", "On top of the world."));
         dbh.insertUnit(new Unit("GoingToSchool", "Greta", "Going to school", "This is less :)"));
         dbh.insertUnit(new Unit("HavingAParty", "Greta", "Having a party", "Not yet, my dear."));
         dbh.insertUnit(new Unit("MeltingChocolate", "Greta", "Melting chocolate", "Smells good."));
