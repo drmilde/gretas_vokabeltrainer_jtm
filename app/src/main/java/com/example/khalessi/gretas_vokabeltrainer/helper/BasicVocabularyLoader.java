@@ -67,11 +67,31 @@ public class BasicVocabularyLoader {
 
     private void setupBasicVocabAndUnits() {
         createWohnzimmer();
-        createSchool();
-        createKueche();
-        createTiere();
-        createOzeane();
-        createFragewoerter();
+
+        createUnit("GoingToSchool", "Greta", "Going to school", "in school", bec.getKlassenzimmer());
+        createUnit("Kitchen", "Greta", "Kitchen", "cooking and baking", bec.getKueche());
+        createUnit("Animals", "Greta", "Animals", "living creatures", bec.getTiere());
+        createUnit("Oceans", "Greta", "Oceans", "the oceans of the world", bec.getOzeane());
+        createUnit("Asking questions", "Greta", "Asking questions", "Asking questions", bec.getFragewoerter());
+        createUnit("say hello", "Greta", "Greetings", "how to say hello", bec.getBegruessung());
+        createUnit("inside the zoo", "Greta", "The zoo", "inside the zoo", bec.getZoo());
+        createUnit("merry christmas", "Greta", "Christmas", "have a merry little christmas", bec.getWeihnachten());
+        createUnit("at the beach", "Greta", "At the beach", "at the beach", bec.getStrand());
+        createUnit("suitcase", "Greta", "Suitcase", "inside my suitcase", bec.getKoffer());
+        createUnit("The body", "Greta", "Body parts", "body parts", bec.getKoerper());
+        createUnit("getting dressed", "Greta", "Clothes", "getting dressed", bec.getKleidung());
+        createUnit("bedroom", "Greta", "Bedroom", "the bedroom", bec.getSchlafzimmer());
+        createUnit("bath room", "Greta", "Bathroom", "the bath room", bec.getBadezimmer());
+        createUnit("the house", "Greta", "House", "inside a house", bec.getHaus());
+        createUnit("food", "Greta", "Food", "something to eat", bec.getLebensmittel());
+        createUnit("colors", "Greta", "colors", "color up your life", bec.getFarben());
+        createUnit("months", "Greta", "Months", "months of the year", bec.getMonate());
+        createUnit("drinks", "Greta", "Drinks", "something to drink", bec.getGetraenke());
+        createUnit("numbers", "Greta", "Numbers", "counting is fun", bec.getZahlen());
+        createUnit("tools", "Greta", "Tools", "tools and the work shop", bec.getWerkzeuge());
+        createUnit("school subject", "Greta", "School subjects", "topics you learn at school", bec.getSchulfaecher());
+        createUnit("school bag", "Greta", "School bag", "things, you need at school", bec.getSchultasche());
+        createUnit("traffic", "Greta", "Traffic", "traffic", bec.getVerkehr());
 
         dbh.insertUnit(new Unit("HavingAParty", "Greta", "Having a party", "Not yet, my dear."));
         dbh.insertUnit(new Unit("MeltingChocolate", "Greta", "Melting chocolate", "Smells good."));
@@ -80,27 +100,9 @@ public class BasicVocabularyLoader {
 
     }
 
-    private void createFragewoerter() {
-        createUnit("Asking questions", "Asking questions", "Greta", "Asking questions", bec.getFragewoerter());
-    }
 
-    private void createOzeane() {
-        createUnit("Oceans", "the oceans of the world", "Greta", "Oceans", bec.getOzeane());
-    }
-
-    private void createTiere() {
-        createUnit("Animals", "living creatures", "Greta", "Animals", bec.getTiere());
-    }
-
-    private void createKueche() {
-        createUnit("Kitchen", "cooking and baking", "Greta", "Kitchen", bec.getKueche());
-    }
-
-    private void createSchool() {
-        createUnit("GoingToSchool", "in school", "Greta", "Going to school", bec.getKlassenzimmer());
-    }
-
-    private void createUnit(String unitId, String description, String user, String title, String[][] words) {
+    //
+    private void createUnit(String unitId, String user, String title, String description, String[][] words) {
         dbh.insertUnit(new Unit(unitId, user, title, description));
 
         insertPairs(unitId, description, words);
@@ -113,6 +115,7 @@ public class BasicVocabularyLoader {
         }
     }
 
+    //
     private void createWohnzimmer() {
         dbh.insertUnit(new Unit("livingRoom", "Greta", "In the living room", "On top of the world."));
 
@@ -144,6 +147,8 @@ public class BasicVocabularyLoader {
         dbh.insertVocabulary("livingRoom", "the shades", "die Jalousien", "beschreibung");
         dbh.insertVocabulary("livingRoom", "the sofa", "das Sofa", "beschreibung");
         dbh.insertVocabulary("livingRoom", "the television set", "der Fernseher", "beschreibung");
+
+        insertPairs("livingRoom", "beschreibung", bec.getWohnzimmer());
     }
 
 
