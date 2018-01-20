@@ -5,6 +5,187 @@ package com.example.khalessi.gretas_vokabeltrainer.helper;
  */
 
 public class BasicEnglishVocab {
+    private String[][] ozeane = {
+            {"Antarktischer Ozean", "Southern Ocean"},
+            {"Arktischer Ozean", "Arctic Ocean"},
+            {"Atlantischer Ozean", "Atlantic Ocean"},
+            {"Indischer Ozean", "Indian Ocean"},
+            {"Pazifischer Ozean", "Pacific Ocean"}
+    };
+
+    private String[][] fragewoerter = {
+            {"Wann?", "When?"},
+            {"Warum?", "Why?"},
+            {"Was?", "What?"},
+            {"Wessen?", "Which?"},
+            {"Wer?", "Who?"},
+            {"Wessen?", "Whose?"},
+            {"Wie?", "How?"},
+            {"Wieviel?", "How much?"},
+            {"Wie lange?", "How long?"},
+            {"Wie weit?", "How far?"},
+            {"Wie alt?", "How old?"},
+            {"Wo?", "Where?"},
+            {"Wofür?", "For what?"}
+    };
+
+    private String[][] begruessung = {
+            {"Hallo", "Hello, Hi"},
+            {"Wie lautet dein Name?", "What's your name?"},
+            {"Mein Name ist ...", "My name is ..."},
+            {"Wie geht es dir?", "How are you?"},
+            {"Willkommen!", "Welcome!"},
+            {"Guten Morgen!", "Good morning!"},
+            {"Guten Tag!", "Good afternoon!"},
+            {"Guten Abend!", "Good evening!"},
+            {"Gute Nacht!", "Good night!"},
+            {"Tschüss!", "Bye-bye!"},
+            {"Man sieht sich!", "See you!"}
+    };
+
+    private String[][] zoo = {
+            {"Affe", "monkey"},
+            {"Aquarium", "aquarium"},
+            {"Bär", "bear"},
+            {"Eintrittspreis", "admission price"},
+            {"Elephant", "elephant"},
+            {"Esel", "donkey"},
+            {"Fische", "fishs"},
+            {"Gehege", "compound"},
+            {"in der Warteschlange", "in the queue"},
+            {"in den Zoo gehen", "(to) go to the zoo"},
+            {"Krokodil", "crocodile"},
+            {"Partnerschaft für ein Tier übernehmen", "(to) adopt an animal"},
+            {"Streichelzoo", "children's zoo"},
+            {"Terrarium", "terrarium"},
+            {"Tierpfleger", "zookeeper"},
+            {"Tiger", "tiger"},
+            {"Zoodirektor", "zoo director"}
+    };
+
+    private String[][] weihnachten = {
+            {"Adventskalender", "Advent calendar"},
+            {"Christkind", "Christ Child"},
+            {"Christstollen", "stollen"},
+            {"Engel", "angel"},
+            {"Fröhliche Weihnachten!", "Merry Christmas!"},
+            {"Heiligabend", "Christmas Eve"},
+            {"Geschenk", "gift"},
+            {"Glühwein", "mulled wine"},
+            {"Kerze", "candle"},
+            {"Krippe", "crib"},
+            {"Lebkuchen", "gingerbread"},
+            {"Mistelzweig", "mistletoe"},
+            {"Nussknacker", "nutcracker"},
+            {"Plätzchen", "cookie"},
+            {"Rentier", "reindeer"},
+            {"Schlitten", "sleigh"},
+            {"Schnee", "snow"},
+            {"Truthahn", "turkey"},
+            {"Weihnachtsbaum", "Christmas tree"},
+            {"Weihnachtsmann", "Santa Claus"},
+            {"weiße Weihnachten", "white Christmas"}
+    };
+
+
+    private String[][] strand = {
+            {"Badehose", "swimming trunks"},
+            {"Eimer", "bucket"},
+            {"Eis", " essen 	(to) eat ice cream"},
+            {"Fisch", "fish"},
+            {"Handtuch", "towel"},
+            {"Meer", "sea"},
+            {"Muschel", "shell"},
+            {"Palme", "palm"},
+            {"Sandburg", "sandcastle"},
+            {"Sonnenbrille", "sunglasses"},
+            {"Sonnencreme", "suncream"},
+            {"Sonnenschirm", "sunshade"},
+            {"Sand", "sand"},
+            {"schwimmen", " gehen 	(to) go for a swim"},
+            {"Schwimmflügel", "arm floats"},
+            {"surfen", "(to) surf"},
+            {"tauchen", "(to) dive"},
+            {"Tourismus", "tourism"},
+            {"Rettungsboje", "safety buoy"},
+            {"Rettungsschwimmer", "lifeguard"},
+            {"Urlaub", "holiday"},
+            {"Welle", "wave"}
+    };
+
+    private String[][] koffer = {
+            {"Badeanzug", "swimsuit"},
+            {"Badetuch", "bath towel"},
+            {"Badeschuhe", "bathing shoe"},
+            {"Bikini", "bikini"},
+            {"Deo", "antiperspirant"},
+            {"Haarbürste", "hairbrush"},
+            {"Haargel", "styling gel"},
+            {"Handyaufladegerät", "recharger"},
+            {"Kamm", "comb"},
+            {"Föhn", "blow-dryer"},
+            {"Personalausweis", "identification card"},
+            {"Rasierer", "shaver"},
+            {"Rasierschaum", "shaving foam"},
+            {"Regenjacke", "rainjacket"},
+            {"Reiseführer", "travel guide"},
+            {"Reisepass", "passport"},
+            {"Sonnenbrille", "sunglasses"},
+            {"Sonnencreme", "suncream"},
+            {"Sonnenhut", "sunhat"},
+            {"Tshirt", "T-shirt"},
+            {"Unterwäsche", "underwear"},
+            {"Nagelschere", "nail scissors"},
+            {"Zahnbürste", "toothbrush"},
+            {"Zahnpasta", "toothpaste"}
+    };
+
+    private String[][] koerper = {
+            {"Arm", "arm"},
+            {"Auge", "eye"},
+            {"Bauch", "belly"},
+            {"Bein", "leg"},
+            {"Brust", "breast"},
+            {"Finger", "finger"},
+            {"Fuß", "foot"},
+            {"Haare", "hair"},
+            {"Hals", "neck"},
+            {"Hand", "hand"},
+            {"Hüfte", "hip"},
+            {"Kinn", "chin"},
+            {"Lippe", "lip"},
+            {"Mund", "mouth"},
+            {"Nase", "nose"},
+            {"Ohr", "ear"},
+            {"Rücken", "back"},
+            {"Schulter", "shoulder"},
+            {"Stirn", "forehead"},
+            {"Zahn", "tooth"},
+            {"Zunge", "tongue"}
+    };
+
+    private String[][] kleidung = {
+            {"Bluse", "blouse"},
+            {"Gürtel", "belt"},
+            {"Hemd", "shirt"},
+            {"Hose", "trousers"},
+            {"Hut", "hat"},
+            {"Jacke", "jacket"},
+            {"Jeans", "jeans"},
+            {"Mantel", "coat"},
+            {"Mütze", "cap"},
+            {"Pullover", "pullover"},
+            {"Regenmantel", "raincoat"},
+            {"Rock", "skirt"},
+            {"Schal", "scarf"},
+            {"Schuhe", "shoe"},
+            {"Schlafanzug", "pyjama"},
+            {"Socke", "sock"},
+            {"Strickjacke", "cardigan"},
+            {"Tshirt", "t-shirt"},
+            {"Unterhose", "underpants"}
+    };
+
     private String[][] wohnzimmer = {
             {"Bild", "picture"},
             {"Blumenvase", "flower vase"},
@@ -342,9 +523,43 @@ public class BasicEnglishVocab {
             {"Zug", "train"}
     };
 
-
     /// getter
 
+    public String[][] getOzeane() {
+        return ozeane;
+    }
+
+    public String[][] getFragewoerter() {
+        return fragewoerter;
+    }
+
+    public String[][] getBegruessung() {
+        return begruessung;
+    }
+
+    public String[][] getZoo() {
+        return zoo;
+    }
+
+    public String[][] getWeihnachten() {
+        return weihnachten;
+    }
+
+    public String[][] getStrand() {
+        return strand;
+    }
+
+    public String[][] getKoffer() {
+        return koffer;
+    }
+
+    public String[][] getKoerper() {
+        return koerper;
+    }
+
+    public String[][] getKleidung() {
+        return kleidung;
+    }
 
     public String[][] getWohnzimmer() {
         return wohnzimmer;

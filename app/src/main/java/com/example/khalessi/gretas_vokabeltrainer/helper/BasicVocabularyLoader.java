@@ -14,17 +14,18 @@ import java.util.ArrayList;
 public class BasicVocabularyLoader {
 
     private DatabaseHelper dbh = null;
+    private BasicEnglishVocab bec = null;
 
     public BasicVocabularyLoader() {
         dbh = AppState.getInstance().getDatabaseHelper();
+        bec = new BasicEnglishVocab();
     }
 
 
     public void resetDatabase() {
         dbh.recreateDatabase();
 
-        insertSomeVocs();
-        insertSomeUnits();
+        setupBasicVocabAndUnits();
     }
 
     // Interface routinen
@@ -64,7 +65,57 @@ public class BasicVocabularyLoader {
 
     // setup content
 
-    private void insertSomeVocs() {
+    private void setupBasicVocabAndUnits() {
+        createWohnzimmer();
+        createSchool();
+        createKueche();
+        createTiere();
+        createOzeane();
+        createFragewoerter();
+
+        dbh.insertUnit(new Unit("HavingAParty", "Greta", "Having a party", "Not yet, my dear."));
+        dbh.insertUnit(new Unit("MeltingChocolate", "Greta", "Melting chocolate", "Smells good."));
+        dbh.insertUnit(new Unit("MakingATorch", "Greta", "Making a torch", "You light up my life."));
+        dbh.insertUnit(new Unit("KitchenCleaning", "Greta", "Kitchen cleaning", "Help me."));
+
+    }
+
+    private void createFragewoerter() {
+        createUnit("Asking questions", "Asking questions", "Greta", "Asking questions", bec.getFragewoerter());
+    }
+
+    private void createOzeane() {
+        createUnit("Oceans", "the oceans of the world", "Greta", "Oceans", bec.getOzeane());
+    }
+
+    private void createTiere() {
+        createUnit("Animals", "living creatures", "Greta", "Animals", bec.getTiere());
+    }
+
+    private void createKueche() {
+        createUnit("Kitchen", "cooking and baking", "Greta", "Kitchen", bec.getKueche());
+    }
+
+    private void createSchool() {
+        createUnit("GoingToSchool", "in school", "Greta", "Going to school", bec.getKlassenzimmer());
+    }
+
+    private void createUnit(String unitId, String description, String user, String title, String[][] words) {
+        dbh.insertUnit(new Unit(unitId, user, title, description));
+
+        insertPairs(unitId, description, words);
+    }
+
+    private void insertPairs(String unitId, String description, String[][] words) {
+        for (int i = 0; i < words.length; i++) {
+            String[] pair = words[i];
+            dbh.insertVocabulary(unitId, pair[1], pair[0], description);
+        }
+    }
+
+    private void createWohnzimmer() {
+        dbh.insertUnit(new Unit("livingRoom", "Greta", "In the living room", "On top of the world."));
+
         dbh.insertVocabulary("livingRoom", "to learn", "lernen", "verb, inifinitiv");
         dbh.insertVocabulary("livingRoom", "to run", "laufen", "verb, inifinitiv");
         dbh.insertVocabulary("livingRoom", "to hide", "verstecken", "verb, inifinitiv");
@@ -95,13 +146,5 @@ public class BasicVocabularyLoader {
         dbh.insertVocabulary("livingRoom", "the television set", "der Fernseher", "beschreibung");
     }
 
-    private void insertSomeUnits() {
-        dbh.insertUnit(new Unit("livingRoom", "Greta", "In the living room", "On top of the world."));
-        dbh.insertUnit(new Unit("GoingToSchool", "Greta", "Going to school", "This is less :)"));
-        dbh.insertUnit(new Unit("HavingAParty", "Greta", "Having a party", "Not yet, my dear."));
-        dbh.insertUnit(new Unit("MeltingChocolate", "Greta", "Melting chocolate", "Smells good."));
-        dbh.insertUnit(new Unit("MakingATorch", "Greta", "Making a torch", "You light up my life."));
-        dbh.insertUnit(new Unit("KitchenCleaning", "Greta", "Kitchen cleaning", "Help me."));
-    }
 
 }
