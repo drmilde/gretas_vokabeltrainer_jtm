@@ -5,6 +5,94 @@ package com.example.khalessi.gretas_vokabeltrainer.helper;
  */
 
 public class BasicEnglishVocab {
+    private String[][] wohnzimmer = {
+            {"Bild", "picture"},
+            {"Blumenvase", "flower vase"},
+            {"Bücherregal", "bookcase"},
+            {"Computer", "computer"},
+            {"Fernseher", "television"},
+            {"Fenstervorhang", "curtain"},
+            {"Kamin", "fireplace"},
+            {"Lampe", "lamp"},
+            {"Regal", "shelf"},
+            {"schlafen", "(to) sleep"},
+            {"Sessel", "armchair"},
+            {"Stuhl", "chair"},
+            {"Sofa", "couch"},
+            {"Telefon", "telephone"},
+            {"Teppich", "carpet"},
+            {"Tisch", "table"},
+            {"Uhr", "clock"}
+    };
+
+    private String[][] schlafzimmer = {
+            {"aufwachen", "(to) wake up"},
+            {"Bett", "bed"},
+            {"Bettdecke", "blanket"},
+            {"Kleiderschrank", "garderobe"},
+            {"Kopfkissen", "pillow"},
+            {"Matratze", "mattress"},
+            {"Schlafanzug", "pyjama"},
+            {"schlafen", "(to) sleep"},
+            {"Wecker", "alarm clock"}
+    };
+
+
+    private String[][] kueche = {
+            {"Gabel", "fork"},
+            {"Geschirr", "dishes"},
+            {"Geschirrspülmaschine", "dishwasher"},
+            {"Herd", "cooker"},
+            {"kochen", "(to) cook"},
+            {"Kaffeemaschine", "coffee machine"},
+            {"Kühlschrank", "fridge"},
+            {"Löffel", "spoon"},
+            {"Messer", "knife"},
+            {"Mikrowelle", "microwave"},
+            {"Mixer", "mixer"},
+            {"Mülleimer", "bin"},
+            {"Ofen", "stove"},
+            {"Pfanne", "pan"},
+            {"Tasse", "cup"},
+            {"Teller", "plate"},
+            {"Toaster", "toaster"}
+    };
+
+    private String[][] badezimmer = {
+            {"baden", "(to) take a bath"},
+            {"Badewanne", "bathtub"},
+            {"Dusche", "shower"},
+            {"duschen", "(to) have a shower"},
+            {"Föhn", "hair blower"},
+            {"Haarshampoo", "shampoo"},
+            {"Handtuch", "towel"},
+            {"Kamm", "comb"},
+            {"Parfum", "perfume"},
+            {"Rasierer", "shaver"},
+            {"rasieren", "(to) shave"},
+            {"Seife", "soap"},
+            {"Spiegel", "mirror"},
+            {"Toilette", "toilet"},
+            {"Toilettenpapier", "toiletpaper"},
+            {"Zahnbürste", "toothbrush"},
+            {"Zahnpaste", "toothpaste"}
+    };
+
+    private String[][] haus = {
+            {"Badezimmer", "bathroom"},
+            {"Dachboden", "garret"},
+            {"Esszimmer", "dining room"},
+            {"Fenster", "window"},
+            {"Flur", "hall"},
+            {"Gästezimmer", "guest room"},
+            {"Keller", "cellar"},
+            {"Kinderzimmer", "child's room"},
+            {"Küche", "kitchen"},
+            {"Schlafzimmer", "bedroom"},
+            {"Tür", "door"},
+            {"Wohnzimmer", "living room"},
+            {"Zimmer", "room"}
+    };
 
     private String[][] lebensmittel = {
             {"Banane", "banana"},
@@ -257,6 +345,26 @@ public class BasicEnglishVocab {
 
     /// getter
 
+
+    public String[][] getWohnzimmer() {
+        return wohnzimmer;
+    }
+
+    public String[][] getSchlafzimmer() {
+        return schlafzimmer;
+    }
+
+    public String[][] getKueche() {
+        return kueche;
+    }
+
+    public String[][] getBadezimmer() {
+        return badezimmer;
+    }
+
+    public String[][] getHaus() {
+        return haus;
+    }
 
     public String[][] getLebensmittel() {
         return lebensmittel;
