@@ -29,19 +29,21 @@ public class UnitEditActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                boolean callVocListActivity = false;
                 Unit currentUnit = AppState.getInstance().getCurrentUnit();
-                if (currentUnit == null) { // keine aktuelle unit
-                    // erzeuge neue Unit
-                    insertNewUnit();
+
+                if (currentUnit == null) { // keine aktuelle unit, sollter hier eigentlich nicht passieren
+                    // erzeuge neue Unit, falls Form ausgefüllt
+                    callVocListActivity = insertNewUnit();
                 } else {
-                    // TODO verarbeite die gesetzte Unit, keine Ahnung was hier passieren soll
-                    // TODO hier muss ein update auf die currentUnit erfolgen
+                    callVocListActivity = updateCurrentUnit();
                 }
 
                 // show voc list view
-                Intent intent_testListView = new Intent(getApplicationContext(), VocListActivity.class);
-                startActivity(intent_testListView);
-
+                if (callVocListActivity) {
+                    Intent intent_testListView = new Intent(getApplicationContext(), VocListActivity.class);
+                    startActivity(intent_testListView);
+                }
             }
         });
 
@@ -73,14 +75,20 @@ public class UnitEditActivity extends AppCompatActivity {
     }
 
     /**
+     *
+     */
+
+    /**
      * Processes the current EditText fields
      * and generates a new database entry.
      * <p>
      * It then queries the database to get this unit (based on the generated unitId)
      * and sets it as the current unit in the AppState,
      * thus making ist public to the rest of the App.
+     *
+     * @return true, if new Unit has been inserted
      */
-    private void insertNewUnit() {
+    private boolean insertNewUnit() {
         EditText et_unit_add_lektionsTitle = (EditText) findViewById(R.id.et_unit_add_lektionsTitle);
         String title = et_unit_add_lektionsTitle.getText().toString();
 
@@ -90,18 +98,87 @@ public class UnitEditActivity extends AppCompatActivity {
         EditText et_unit_add_lektionsUsername = (EditText) findViewById(R.id.et_unit_add_lektionsUsername);
         String userName = et_unit_add_lektionsUsername.getText().toString();
 
-        String unitId = UnitIdGenerator.generate();
+        String unitID = UnitIdGenerator.generate();
 
-        // Einfügen in Datenbank
-        AppState.getInstance().getDatabaseHelper()
-                .insertUnit(new Unit(unitId, userName, title, description));
+        // Sind die Daten vollständig ?
+        boolean dataComplete = checkForm(title, description, userName, unitID);
 
-        // Hole die Unit und setze sie in AppState als current unit, hat noch keine voc list
-        Unit unit = AppState.getInstance().getDatabaseHelper().getUnit(unitId, false);
-        if (unit != null) {
-            AppState.getInstance().setCurrentUnit(unit);
+        if (dataComplete) {
+            // Einfügen in Datenbank
+            AppState.getInstance().getDatabaseHelper()
+                    .insertUnit(new Unit(unitID, userName, title, description));
+
+            // Hole die Unit und setze sie in AppState als current unit, hat noch keine voc list
+            Unit unit = AppState.getInstance().getDatabaseHelper().getUnit(unitID, false);
+            if (unit != null) {
+                AppState.getInstance().setCurrentUnit(unit);
+            }
         }
+
+        return dataComplete;
     }
+
+    private boolean updateCurrentUnit() {
+        // Daten aus der Form holen
+        EditText et_unit_add_lektionsTitle = (EditText) findViewById(R.id.et_unit_add_lektionsTitle);
+        String title = et_unit_add_lektionsTitle.getText().toString();
+
+        EditText et_unit_add_lektionsDescription = (EditText) findViewById(R.id.et_unit_add_lektionsDescription);
+        String description = et_unit_add_lektionsDescription.getText().toString();
+
+        EditText et_unit_add_lektionsUsername = (EditText) findViewById(R.id.et_unit_add_lektionsUsername);
+        String userName = et_unit_add_lektionsUsername.getText().toString();
+
+        boolean result = false;
+
+        // Current Unit holen
+        Unit currentUnit = AppState.getInstance().getCurrentUnit();
+        return updateUnit(currentUnit, title, description, userName);
+    }
+
+    private boolean updateUnit(Unit currentUnit, String title, String description, String userName) {
+        boolean result;
+        if (currentUnit != null) {
+            String unitID = currentUnit.getUnitId();
+
+            result = checkForm(title, description, userName, unitID);
+
+            // Sind die Daten vollständig ?
+            if (result) {
+
+                // Daten aus Form in currentUnit übertragen
+                currentUnit.setTitle(title);
+                currentUnit.setDescription(description);
+                currentUnit.setUser(userName);
+                currentUnit.setUnitId(unitID);
+
+                // update returns true or false
+                result = AppState.getInstance().getDatabaseHelper().updateUnit(currentUnit);
+
+                // wenn update auf der Datenbank funktioniert hat, wird current Unit im AppState gesetzt
+                if (result) {
+                    AppState.getInstance().setCurrentUnit(currentUnit);
+                }
+            }
+        } else {
+            result = false;
+        }
+
+        return result;
+    }
+
+
+    private boolean checkForm(String title, String description, String userName, String unitID) {
+        boolean dataComplete;
+        dataComplete = !(
+                (title.trim().equalsIgnoreCase("")) ||
+                        (description.trim().equalsIgnoreCase("")) ||
+                        (userName.trim().equalsIgnoreCase("")) ||
+                        (unitID.trim().equalsIgnoreCase(""))
+        );
+        return dataComplete;
+    }
+
 
     /**
      * Displays the current unit data.

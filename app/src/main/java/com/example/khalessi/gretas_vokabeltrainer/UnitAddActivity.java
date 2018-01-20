@@ -30,12 +30,11 @@ public class UnitAddActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 boolean callVocListActivity = false;
+                Unit currentUnit = AppState.getInstance().getCurrentUnit();
 
-                if (AppState.getInstance().getCurrentUnit() == null) { // keine aktuelle unit
-
+                if (currentUnit == null) { // keine aktuelle unit
                     // erzeuge neue Unit, falls Form ausgefüllt
                     callVocListActivity = insertNewUnit();
-
                 } else {
                     // TODO verarbeite die gesetzte Unit, update der Unit mit den gesetzten Werten
                     callVocListActivity = updateCurrentUnit();
