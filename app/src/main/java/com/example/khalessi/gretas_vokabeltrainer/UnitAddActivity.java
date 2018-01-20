@@ -121,7 +121,7 @@ public class UnitAddActivity extends AppCompatActivity {
     }
 
     private boolean updateCurrentUnit() {
-
+        // Daten aus der Form holen
         EditText et_unit_add_lektionsTitle = (EditText) findViewById(R.id.et_unit_add_lektionsTitle);
         String title = et_unit_add_lektionsTitle.getText().toString();
 
@@ -131,31 +131,42 @@ public class UnitAddActivity extends AppCompatActivity {
         EditText et_unit_add_lektionsUsername = (EditText) findViewById(R.id.et_unit_add_lektionsUsername);
         String userName = et_unit_add_lektionsUsername.getText().toString();
 
+        boolean result = false;
 
-        // TODO FALSCH -> hier muss die uniID der currentUnit verwendet werdet !!!!
-        String unitID = UnitIdGenerator.generate();
+        // Current Unit holen
+        Unit currentUnit = AppState.getInstance().getCurrentUnit();
+        return updateUnit(currentUnit, title, description, userName);
+    }
 
-        // Sind die Daten vollständig ?
-        boolean dataComplete = checkForm(title, description, userName, unitID);
+    private boolean updateUnit(Unit currentUnit, String title, String description, String userName) {
+        boolean result;
+        if (currentUnit != null) {
+            String unitID = currentUnit.getUnitId();
 
-        if (dataComplete) {
-            // Update auf der Datenbank
+            result = checkForm(title, description, userName, unitID);
 
-            // TODO update hier einfügen
+            // Sind die Daten vollständig ?
+            if (result) {
 
-            /*
-            AppState.getInstance().getDatabaseHelper()
-                    .insertUnit(unitID, userName, title, description);
+                // Daten aus Form in currentUnit übertragen
+                currentUnit.setTitle(title);
+                currentUnit.setDescription(description);
+                currentUnit.setUser(userName);
+                currentUnit.setUnitId(unitID);
 
-            // Hole die Unit und setze sie in AppState als current unit, hat noch keine voc list
-            Unit unit = AppState.getInstance().getDatabaseHelper().getUnit(unitID, false);
-            if (unit != null) {
-                AppState.getInstance().setCurrentUnit(unit);
+                // update returns true or false
+                result = AppState.getInstance().getDatabaseHelper().updateUnit(currentUnit);
+
+                // wenn update auf der Datenbank funktioniert hat, wird current Unit im AppState gesetzt
+                if (result) {
+                    AppState.getInstance().setCurrentUnit(currentUnit);
+                }
             }
-            */
+        } else {
+            result = false;
         }
 
-        return dataComplete;
+        return result;
     }
 
 
