@@ -555,6 +555,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                             result.getString(4),
                             Integer.parseInt(result.getString(5)),
                             Integer.parseInt(result.getString(6))
+                    );
         }
 
         return vocItem;
