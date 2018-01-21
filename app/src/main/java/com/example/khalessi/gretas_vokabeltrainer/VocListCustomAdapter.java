@@ -58,18 +58,33 @@ public class VocListCustomAdapter extends ArrayAdapter {
         }
 
         // hier erfolgt die Anzeige
+        VocabularyItem vocitem;
         if (voclist.size() > 0) {
-            VocabularyItem vocitem = voclist.get(position);
+            vocitem = voclist.get(position);
+
             holder.tv_description.setText(vocitem.getDescription() + "");
             holder.tv_foreign.setText(vocitem.getForeignLang() + "");
             holder.tv_unitId.setText(vocitem.getUnitId() + "");
             holder.tv_native.setText(vocitem.getNativeLang() + "");
             holder.tv_count1.setText(vocitem.getLevel1() + "");
             holder.tv_count2.setText(vocitem.getLevel2() + "");
-        }
-        return convertView;
-    }
 
+            return convertView;
+        } else {
+            // es wird nur das leere element angezeigt
+            vocitem = new VocabularyItem("", "", "", "");
+            vocitem.setForeignLang("Vokabelliste ist leer");
+            vocitem.setDescription("Clicken für einen neuen Eintrag");
+
+            holder.tv_description.setText(vocitem.getDescription() + "");
+            holder.tv_foreign.setText(vocitem.getForeignLang() + "");
+            holder.tv_unitId.setText("");
+            holder.tv_native.setText("");
+            holder.tv_count1.setText("");
+            holder.tv_count2.setText("");
+            return convertView;
+        }
+    }
 
 
     // ListAdapter Methoden
@@ -96,7 +111,7 @@ public class VocListCustomAdapter extends ArrayAdapter {
 
     @Override
     public int getCount() {
-        return voclist.size();
+        return Math.max(1, voclist.size());
     }
 
     @Override
@@ -128,7 +143,6 @@ public class VocListCustomAdapter extends ArrayAdapter {
     public boolean isEmpty() {
         return voclist.isEmpty();
     }
-
 
 
     // set the units

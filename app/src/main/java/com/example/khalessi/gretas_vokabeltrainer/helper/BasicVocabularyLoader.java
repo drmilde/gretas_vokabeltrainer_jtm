@@ -151,5 +151,4 @@ public class BasicVocabularyLoader {
         insertPairs("livingRoom", "beschreibung", bec.getWohnzimmer());
     }
 
-
 }

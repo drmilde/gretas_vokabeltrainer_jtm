@@ -50,12 +50,19 @@ public class VocListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // store current Voc in AppState
-                VocabularyItem currentVoc = voclist.get(position);
-                AppState.getInstance().setCurrentVoc(currentVoc);
+                if (voclist.size() > 0 ) { // checken, ob nur die leermeldung angezeigt wird
+                    VocabularyItem currentVoc = voclist.get(position);
+                    AppState.getInstance().setCurrentVoc(currentVoc);
 
-                // start VocEditActivity
-                Intent intent_VocEdit = new Intent(getApplicationContext(), VocEditActivity.class);
-                startActivity(intent_VocEdit);
+                    // start VocEditActivity
+                    Intent intent_VocEdit = new Intent(getApplicationContext(), VocEditActivity.class);
+                    startActivity(intent_VocEdit);
+                } else {
+                    // ist leer, also füge neuen eintrag hinzu
+                    // start VocEditActivity
+                    Intent intent_VocAdd = new Intent(getApplicationContext(), VocAddActivity.class);
+                    startActivity(intent_VocAdd);
+                }
             }
         });
 
