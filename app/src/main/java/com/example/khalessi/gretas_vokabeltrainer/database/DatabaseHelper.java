@@ -112,7 +112,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *
      * Retrieves all Units from the database.
      * If getVocList is true, the vocs data is also copied into the Units.
      *
@@ -151,7 +150,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * Data is copied from the given unit into the row.
      * The row id is not modified.
      *
-     * @param id, the row id of the unit to be updated
+     * @param id,   the row id of the unit to be updated
      * @param unit, the unit containing the data to be updated
      * @return true, if entries had been affected
      */
@@ -324,27 +323,55 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(VOCABULARY_COLUMN_LEVEL_1, 0);
         contentValues.put(VOCABULARY_COLUMN_LEVEL_2, 0);
 
-        db.insert(VOCABULARY_TABLE_NAME, null, contentValues);
-        return true;
+        long affectedRow = db.insert(VOCABULARY_TABLE_NAME, null, contentValues);
+        return (affectedRow > -1);
     }
 
-    public boolean updateVocabulary(String unitId,
-                                    String foreignLang, String nativeLang, String description,
-                                    int level1, int level2,
-                                    int id) {
+    public boolean insertVocabulary(VocabularyItem vocItem) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put(VOCABULARY_COLUMN_UNIT_ID, unitId);
-        contentValues.put(VOCABULARY_COLUMN_FOREIGN_LANG, foreignLang);
-        contentValues.put(VOCABULARY_COLUMN_NATIVE_LANG, nativeLang);
-        contentValues.put(VOCABULARY_COLUMN_DESCRIPTION, description);
-        contentValues.put(VOCABULARY_COLUMN_LEVEL_1, level1);
-        contentValues.put(VOCABULARY_COLUMN_LEVEL_2, level2);
+        contentValues.put(VOCABULARY_COLUMN_UNIT_ID, vocItem.getUnitId());
+        contentValues.put(VOCABULARY_COLUMN_FOREIGN_LANG, vocItem.getForeignLang());
+        contentValues.put(VOCABULARY_COLUMN_NATIVE_LANG, vocItem.getNativeLang());
+        contentValues.put(VOCABULARY_COLUMN_DESCRIPTION, vocItem.getDescription());
+        contentValues.put(VOCABULARY_COLUMN_LEVEL_1, 0);
+        contentValues.put(VOCABULARY_COLUMN_LEVEL_2, 0);
 
-        db.update(VOCABULARY_TABLE_NAME, contentValues,
+        long affectedRow = db.insert(VOCABULARY_TABLE_NAME, null, contentValues);
+        return (affectedRow > -1);
+    }
+
+    public boolean updateVocabulary(int id, VocabularyItem vocItem) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(VOCABULARY_COLUMN_UNIT_ID, vocItem.getUnitId());
+        contentValues.put(VOCABULARY_COLUMN_FOREIGN_LANG, vocItem.getForeignLang());
+        contentValues.put(VOCABULARY_COLUMN_NATIVE_LANG, vocItem.getNativeLang());
+        contentValues.put(VOCABULARY_COLUMN_DESCRIPTION, vocItem.getDescription());
+        contentValues.put(VOCABULARY_COLUMN_LEVEL_1, vocItem.getLevel1());
+        contentValues.put(VOCABULARY_COLUMN_LEVEL_2, vocItem.getLevel2());
+
+        int affected = db.update(VOCABULARY_TABLE_NAME, contentValues,
                 VOCABULARY_COLUMN_ID + " = ? ", new String[]{Integer.toString(id)});
-        return true;
+        return (affected > 0);
+    }
+
+    public boolean updateVocabulary(VocabularyItem vocItem) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(VOCABULARY_COLUMN_UNIT_ID, vocItem.getUnitId());
+        contentValues.put(VOCABULARY_COLUMN_FOREIGN_LANG, vocItem.getForeignLang());
+        contentValues.put(VOCABULARY_COLUMN_NATIVE_LANG, vocItem.getNativeLang());
+        contentValues.put(VOCABULARY_COLUMN_DESCRIPTION, vocItem.getDescription());
+        contentValues.put(VOCABULARY_COLUMN_LEVEL_1, vocItem.getLevel1());
+        contentValues.put(VOCABULARY_COLUMN_LEVEL_2, vocItem.getLevel2());
+
+        int affected = db.update(VOCABULARY_TABLE_NAME, contentValues,
+                VOCABULARY_COLUMN_UNIT_ID + " = ? ", new String[]{vocItem.getUnitId()});
+        return (affected > 0);
     }
 
 
@@ -460,7 +487,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public int getVocabularyId(String foreign) {
+    public int getVocabularyIdForForeign(String foreign) {
         SQLiteDatabase db = this.getReadableDatabase();
         int value = -1;
 

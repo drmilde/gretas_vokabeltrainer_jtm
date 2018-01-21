@@ -55,7 +55,7 @@ public class BasicVocabularyLoader {
     }
 
     public int getVocabularyId(String foreign) {
-        return dbh.getVocabularyId(foreign);
+        return dbh.getVocabularyIdForForeign(foreign);
     }
 
     public ArrayList<VocabularyItem> getVocabularyDataByUnitId(String unitId) {
