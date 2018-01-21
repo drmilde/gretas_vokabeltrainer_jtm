@@ -520,6 +520,47 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public VocabularyItem getVocabularyItemForForeign(String foreign) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        VocabularyItem vocItem = null;
+
+        String[] columns = {
+                VOCABULARY_COLUMN_ID,
+                VOCABULARY_COLUMN_FOREIGN_LANG,
+                VOCABULARY_COLUMN_NATIVE_LANG,
+                VOCABULARY_COLUMN_DESCRIPTION,
+                VOCABULARY_COLUMN_UNIT_ID,
+                VOCABULARY_COLUMN_LEVEL_1,
+                VOCABULARY_COLUMN_LEVEL_2
+        };
+
+        String pattern = VOCABULARY_COLUMN_FOREIGN_LANG + "=?";
+
+        String[] values = {
+                foreign
+        };
+
+        Cursor result = db.query(VOCABULARY_TABLE_NAME,
+                columns, pattern, values,
+                null, null, null, null
+        );
+
+        if (result.moveToFirst()) { // ist da überhaupt ein Datensatz
+            vocItem =
+                    new VocabularyItem(
+                            Integer.parseInt(result.getString(0)),
+                            result.getString(1),
+                            result.getString(2),
+                            result.getString(3),
+                            result.getString(4),
+                            Integer.parseInt(result.getString(5)),
+                            Integer.parseInt(result.getString(6))
+        }
+
+        return vocItem;
+    }
+
+
     //*****************************************************
     // CRUD Operationen für Vokabeln ENDE
     //*****************************************************
