@@ -59,7 +59,9 @@ public class VocListActivity extends AppCompatActivity {
                     startActivity(intent_VocEdit);
                 } else {
                     // ist leer, also füge neuen eintrag hinzu
-                    // start VocEditActivity
+                    AppState.getInstance().setCurrentVoc(null); // kein aktueller vocItem eintrag
+
+                    // start VocAddActivity
                     Intent intent_VocAdd = new Intent(getApplicationContext(), VocAddActivity.class);
                     startActivity(intent_VocAdd);
                 }

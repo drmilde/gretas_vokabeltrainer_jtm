@@ -10,9 +10,19 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
+import com.example.khalessi.gretas_vokabeltrainer.database.VocabularyItem;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 public class VocEditActivity extends AppCompatActivity {
+
+    private VocabularyItem currentVoc = null;
+
+    // views in form
+    private EditText et_entry_add_vokabelMuttersprache;
+    private EditText et_entry_add_vokabelFremdsprache;
+    private EditText et_entry_add_vokabelZusatzinfo;
+    private EditText et_entry_add_lektionstitel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +32,23 @@ public class VocEditActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // get the views of the form
+        et_entry_add_vokabelMuttersprache = (EditText)findViewById(R.id.et_entry_add_vokabelMuttersprache);
+        et_entry_add_vokabelFremdsprache = (EditText)findViewById(R.id.et_entry_add_vokabelFremdsprache);
+        et_entry_add_vokabelZusatzinfo = (EditText)findViewById(R.id.et_entry_add_vokabelZusatzinfo);
+        et_entry_add_lektionstitel = (EditText)findViewById(R.id.et_entry_add_lektionstitel);
+
         // this
         showCurrentUnitTitle();
 
         //TODO fill data with currentVoc
+        currentVoc = AppState.getInstance().getCurrentVoc();
+        if (currentVoc != null) {
+            et_entry_add_vokabelMuttersprache.setText(currentVoc.getNativeLang());
+            et_entry_add_vokabelFremdsprache.setText(currentVoc.getForeignLang());
+            et_entry_add_vokabelZusatzinfo.setText(currentVoc.getDescription());
+            et_entry_add_lektionstitel.setText(currentVoc.getUnitId());
+        }
 
         // processing clicks
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
