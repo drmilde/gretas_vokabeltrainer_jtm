@@ -71,4 +71,9 @@
     <string name="edit_voc_btn_save_label">Speichern</string>
 
 
+    <!-- Empty voc list entry -->
+    <string name="no_entries_in_this_unit">Diese Liste ist leer.</string>
+    <string name="click_to_add_data">Klicken: neuer Eintrag</string>
+
+
 </resources>

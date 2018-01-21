@@ -41,17 +41,23 @@ public class VocListCustomAdapter extends ArrayAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         VocListCustomAdapter.ViewHolder holder = null;
         if (convertView == null) {
-            LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = vi.inflate(R.layout.details_list_voc, null);
+            if (voclist.size() > 0) { // list contains items
+                LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = vi.inflate(R.layout.details_list_voc, null);
 
-            holder = new VocListCustomAdapter.ViewHolder();
-            holder.tv_unitId = (TextView) convertView.findViewById(R.id.tv_voc_unitId);
-            holder.tv_foreign = (TextView) convertView.findViewById(R.id.tv_voc_foreignLang);
-            holder.tv_description = (TextView) convertView.findViewById(R.id.tv_voc_Description);
-            holder.tv_native = (TextView) convertView.findViewById(R.id.tv_voc_nativeLang);
-            holder.tv_count1 = (TextView) convertView.findViewById(R.id.tv_voc_count1);
-            holder.tv_count2 = (TextView) convertView.findViewById(R.id.tv_voc_count2);
-            convertView.setTag(holder);
+                holder = new VocListCustomAdapter.ViewHolder();
+                holder.tv_unitId = (TextView) convertView.findViewById(R.id.tv_voc_unitId);
+                holder.tv_foreign = (TextView) convertView.findViewById(R.id.tv_voc_foreignLang);
+                holder.tv_description = (TextView) convertView.findViewById(R.id.tv_voc_Description);
+                holder.tv_native = (TextView) convertView.findViewById(R.id.tv_voc_nativeLang);
+                holder.tv_count1 = (TextView) convertView.findViewById(R.id.tv_voc_count1);
+                holder.tv_count2 = (TextView) convertView.findViewById(R.id.tv_voc_count2);
+                convertView.setTag(holder);
+            } else { // uses empty layout container
+                LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = vi.inflate(R.layout.details_list_voc_empty, null);
+                convertView.setTag(holder);
+            }
 
         } else {
             holder = (VocListCustomAdapter.ViewHolder) convertView.getTag();
@@ -71,17 +77,6 @@ public class VocListCustomAdapter extends ArrayAdapter {
 
             return convertView;
         } else {
-            // es wird nur das leere element angezeigt
-            vocitem = new VocabularyItem("", "", "", "");
-            vocitem.setForeignLang("Vokabelliste ist leer");
-            vocitem.setDescription("Clicken für einen neuen Eintrag");
-
-            holder.tv_description.setText(vocitem.getDescription() + "");
-            holder.tv_foreign.setText(vocitem.getForeignLang() + "");
-            holder.tv_unitId.setText("");
-            holder.tv_native.setText("");
-            holder.tv_count1.setText("");
-            holder.tv_count2.setText("");
             return convertView;
         }
     }
