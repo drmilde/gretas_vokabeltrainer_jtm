@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.khalessi.gretas_vokabeltrainer.LevelOneActivity">
+
+
+    <TextView
+        android:id="@+id/tv_LevelOneMutterSprache"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Muttersprache"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        />
+
+    <Button
+        android:id="@+id/btn_LevelOne_word0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:textSize="30sp"
+        />
+
+    <Button
+        android:id="@+id/btn_LevelOne_word1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:textSize="30sp"
+        />
+
+    <Button
+        android:id="@+id/btn_LevelOne_word2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:textSize="30sp"
+        />
+
+    <Button
+        android:id="@+id/btn_LevelOne_word3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:textSize="30sp"
+        />
+
+    <Button
+        android:id="@+id/btn_LevelOne_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nächste"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        />
+
+</LinearLayout>

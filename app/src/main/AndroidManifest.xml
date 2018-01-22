@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".MyWelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,14 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".UnitListActivity"
             android:label="@string/title_activity_unit"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".UnitAddActivity" />
         <activity android:name=".UnitEditActivity" />
-
         <activity
             android:name=".VocAddActivity"
             android:label="@string/title_activity_entry_add"
@@ -34,6 +31,7 @@
             android:label="@string/title_activity_entry_add"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".VocListActivity" />
+        <activity android:name=".LevelOneActivity"></activity>
     </application>
 
 </manifest>

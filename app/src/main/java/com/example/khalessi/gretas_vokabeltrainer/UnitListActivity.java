@@ -64,7 +64,6 @@ public class UnitListActivity extends AppCompatActivity {
                 Unit currentUnit = units.get(position);
                 AppState.getInstance().setCurrentUnit(currentUnit);
 
-
                 // create and show popup menu
                 PopupMenu popup = createPopupMenu(view);
                 popup.show();//showing popup menu
@@ -138,11 +137,10 @@ public class UnitListActivity extends AppCompatActivity {
                 if (selection.equalsIgnoreCase("üben")) {
                     // currentUnit speichern, ist oben passiert
                     // startActivity Üben
+                    Intent levelOneIntent = new Intent(getApplicationContext(), LevelOneActivity.class);
+                    startActivity(levelOneIntent);
                 }
 
-
-                Toast.makeText(getApplicationContext(),
-                        "You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
