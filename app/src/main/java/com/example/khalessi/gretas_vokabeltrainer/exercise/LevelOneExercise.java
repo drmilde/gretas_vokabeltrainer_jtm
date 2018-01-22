@@ -17,42 +17,32 @@ public class LevelOneExercise {
     private String solution = "";
     private int solutionIdx = 0;
 
+    // random generator
+    private Random ra = new Random();
+    private int[] indizes = new int[4];
+
 
     public void generateExercise() {
         currentUnit = AppState.getInstance().getDatabaseHelper().getUnit("GoingToSchool", true);
         currentUnit = AppState.getInstance().getCurrentUnit();
 
-        Random ra = new Random();
-
-        int[] idx = new int[4];
-
-        idx[0] = ra.nextInt(currentUnit.getVoclist().size());
-        words[0] = currentUnit.getVoclist().get(idx[0]).getForeignLang();
-        nativeLang[0] = currentUnit.getVoclist().get(idx[0]).getNativeLang();
-
-        idx[1] = ra.nextInt(currentUnit.getVoclist().size());
-        words[1] = currentUnit.getVoclist().get(idx[1]).getForeignLang();
-        nativeLang[1] = currentUnit.getVoclist().get(idx[1]).getNativeLang();
-
-        idx[2] = ra.nextInt(currentUnit.getVoclist().size());
-        words[2] = currentUnit.getVoclist().get(idx[2]).getForeignLang();
-        nativeLang[2] = currentUnit.getVoclist().get(idx[2]).getNativeLang();
-
-        idx[3] = ra.nextInt(currentUnit.getVoclist().size());
-        words[3] = currentUnit.getVoclist().get(idx[3]).getForeignLang();
-        nativeLang[3] = currentUnit.getVoclist().get(idx[3]).getNativeLang();
+        for (int idx = 0; idx < indizes.length; idx++) {
+            getNextRandomVoc(idx);
+        }
 
         solutionIdx = ra.nextInt(4);
 
         // setzen der Wörter in die TextViews der Activity
     }
 
-    public String[] getWords() {
-        return words;
+    private void getNextRandomVoc(int idx) {
+        indizes[idx] = ra.nextInt(currentUnit.getVoclist().size());
+        words[idx] = currentUnit.getVoclist().get(indizes[idx]).getForeignLang();
+        nativeLang[idx] = currentUnit.getVoclist().get(indizes[idx]).getNativeLang();
     }
 
-    public String getSolution() {
-        return solution;
+    public String[] getWords() {
+        return words;
     }
 
     public String[] getNativeLang() {
