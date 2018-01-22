@@ -36,7 +36,9 @@ public class UnitListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // get the data from database and create UnitListCustomAdapter
-        units = bvl.getUnitsData(true);
+        units = AppState.getInstance().getDatabaseHelper().getUnitsData(true);
+
+
         unitlistCustomAdapter = new UnitListCustomAdapter(this, R.layout.details_list_unit, units);
 
         // connect listView and Adapter
@@ -156,7 +158,7 @@ public class UnitListActivity extends AppCompatActivity {
      */
     private void deleteListItem(int position) {
         int id = units.get(position).get_id();
-        bvl.deleteUnit(id);
+        AppState.getInstance().getDatabaseHelper().deleteUnit(id);
         updateListView();
     }
 
@@ -181,7 +183,8 @@ public class UnitListActivity extends AppCompatActivity {
      * Updates the content of the ListView.
      */
     private void updateListView() {
-        units = bvl.getUnitsData(true); // aktuelle Daten holen
+        units = AppState.getInstance().getDatabaseHelper().getUnitsData(true); // aktuelle Daten holen
+
         unitlistCustomAdapter.setUnits(units); // daten in unitlistCustomAdapter setzen
         listView.invalidateViews(); // listView neu zeichnen
     }

@@ -28,41 +28,6 @@ public class BasicVocabularyLoader {
         setupBasicVocabAndUnits();
     }
 
-    // Interface routinen
-
-    public ArrayList<VocabularyItem> getVocabularyData(String unitId) {
-        return dbh.getVocabularyDataByUnitId(unitId);
-    }
-
-    public ArrayList<VocabularyItem> getVocabularyData() {
-        return dbh.getVocabularyData();
-    }
-
-    public ArrayList<Unit> getUnitsData(boolean getVocList) {
-        return dbh.getUnitsData(getVocList);
-    }
-
-    public Unit getUnit(String unitId, boolean getVocList) {
-        return dbh.getUnit(unitId, getVocList);
-    }
-
-    public void deleteUnit(int id) {
-        dbh.deleteUnit(id);
-    }
-
-    public void deleteSomeUnits() {
-        dbh.deleteSomeUnits();
-    }
-
-    public int getVocabularyId(String foreign) {
-        return dbh.getVocabularyIdForForeign(foreign);
-    }
-
-    public ArrayList<VocabularyItem> getVocabularyDataByUnitId(String unitId) {
-        return dbh.getVocabularyDataByUnitId(unitId);
-    }
-
-
     // setup content
 
     private void setupBasicVocabAndUnits() {
