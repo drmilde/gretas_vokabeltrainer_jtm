@@ -44,6 +44,14 @@ public class LevelOneExercise {
         nativeLang[idx] = currentUnit.getVoclist().get(indizes[idx]).getNativeLang();
     }
 
+    /**
+     * Check, if vocIdx is unique, thus avoiding
+     * double entries in the quiz.
+     *
+     * @param vocIdx
+     * @return true, if vocIdx is unique
+     *
+     */
     private boolean unique(int vocIdx) {
         for (int idx = 0; idx < indizes.length; idx++) {
             if (indizes[idx] == vocIdx) {
@@ -52,6 +60,18 @@ public class LevelOneExercise {
         }
         return true;
     }
+
+    /**
+     * Check, if the selectedIdx is the solutionIdx
+     *
+     * @param selectedIdx
+     * @return true, if selectedIdx == solutionIdx
+     */
+    public boolean checkResult(int selectedIdx) {
+        return (solutionIdx == selectedIdx);
+    }
+
+    // getter
 
     public String[] getWords() {
         return words;

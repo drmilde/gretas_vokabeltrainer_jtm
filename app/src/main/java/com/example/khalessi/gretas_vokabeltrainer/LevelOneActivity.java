@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.khalessi.gretas_vokabeltrainer.exercise.LevelOneExercise;
 
@@ -52,38 +53,38 @@ public class LevelOneActivity extends AppCompatActivity {
     }
 
     private void registerCallback() {
-
         buttons[0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // vergleich mit solution ??
+                checkResults(loe.checkResult(0));
             }
         });
 
         buttons[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // vergleich mit solution
+                checkResults(loe.checkResult(1));
             }
         });
 
         buttons[2].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // vergleich mit solution
+                checkResults(loe.checkResult(2));
             }
         });
 
         buttons[3].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //
+                checkResults(loe.checkResult(3));
             }
         });
 
         btn_LevelOne_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // nächste übung generieren
                 erzeugeUebung();
                 setTexts();
             }
@@ -96,4 +97,14 @@ public class LevelOneActivity extends AppCompatActivity {
         nativeLang = loe.getNativeLang();
         solutionIdx = loe.getSolutionIdx();
     }
+
+
+    private void checkResults(boolean val) {
+        if (val) {
+            Toast.makeText(getApplicationContext(), "richtig", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "falsch", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }
