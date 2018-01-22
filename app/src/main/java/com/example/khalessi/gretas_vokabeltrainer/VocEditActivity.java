@@ -35,10 +35,10 @@ public class VocEditActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // get the views of the form
-        et_entry_add_vokabelMuttersprache = (EditText)findViewById(R.id.et_entry_add_vokabelMuttersprache);
-        et_entry_add_vokabelFremdsprache = (EditText)findViewById(R.id.et_entry_add_vokabelFremdsprache);
-        et_entry_add_vokabelZusatzinfo = (EditText)findViewById(R.id.et_entry_add_vokabelZusatzinfo);
-        et_entry_add_lektionstitel = (EditText)findViewById(R.id.et_entry_add_lektionstitel);
+        et_entry_add_vokabelMuttersprache = (EditText) findViewById(R.id.et_entry_add_vokabelMuttersprache);
+        et_entry_add_vokabelFremdsprache = (EditText) findViewById(R.id.et_entry_add_vokabelFremdsprache);
+        et_entry_add_vokabelZusatzinfo = (EditText) findViewById(R.id.et_entry_add_vokabelZusatzinfo);
+        et_entry_add_lektionstitel = (EditText) findViewById(R.id.et_entry_add_lektionstitel);
 
         // this
         showCurrentUnitTitle();
@@ -68,32 +68,32 @@ public class VocEditActivity extends AppCompatActivity {
         btn_addEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO Eintrag in Datenbank einfügen, bzw. aktualisieren
-                // TODO testen, ob update automatisch ein insert macht, wenn kein passender Datensatz in der DB ist ?
-                // VocItem erzeugen und mit update eintragen
+                // VocItem erzeugen und mit update/insert eintragen
 
                 String foreignLang = et_entry_add_vokabelFremdsprache.getText().toString();
                 String nativeLang = et_entry_add_vokabelMuttersprache.getText().toString();
                 String description = et_entry_add_vokabelZusatzinfo.getText().toString();
-                String uniId = et_entry_add_lektionstitel.getText().toString();
+                String unitId = et_entry_add_lektionstitel.getText().toString();
 
                 // TODO hier muss noch ein check rein
 
 
+                // sind die Daten vollständig
+                if (checkForm(foreignLang, nativeLang, description, unitId)) {
+                    VocabularyItem vocItem = new VocabularyItem(
+                            unitId,
+                            foreignLang,
+                            nativeLang,
+                            description
+                    );
 
-                VocabularyItem vocItem = new VocabularyItem(
-                        uniId,
-                        foreignLang,
-                        nativeLang,
-                        description
-                );
+                    boolean updated = AppState.getInstance().getDatabaseHelper().updateVocabulary(vocItem);
 
-                boolean updated = AppState.getInstance().getDatabaseHelper().updateVocabulary(vocItem);
-
-                if (!updated) {
-                    // changed the foreign language entry
-                    // insert a new entry
-                    boolean inserted = AppState.getInstance().getDatabaseHelper().insertVocabulary(vocItem);
+                    if (!updated) {
+                        // changed the foreign language entry
+                        // insert a new entry
+                        boolean inserted = AppState.getInstance().getDatabaseHelper().insertVocabulary(vocItem);
+                    }
                 }
             }
         });
@@ -108,6 +108,27 @@ public class VocEditActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Tests, ob die Formdaten vollständig und nicht leer sind
+     *
+     * @param foreignLang
+     * @param nativeLang
+     * @param description
+     * @param unitId
+     * @return true, falls alle Werte nichtleer sind
+     */
+    private boolean checkForm(String foreignLang, String nativeLang, String description, String unitId) {
+        boolean dataComplete;
+        dataComplete = !(
+                (foreignLang.trim().equalsIgnoreCase("")) ||
+                        (description.trim().equalsIgnoreCase("")) ||
+                        (nativeLang.trim().equalsIgnoreCase("")) ||
+                        (unitId.trim().equalsIgnoreCase(""))
+        );
+        return dataComplete;
+    }
+
+
     private void showCurrentUnitTitle() {
         Unit currentUnit = AppState.getInstance().getCurrentUnit();
         if (currentUnit != null) {
@@ -116,5 +137,4 @@ public class VocEditActivity extends AppCompatActivity {
 
         }
     }
-
 }

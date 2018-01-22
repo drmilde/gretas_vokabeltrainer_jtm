@@ -60,10 +60,15 @@ public class UnitListActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
+                // speichert ausgewählte unit im AppState
+                Unit currentUnit = units.get(position);
+                AppState.getInstance().setCurrentUnit(currentUnit);
+
+
+                // create and show popup menu
                 PopupMenu popup = createPopupMenu(view);
                 popup.show();//showing popup menu
 
-                //createDeleteDialog(position).show();
                 return true;
             }
         });
@@ -126,6 +131,16 @@ public class UnitListActivity extends AppCompatActivity {
         //registering popup with OnMenuItemClickListener
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             public boolean onMenuItemClick(MenuItem item) {
+
+                // unterscheidung zwischen den menu punkte: Auswahl
+                String selection = item.getTitle().toString();
+
+                if (selection.equalsIgnoreCase("üben")) {
+                    // currentUnit speichern, ist oben passiert
+                    // startActivity Üben
+                }
+
+
                 Toast.makeText(getApplicationContext(),
                         "You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
                 return true;
