@@ -370,7 +370,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(VOCABULARY_COLUMN_LEVEL_2, vocItem.getLevel2());
 
         int affected = db.update(VOCABULARY_TABLE_NAME, contentValues,
-                VOCABULARY_COLUMN_UNIT_ID + " = ? ", new String[]{vocItem.getUnitId()});
+                VOCABULARY_COLUMN_FOREIGN_LANG + " = ? ", new String[]{vocItem.getForeignLang()});
         return (affected > 0);
     }
 

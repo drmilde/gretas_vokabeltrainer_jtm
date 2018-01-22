@@ -5,9 +5,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
 import com.example.khalessi.gretas_vokabeltrainer.database.VocabularyItem;
@@ -61,15 +63,42 @@ public class VocEditActivity extends AppCompatActivity {
             }
         });
 
-        //
+        // clicks auf button addEntry verarbeiten
         Button btn_addEntry = (Button) findViewById(R.id.btn_addEntrySubmit);
         btn_addEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // TODO Eintrag in Datenbank einfügen, bzw. aktualisieren
+                // TODO testen, ob update automatisch ein insert macht, wenn kein passender Datensatz in der DB ist ?
+                // VocItem erzeugen und mit update eintragen
+
+                String foreignLang = et_entry_add_vokabelFremdsprache.getText().toString();
+                String nativeLang = et_entry_add_vokabelMuttersprache.getText().toString();
+                String description = et_entry_add_vokabelZusatzinfo.getText().toString();
+                String uniId = et_entry_add_lektionstitel.getText().toString();
+
+                // TODO hier muss noch ein check rein
+
+
+
+                VocabularyItem vocItem = new VocabularyItem(
+                        uniId,
+                        foreignLang,
+                        nativeLang,
+                        description
+                );
+
+                boolean updated = AppState.getInstance().getDatabaseHelper().updateVocabulary(vocItem);
+
+                if (!updated) {
+                    // changed the foreign language entry
+                    // insert a new entry
+                    boolean inserted = AppState.getInstance().getDatabaseHelper().insertVocabulary(vocItem);
+                }
             }
         });
 
+        // clicks auf Button cancel verarbeiten
         Button btn_cancelAddEntry = (Button) findViewById(R.id.btn_addEntryCancel);
         btn_cancelAddEntry.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,9 +111,7 @@ public class VocEditActivity extends AppCompatActivity {
     private void showCurrentUnitTitle() {
         Unit currentUnit = AppState.getInstance().getCurrentUnit();
         if (currentUnit != null) {
-
             // get the title of the current unit and set it in the VocAddActivity
-            EditText et_entry_add_lektionstitel = (EditText)findViewById(R.id.et_entry_add_lektionstitel);
             et_entry_add_lektionstitel.setText(AppState.getInstance().getCurrentUnit().getTitle());
 
         }

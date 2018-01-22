@@ -100,4 +100,27 @@ public class VocListActivity extends AppCompatActivity {
         });
         return popup;
     }
+
+
+    // Updating the list after restart
+
+    private void updateListView() {
+        // update the current unit in AppState
+        Unit unit = AppState.getInstance().getCurrentUnit();
+        unit = AppState.getInstance().getDatabaseHelper().getUnit(unit.getUnitId(), true);
+        AppState.getInstance().setCurrentUnit(unit);
+
+        // get the voclist and redraw listview
+        voclist = unit.getVoclist();
+        voclistCustomAdapter.setVoclist(voclist); // daten in unitlistCustomAdapter setzen
+        listView.invalidateViews(); // listView neu zeichnen
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // if database has changed, we need to update the ListView
+        updateListView();
+    }
+
 }
