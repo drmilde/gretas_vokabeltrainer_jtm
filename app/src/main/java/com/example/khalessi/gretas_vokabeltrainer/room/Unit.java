@@ -32,18 +32,18 @@ public class Unit {
 
 
     // Konstruktoren
+    @Ignore
     public Unit(String unitId, String user, String title, String description) {
-        this(unitId, user, title, description, -1);
+        this(-1, unitId, user, title, description);
     }
 
-    public Unit(String unitId, String user, String title, String description, int _id) {
-        this.user = user;
+    public Unit(int _id, @NonNull String unitId, String user, String title, String description) {
+        this._id = _id;
         this.unitId = unitId;
+        this.user = user;
         this.title = title;
         this.description = description;
-        this._id = _id;
     }
-
 
     // getter
 

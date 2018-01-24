@@ -1,6 +1,7 @@
 package com.example.khalessi.gretas_vokabeltrainer.room;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
@@ -22,6 +23,7 @@ public class VocabularyItem {
 
 
     // Konstruktoren
+    @Ignore
     public VocabularyItem(String unitId, String foreignLang, String nativeLang, String description) {
         this.foreignLang = foreignLang;
         this.nativeLang = nativeLang;
