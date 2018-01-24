@@ -34,7 +34,11 @@ public class Unit {
     // Konstruktoren
     @Ignore
     public Unit(String unitId, String user, String title, String description) {
-        this(-1, unitId, user, title, description);
+        // id wird nicht gesetzt ?
+        this.unitId = unitId;
+        this.user = user;
+        this.title = title;
+        this.description = description;
     }
 
     public Unit(int _id, @NonNull String unitId, String user, String title, String description) {
