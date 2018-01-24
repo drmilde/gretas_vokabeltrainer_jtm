@@ -9,8 +9,7 @@ import java.util.Random;
  * Created by milde on 22.01.18.
  */
 
-public class LevelOneExercise {
-
+public class LevelOneExercise implements IExercise {
     private Unit currentUnit;
     private String[] words = new String[4];
     private String[] nativeLang = new String[4];
@@ -19,18 +18,6 @@ public class LevelOneExercise {
     // random generator
     private Random ra = new Random();
     private int[] indizes = new int[4];
-
-
-    public void generateExercise() {
-        currentUnit = AppState.getInstance().getDatabaseHelper().getUnit("GoingToSchool", true);
-        currentUnit = AppState.getInstance().getCurrentUnit();
-
-        for (int idx = 0; idx < indizes.length; idx++) {
-            getNextRandomVoc(idx);
-        }
-
-        solutionIdx = ra.nextInt(4);
-    }
 
     private void getNextRandomVoc(int idx) {
         // find unique word
@@ -50,7 +37,6 @@ public class LevelOneExercise {
      *
      * @param vocIdx
      * @return true, if vocIdx is unique
-     *
      */
     private boolean unique(int vocIdx) {
         for (int idx = 0; idx < indizes.length; idx++) {
@@ -61,27 +47,47 @@ public class LevelOneExercise {
         return true;
     }
 
+
+    // interface routinen
+
     /**
      * Check, if the selectedIdx is the solutionIdx
      *
      * @param selectedIdx
      * @return true, if selectedIdx == solutionIdx
      */
+    @Override
     public boolean checkResult(int selectedIdx) {
         return (solutionIdx == selectedIdx);
     }
 
     // getter
-
+    @Override
     public String[] getWords() {
         return words;
     }
 
+    @Override
     public String[] getNativeLang() {
         return nativeLang;
     }
 
+    @Override
     public int getSolutionIdx() {
         return solutionIdx;
+    }
+
+    /**
+     * Generates a new exercise.
+      */
+    @Override
+    public void generateExercise() {
+        currentUnit = AppState.getInstance().getDatabaseHelper().getUnit("GoingToSchool", true);
+        currentUnit = AppState.getInstance().getCurrentUnit();
+
+        for (int idx = 0; idx < indizes.length; idx++) {
+            getNextRandomVoc(idx);
+        }
+        solutionIdx = ra.nextInt(4);
     }
 }

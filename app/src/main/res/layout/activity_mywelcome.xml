@@ -26,7 +26,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Miau"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        />
 
     <Button
         android:id="@+id/btn_startApp"

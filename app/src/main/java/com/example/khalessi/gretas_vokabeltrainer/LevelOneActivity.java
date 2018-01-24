@@ -7,11 +7,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.khalessi.gretas_vokabeltrainer.exercise.IExercise;
 import com.example.khalessi.gretas_vokabeltrainer.exercise.LevelOneExercise;
 
 public class LevelOneActivity extends AppCompatActivity {
 
-    private LevelOneExercise loe = new LevelOneExercise();
+    private IExercise loe = new LevelOneExercise();
     private String[] words;
     private String[] nativeLang;
     private int solutionIdx;
