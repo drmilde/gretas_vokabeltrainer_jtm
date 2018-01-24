@@ -1,14 +1,13 @@
 package com.example.khalessi.gretas_vokabeltrainer.room;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-import com.example.khalessi.gretas_vokabeltrainer.database.VocabularyItem;
-
 import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by Alexandra Filbert on 04.01.18.
@@ -28,7 +27,7 @@ public class Unit {
 
     // vocabulary item of unit
     @Ignore
-    private ArrayList<VocabularyItem> voclist = new ArrayList<VocabularyItem>();
+    private List<VocabularyItem> voclist = new ArrayList<VocabularyItem>();
 
 
     // Konstruktoren
@@ -71,11 +70,11 @@ public class Unit {
         return description;
     }
 
-    public ArrayList<VocabularyItem> getVoclist() {
+    public List<VocabularyItem> getVoclist() {
         return voclist;
     }
 
-    // setter
+// setter
 
     public void setDescription(String description) {
         this.description = description;
@@ -97,7 +96,7 @@ public class Unit {
         this._id = _id;
     }
 
-    public void setVoclist(ArrayList<VocabularyItem> voclist) {
+    public void setVoclist(List<VocabularyItem> voclist) {
         this.voclist = voclist;
     }
 }

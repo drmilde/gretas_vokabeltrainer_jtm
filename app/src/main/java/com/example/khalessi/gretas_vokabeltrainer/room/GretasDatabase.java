@@ -15,6 +15,8 @@ import android.support.annotation.NonNull;
 @Database(entities = {Unit.class, VocabularyItem.class}, version = 1)
 public abstract class GretasDatabase extends RoomDatabase {
 
+    private static String DB_NAME = "gretas_database";
+
     public abstract UnitDao unitDao();
 
     public abstract VocabularyItemDao vocabularyItemDao();
@@ -23,18 +25,22 @@ public abstract class GretasDatabase extends RoomDatabase {
 
     static GretasDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
-            synchronized (GretasDatabase.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            GretasDatabase.class, "gretas_database")
-                            .fallbackToDestructiveMigration()
-                            .addCallback(sRoomDatabaseCallback)
-                            .build();
-
-                }
-            }
+            recreateDB(context);
         }
         return INSTANCE;
+    }
+
+    public static void recreateDB(Context context) {
+        synchronized (GretasDatabase.class) {
+            if (INSTANCE == null) {
+                INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                        GretasDatabase.class, DB_NAME)
+                        .fallbackToDestructiveMigration()
+                        .addCallback(sRoomDatabaseCallback)
+                        .build();
+
+            }
+        }
     }
 
 

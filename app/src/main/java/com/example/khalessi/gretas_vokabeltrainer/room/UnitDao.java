@@ -16,16 +16,19 @@ import java.util.List;
 public interface UnitDao {
 
     @Insert
-    void insertUnit(Unit unit);
+    long insertUnit(Unit unit);
 
     @Update
-    void updateUnit(Unit unit);
+    int updateUnit(Unit unit);
 
     @Delete
-    void deleteUnit(Unit unit);
+    int deleteUnit(Unit unit);
+
+    @Query("DELETE FROM unit_table WHERE _id=:id")
+    int deleteUnit(int id);
 
     @Query("DELETE FROM unit_table")
-    void deleteAllUnits();
+    int deleteAllUnits();
 
     @Query("SELECT * FROM unit_table WHERE unitId=:unitId")
     Unit getUnit(String unitId);

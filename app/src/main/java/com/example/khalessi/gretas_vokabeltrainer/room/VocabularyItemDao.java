@@ -33,4 +33,7 @@ public interface VocabularyItemDao {
     @Query("SELECT * from voc_table")
     List<VocabularyItem> getVocabularyData();
 
+    @Query("SELECT * from voc_table WHERE unitId=:unitId")
+    List<VocabularyItem> getVocabularyData(String unitId);
+
 }
