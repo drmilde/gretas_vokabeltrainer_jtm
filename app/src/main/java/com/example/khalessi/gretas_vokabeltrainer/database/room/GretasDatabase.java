@@ -1,4 +1,4 @@
-package com.example.khalessi.gretas_vokabeltrainer.room;
+package com.example.khalessi.gretas_vokabeltrainer.database.room;
 
 import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Database;
