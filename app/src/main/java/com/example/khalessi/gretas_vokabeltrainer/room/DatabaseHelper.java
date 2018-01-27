@@ -111,41 +111,55 @@ public class DatabaseHelper implements IDatabaseHelper {
 
     @Override
     public boolean insertVocabulary(String unitId, String foreignLang, String nativeLang, String description) {
-        return false;
+        VocabularyItem vocItem = new VocabularyItem(unitId, foreignLang, nativeLang, description);
+        long id = gdb.vocabularyItemDao().insertVocItem(vocItem);
+        return (id > -1);
     }
 
     @Override
     public boolean insertVocabulary(VocabularyItem vocItem) {
-        return false;
+        long id = gdb.vocabularyItemDao().insertVocItem(vocItem);
+        return (id > -1);
     }
 
     @Override
     public boolean updateVocabulary(int id, VocabularyItem vocItem) {
-        return false;
+        vocItem.set_id(id);
+        int affected = gdb.vocabularyItemDao().updateVocItem(vocItem);
+        return (affected > 0);
     }
 
     @Override
     public boolean updateVocabulary(VocabularyItem vocItem) {
-        return false;
+        int affected = gdb.vocabularyItemDao().updateVocItem(vocItem);
+        return (affected > 0);
     }
 
     @Override
     public List<VocabularyItem> getVocabularyData() {
-        return null;
+        return gdb.vocabularyItemDao().getVocabularyItemsData();
     }
 
     @Override
     public List<VocabularyItem> getVocabularyDataByUnitId(String unitId) {
-        return null;
+        return gdb.vocabularyItemDao().getVocList(unitId);
     }
 
     @Override
-    public int getVocabularyIdForForeign(String foreign) {
-        return 0;
+    public int getVocabularyIdForForeign(String foreignLang) {
+        List<VocabularyItem> items = gdb.vocabularyItemDao().getVocItemsForeingLang(foreignLang);
+        if ((items != null) && (items.size() > 0)) {
+            return items.get(0).get_id();
+        }
+        return -1;
     }
 
     @Override
-    public VocabularyItem getVocabularyItemForForeign(String foreign) {
+    public VocabularyItem getVocabularyItemForForeign(String foreignLang) {
+        List<VocabularyItem> items = gdb.vocabularyItemDao().getVocItemsForeingLang(foreignLang);
+        if ((items != null) && (items.size() > 0)) {
+            return items.get(0);
+        }
         return null;
     }
 }

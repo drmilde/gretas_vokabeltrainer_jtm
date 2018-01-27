@@ -35,6 +35,9 @@ public interface VocabularyItemDao {
     @Query("DELETE FROM voc_table")
     int deleteAllVocItems();
 
+    @Query("SELECT * FROM voc_table WHERE foreignLang=:foreignLang")
+    List<VocabularyItem> getVocItemsForeingLang(String foreignLang);
+
     @Query("SELECT * FROM voc_table WHERE unitId=:unitId")
     List<VocabularyItem> getVocList(String unitId);
 

@@ -40,7 +40,7 @@ interface IDatabaseHelper {
 
     List<VocabularyItem> getVocabularyDataByUnitId(String unitId);
 
-    int getVocabularyIdForForeign(String foreign);
+    int getVocabularyIdForForeign(String foreignLang);
 
-    VocabularyItem getVocabularyItemForForeign(String foreign);
+    VocabularyItem getVocabularyItemForForeign(String foreignLang);
 }
