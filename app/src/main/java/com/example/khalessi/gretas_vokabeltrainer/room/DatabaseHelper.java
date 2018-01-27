@@ -16,7 +16,6 @@ public class DatabaseHelper implements IDatabaseHelper {
 
     public DatabaseHelper(Context context) {
         this.context = context;
-
         // initialisiere Datenbank
         gdb = GretasDatabase.getDatabase(context);
     }
@@ -44,7 +43,7 @@ public class DatabaseHelper implements IDatabaseHelper {
 
         for (Unit unit : unitsData) {
             if (getVocList) {
-                List<VocabularyItem> vocList = gdb.vocabularyItemDao().getVocabularyData(unit.getUnitId());
+                List<VocabularyItem> vocList = gdb.vocabularyItemDao().getVocList(unit.getUnitId());
                 unit.setVoclist(vocList);
             } else {
                 unit.setVoclist(null);
@@ -83,7 +82,7 @@ public class DatabaseHelper implements IDatabaseHelper {
         Unit unit = gdb.unitDao().getUnit(unitId);
 
         if (getVocList) {
-            List<VocabularyItem> vocList = gdb.vocabularyItemDao().getVocabularyData(unit.getUnitId());
+            List<VocabularyItem> vocList = gdb.vocabularyItemDao().getVocList(unit.getUnitId());
             unit.setVoclist(vocList);
         } else {
             unit.setVoclist(null);

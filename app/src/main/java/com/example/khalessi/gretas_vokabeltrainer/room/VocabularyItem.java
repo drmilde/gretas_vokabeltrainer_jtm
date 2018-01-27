@@ -13,7 +13,10 @@ import android.support.annotation.NonNull;
 public class VocabularyItem {
     @PrimaryKey(autoGenerate = true)
     private int _id;
+
+    @NonNull
     private String foreignLang;
+    @NonNull
     private String nativeLang;
     private String description;
     @NonNull

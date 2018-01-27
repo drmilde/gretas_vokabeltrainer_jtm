@@ -27,6 +27,9 @@ public interface UnitDao {
     @Query("DELETE FROM unit_table WHERE _id=:id")
     int deleteUnit(int id);
 
+    @Query("DELETE FROM unit_table WHERE unitId=:unitId")
+    int deleteUnit(String unitId);
+
     @Query("DELETE FROM unit_table")
     int deleteAllUnits();
 

@@ -16,24 +16,29 @@ import java.util.List;
 public interface VocabularyItemDao {
 
     @Insert
-    void insertVocItem(VocabularyItem vocItem);
+    long insertVocItem(VocabularyItem vocItem);
 
     @Update
-    void updateVocItem(VocabularyItem vocItem);
+    int updateVocItem(VocabularyItem vocItem);
 
     @Delete
-    void deleteVocItem(VocabularyItem vocItem);
+    int deleteVocItem(VocabularyItem vocItem);
+
+    // queries
+
+    @Query("DELETE FROM voc_table WHERE _id=:id")
+    int deleteVocItem(int id);
+
+    @Query("DELETE FROM voc_table WHERE unitId=:unitId")
+    int deleteVocItems(String unitId);
 
     @Query("DELETE FROM voc_table")
-    void deleteAllVocItems();
+    int deleteAllVocItems();
 
-    @Query("SELECT * FROM voc_table WHERE foreignLang=:foreignLang")
-    VocabularyItem getVocabularyItem(String foreignLang);
+    @Query("SELECT * FROM voc_table WHERE unitId=:unitId")
+    List<VocabularyItem> getVocList(String unitId);
 
     @Query("SELECT * from voc_table")
-    List<VocabularyItem> getVocabularyData();
-
-    @Query("SELECT * from voc_table WHERE unitId=:unitId")
-    List<VocabularyItem> getVocabularyData(String unitId);
+    List<VocabularyItem> getVocabularyItemsData();
 
 }
