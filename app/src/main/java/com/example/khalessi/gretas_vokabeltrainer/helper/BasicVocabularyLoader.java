@@ -1,11 +1,8 @@
 package com.example.khalessi.gretas_vokabeltrainer.helper;
 
-import com.example.khalessi.gretas_vokabeltrainer.database.DatabaseHelper;
-import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
-import com.example.khalessi.gretas_vokabeltrainer.database.VocabularyItem;
+import com.example.khalessi.gretas_vokabeltrainer.database.room.DatabaseHelper;
+import com.example.khalessi.gretas_vokabeltrainer.database.room.Unit;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
-
-import java.util.ArrayList;
 
 /**
  * Created by milde on 14.01.18.

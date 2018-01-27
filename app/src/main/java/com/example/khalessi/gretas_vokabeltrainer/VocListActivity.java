@@ -11,18 +11,18 @@ import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
-import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
-import com.example.khalessi.gretas_vokabeltrainer.database.VocabularyItem;
+import com.example.khalessi.gretas_vokabeltrainer.database.room.Unit;
+import com.example.khalessi.gretas_vokabeltrainer.database.room.VocabularyItem;
 import com.example.khalessi.gretas_vokabeltrainer.helper.BasicVocabularyLoader;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class VocListActivity extends AppCompatActivity {
 
     private VocListCustomAdapter voclistCustomAdapter = null;
     private ListView listView = null;
-    private ArrayList<VocabularyItem> voclist = null;
+    private List<VocabularyItem> voclist = null;
 
     private BasicVocabularyLoader bvl = new BasicVocabularyLoader();
 

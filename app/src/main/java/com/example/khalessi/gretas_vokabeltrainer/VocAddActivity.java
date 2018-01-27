@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
+import com.example.khalessi.gretas_vokabeltrainer.database.room.Unit;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 public class VocAddActivity extends AppCompatActivity {

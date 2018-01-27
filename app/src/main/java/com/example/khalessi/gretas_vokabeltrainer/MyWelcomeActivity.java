@@ -7,16 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.khalessi.gretas_vokabeltrainer.database.DatabaseHelper;
-import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
-import com.example.khalessi.gretas_vokabeltrainer.exercise.LevelOneExercise;
+import com.example.khalessi.gretas_vokabeltrainer.database.room.DatabaseHelper;
 import com.example.khalessi.gretas_vokabeltrainer.helper.BasicVocabularyLoader;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 public class MyWelcomeActivity extends AppCompatActivity {
     private Button btn_startApp;
 
-    private BasicVocabularyLoader bvl;
+    //private BasicVocabularyLoader bvl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +23,8 @@ public class MyWelcomeActivity extends AppCompatActivity {
 
         // setup the database
         AppState.getInstance().setDatabaseHelper(new DatabaseHelper(this));
-        bvl = new BasicVocabularyLoader();
-        bvl.resetDatabase();
+        //bvl = new BasicVocabularyLoader();
+        //bvl.resetDatabase();
 
         btn_startApp = (Button) findViewById(R.id.btn_startApp);
         btn_startApp.setOnClickListener(new View.OnClickListener() {

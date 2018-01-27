@@ -1,6 +1,6 @@
 package com.example.khalessi.gretas_vokabeltrainer.exercise;
 
-import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
+import com.example.khalessi.gretas_vokabeltrainer.database.room.Unit;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 import java.util.Random;

@@ -1,8 +1,8 @@
 package com.example.khalessi.gretas_vokabeltrainer.state;
 
-import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
-import com.example.khalessi.gretas_vokabeltrainer.database.DatabaseHelper;
-import com.example.khalessi.gretas_vokabeltrainer.database.VocabularyItem;
+import com.example.khalessi.gretas_vokabeltrainer.database.room.Unit;
+import com.example.khalessi.gretas_vokabeltrainer.database.room.DatabaseHelper;
+import com.example.khalessi.gretas_vokabeltrainer.database.room.VocabularyItem;
 
 /**
  * Created by milde on 05.01.18.

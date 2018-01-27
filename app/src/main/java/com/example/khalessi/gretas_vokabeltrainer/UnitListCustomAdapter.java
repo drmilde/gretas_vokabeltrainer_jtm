@@ -13,17 +13,17 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
-import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
+import com.example.khalessi.gretas_vokabeltrainer.database.room.Unit;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class UnitListCustomAdapter extends ArrayAdapter {
     private Context context;
-    private ArrayList<Unit> units;
+    private List<Unit> units;
 
-    public UnitListCustomAdapter(Context context, int textViewResourceId, ArrayList objects) {
+    public UnitListCustomAdapter(Context context, int textViewResourceId, List objects) {
         super(context, textViewResourceId, objects);
 
         this.context = context;
@@ -135,7 +135,7 @@ public class UnitListCustomAdapter extends ArrayAdapter {
 
     // set the units
 
-    public void setUnits(ArrayList<Unit> units) {
+    public void setUnits(List<Unit> units) {
         this.units = units;
     }
 }

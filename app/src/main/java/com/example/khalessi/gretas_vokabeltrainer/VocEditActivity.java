@@ -11,8 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.khalessi.gretas_vokabeltrainer.database.Unit;
-import com.example.khalessi.gretas_vokabeltrainer.database.VocabularyItem;
+import com.example.khalessi.gretas_vokabeltrainer.database.room.Unit;
+import com.example.khalessi.gretas_vokabeltrainer.database.room.VocabularyItem;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 public class VocEditActivity extends AppCompatActivity {

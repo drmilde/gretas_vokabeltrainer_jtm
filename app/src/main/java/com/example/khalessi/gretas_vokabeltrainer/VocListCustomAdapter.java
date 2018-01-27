@@ -8,9 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.khalessi.gretas_vokabeltrainer.database.VocabularyItem;
+import com.example.khalessi.gretas_vokabeltrainer.database.room.VocabularyItem;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by milde on 08.01.18.
@@ -18,9 +19,9 @@ import java.util.ArrayList;
 
 public class VocListCustomAdapter extends ArrayAdapter {
     private Context context;
-    private ArrayList<VocabularyItem> voclist;
+    private List<VocabularyItem> voclist;
 
-    public VocListCustomAdapter(Context context, int textViewResourceId, ArrayList objects) {
+    public VocListCustomAdapter(Context context, int textViewResourceId, List objects) {
         super(context, textViewResourceId, objects);
 
         this.context = context;
@@ -142,7 +143,7 @@ public class VocListCustomAdapter extends ArrayAdapter {
 
     // set the units
 
-    public void setVoclist(ArrayList<VocabularyItem> voclist) {
+    public void setVoclist(List<VocabularyItem> voclist) {
         this.voclist = voclist;
     }
 }

@@ -21,7 +21,7 @@ public abstract class GretasDatabase extends RoomDatabase {
 
     public abstract VocabularyItemDao vocabularyItemDao();
 
-    private static GretasDatabase INSTANCE;
+    private static GretasDatabase INSTANCE = null;
 
     static GretasDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
@@ -36,11 +36,14 @@ public abstract class GretasDatabase extends RoomDatabase {
                 INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                         GretasDatabase.class, DB_NAME)
                         .fallbackToDestructiveMigration()
+                        .allowMainThreadQueries()
                         .addCallback(sRoomDatabaseCallback)
                         .build();
 
             }
         }
+
+        // TODO remove allowMainThreadQueries in Code PUUUH, hard one here
     }
 
 
