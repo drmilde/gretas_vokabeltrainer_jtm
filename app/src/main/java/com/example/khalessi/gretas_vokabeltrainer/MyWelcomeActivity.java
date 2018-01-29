@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.khalessi.gretas_vokabeltrainer.database.room.DatabaseHelper;
-import com.example.khalessi.gretas_vokabeltrainer.helper.BasicVocabularyLoader;
 import com.example.khalessi.gretas_vokabeltrainer.state.AppState;
 
 public class MyWelcomeActivity extends AppCompatActivity {
@@ -39,6 +38,7 @@ public class MyWelcomeActivity extends AppCompatActivity {
 
                 Intent unitIntent = new Intent(getApplicationContext(), UnitListActivity.class);
                 startActivity(unitIntent);
+                overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
 
             }
         });
